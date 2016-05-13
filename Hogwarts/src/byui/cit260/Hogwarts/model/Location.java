@@ -14,5 +14,87 @@ import java.util.Objects;
  */
 public class Location implements Serializable{
    
-    private 
+    private double row;
+    private double column;
+    private boolean visited;
+    private float amountRemaining;
+
+    public Location() {
+    }
+
+    public double getRow() {
+        return row;
+    }
+
+    public void setRow(double row) {
+        this.row = row;
+    }
+
+    public double getColumn() {
+        return column;
+    }
+
+    public void setColumn(double column) {
+        this.column = column;
+    }
+
+    public boolean isVisited() {
+        return visited;
+    }
+
+    public void setVisited(boolean visited) {
+        this.visited = visited;
+    }
+
+    public float getAmountRemaining() {
+        return amountRemaining;
+    }
+
+    public void setAmountRemaining(float amountRemaining) {
+        this.amountRemaining = amountRemaining;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 53 * hash + (int) (Double.doubleToLongBits(this.row) ^ (Double.doubleToLongBits(this.row) >>> 32));
+        hash = 53 * hash + (int) (Double.doubleToLongBits(this.column) ^ (Double.doubleToLongBits(this.column) >>> 32));
+        hash = 53 * hash + (this.visited ? 1 : 0);
+        hash = 53 * hash + Float.floatToIntBits(this.amountRemaining);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Location other = (Location) obj;
+        if (Double.doubleToLongBits(this.row) != Double.doubleToLongBits(other.row)) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.column) != Double.doubleToLongBits(other.column)) {
+            return false;
+        }
+        if (this.visited != other.visited) {
+            return false;
+        }
+        if (Float.floatToIntBits(this.amountRemaining) != Float.floatToIntBits(other.amountRemaining)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", amountRemaining=" + amountRemaining + '}';
+    }
+    
+    
 }

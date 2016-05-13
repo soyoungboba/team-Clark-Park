@@ -7,6 +7,8 @@ package hogwarts;
 
 import byui.cit260.Hogwarts.model.Player;
 import byui.cit260.Hogwarts.model.House;
+import byui.cit260.Hogwarts.model.Location;
+import byui.cit260.Hogwarts.model.Scene;
  
 public class Hogwarts {
 
@@ -28,6 +30,20 @@ public class Hogwarts {
         String houseInfo = houseOne.toString();
         System.out.println(houseInfo);
         
+        Location locationOne = new Location();
+        locationOne.setRow(1);
+        locationOne.setColumn(2);
+        locationOne.setVisited(true);
+        locationOne.setAmountRemaining(2);
+        String rowInfo = locationOne.toString();
+        System.out.println(rowInfo);
+        
+        Scene sceneOne = new Scene();
+        sceneOne.setDescription("Office");
+        sceneOne.setBlockedLocation(true);
+        sceneOne.setDisplaySymbol(true);
+        String sceneInfo = sceneOne.toString();
+        System.out.println(sceneInfo);
     }
     
 }
