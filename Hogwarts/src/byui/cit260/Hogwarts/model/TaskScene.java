@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * @author Cody
  */
-public class TaskScene implements Serializable{
+public class TaskScene extends Scene implements Serializable{
     
     private double amountAvailable;
     private double resourcesNeeded;
@@ -80,9 +80,9 @@ public class TaskScene implements Serializable{
 
     @Override
     public String toString() {
-        return "TaskScene{" + "amountAvailable=" + amountAvailable + ", resourcesNeeded=" + resourcesNeeded + ", attribute=" + attribute + '}';
-    }
-    
+        return "TaskScene{"+super.toString() + "amountAvailable=" + amountAvailable + ", resourcesNeeded=" + resourcesNeeded + ", attribute=" + attribute + '}';
+   
+    } 
     
     
 }
