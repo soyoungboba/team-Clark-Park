@@ -9,7 +9,8 @@ import byui.cit260.Hogwarts.model.Player;
 import byui.cit260.Hogwarts.model.House;
 import byui.cit260.Hogwarts.model.Location;
 import byui.cit260.Hogwarts.model.Scene;
- 
+import byui.cit260.Hogwarts.model.TaskScene;
+
 public class Hogwarts {
 
     /**
@@ -44,6 +45,15 @@ public class Hogwarts {
         sceneOne.setDisplaySymbol(true);
         String sceneInfo = sceneOne.toString();
         System.out.println(sceneInfo);
+        
+        TaskScene taskOne = new TaskScene();
+        taskOne.setAmountAvailable(23);
+        taskOne.setResourcesNeeded(15);
+        taskOne.setAttribute("Hickory");
+        String taskInfo = taskOne.toString();
+        System.out.println(taskInfo);
+        
+        
     }
     
 }
