@@ -11,8 +11,9 @@ import byui.cit260.Hogwarts.model.Location;
 import byui.cit260.Hogwarts.model.Scene;
 import byui.cit260.Hogwarts.model.TaskScene;
 import byui.cit260.Hogwarts.model.Character;
-import byui.cit260.Hogwarts.model.Map;
 import byui.cit260.Hogwarts.model.Item;
+import byui.cit260.Hogwarts.model.Map;
+import byui.cit260.Hogwarts.model.Game;
 
 public class Hogwarts {
 
@@ -67,24 +68,35 @@ public class Hogwarts {
         String characterInfo = characterOne.toString();
         System.out.println(characterInfo);
        
-        
-        // map
-        Map mapOne= new Map();
-        
-        mapOne.setRowCount();
-        
-        String mapInfo = mapOne.toString();
-        System.out.println(mapInfo);
-        
-        //item
+      
+        // item
         Item itemOne = new Item();
         
-        itemOne.setInventoryType();
-        itemOne.setQuantityInStock();
+        itemOne.setInventoryType("wands");
+        itemOne.setQuantityInStock(22);
         
         String inventoryInfo = itemOne.toString();
         System.out.println(inventoryInfo);
     
+        
+        // map
+        Map myMap = new Map();
+        
+        myMap.setRowCount(10);
+        myMap.setColumnCount(50);
+        
+        String mapInfo = myMap.toString();
+        System.out.println(mapInfo);
+        
+        
+        // game
+        Game myGame = new Game();
+        // need explanation of set start games type
+        myGame.setStartGame(20);
+        myGame.setEndGame(60);
+        
+        String gameInfo = myGame.toString();
+        System.out.println(gameInfo);
     }
     
 }
