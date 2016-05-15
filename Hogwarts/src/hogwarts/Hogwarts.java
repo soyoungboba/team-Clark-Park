@@ -10,6 +10,9 @@ import byui.cit260.Hogwarts.model.House;
 import byui.cit260.Hogwarts.model.Location;
 import byui.cit260.Hogwarts.model.Scene;
 import byui.cit260.Hogwarts.model.TaskScene;
+import byui.cit260.Hogwarts.model.Character;
+import byui.cit260.Hogwarts.model.Map;
+import byui.cit260.Hogwarts.model.Item;
 
 public class Hogwarts {
 
@@ -23,6 +26,7 @@ public class Hogwarts {
         
         String playerInfo = playerOne.toString();
         System.out.println(playerInfo);
+        
         
         House houseOne = new House();
         
@@ -54,6 +58,33 @@ public class Hogwarts {
         System.out.println(taskInfo);
         
         
+
+        // character
+        Character characterOne = new Character();
+        
+        characterOne.setName("Harry Potter");
+        
+        String characterInfo = characterOne.toString();
+        System.out.println(characterInfo);
+       
+        
+        // map
+        Map mapOne= new Map();
+        
+        mapOne.setRowCount();
+        
+        String mapInfo = mapOne.toString();
+        System.out.println(mapInfo);
+        
+        //item
+        Item itemOne = new Item();
+        
+        itemOne.setInventoryType();
+        itemOne.setQuantityInStock();
+        
+        String inventoryInfo = itemOne.toString();
+        System.out.println(inventoryInfo);
+    
     }
     
 }
