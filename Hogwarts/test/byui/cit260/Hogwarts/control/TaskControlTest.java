@@ -96,5 +96,100 @@ public class TaskControlTest {
          result = instance.calcAreaOfTriangle(base, height);
         assertEquals(expResult, result, 0.0);
     }
+
+    /**
+     * Test of calcVolumeOfRectangle method, of class TaskControl.
+     */
+    @Test
+    public void testCalcVolumeOfRectangle() {
+        System.out.println("calcVolumeOfRectangle");
+        double width = 18;
+        double height = 30;
+        double length = 19;
+        TaskControl instance = new TaskControl();
+        double expResult = 10260;
+        double result = instance.calcVolumeOfRectangle(width, height, length);
+        assertEquals(expResult, result, 0.0);
+        
+        //test case 2
+        System.out.println("\tTest case 2");
+         width = -1;
+         height = 16;
+         length = 10;
+                 
+         expResult = -1;
+         result = instance.calcVolumeOfRectangle(width, height, length);
+        assertEquals(expResult, result, 0.0);
+        
+        //test case 3
+        System.out.println("\tTest case 3");
+         width = 15;
+         height = -1;
+         length = 14;
+                 
+         expResult = -1;
+         result = instance.calcVolumeOfRectangle(width, height, length);
+        assertEquals(expResult, result, 0.0);
+        
+        //test case 4
+        System.out.println("\tTest case 4");
+         width = 17;
+         height = 18;
+         length = -1;
+                 
+         expResult = -1;
+         result = instance.calcVolumeOfRectangle(width, height, length);
+        assertEquals(expResult, result, 0.0);
+        
+        //test case 5
+        System.out.println("\tTest case 5");
+         width = 13;
+         height = 51;
+         length = 4;
+                 
+         expResult = -1;
+         result = instance.calcVolumeOfRectangle(width, height, length);
+        assertEquals(expResult, result, 0.0);
+        
+        //test case 6
+        System.out.println("\tTest case 6");
+         width = 0;
+         height = 50;
+         length = 20;
+                 
+         expResult = 0;
+         result = instance.calcVolumeOfRectangle(width, height, length);
+        assertEquals(expResult, result, 0.0);
+        
+        //test case 7
+        System.out.println("\tTest case 7");
+         width = 29;
+         height = 0;
+         length = 30;
+                 
+         expResult = 0;
+         result = instance.calcVolumeOfRectangle(width, height, length);
+        assertEquals(expResult, result, 0.0);
+        
+        //test case 8
+        System.out.println("\tTest case 8");
+         width = 24;
+         height = 50;
+         length = 0;
+                 
+         expResult = 0;
+         result = instance.calcVolumeOfRectangle(width, height, length);
+        assertEquals(expResult, result, 0.0);
+        
+        //test case 9
+        System.out.println("\tTest case 9");
+         width = 15;
+         height = 50;
+         length = 30;
+                 
+         expResult = 22500;
+         result = instance.calcVolumeOfRectangle(width, height, length);
+        assertEquals(expResult, result, 0.0);
+    }
     
 }
