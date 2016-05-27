@@ -191,5 +191,23 @@ public class TaskControlTest {
          result = instance.calcVolumeOfRectangle(width, height, length);
         assertEquals(expResult, result, 0.0);
     }
+
+    /**
+     * Test of calcRadius method, of class TaskControl.
+     */
+    @Test
+    public void testCalcRadius() {
+        System.out.println("calcRadius");
+        //test case1
+        System.out.println("\tTest case 1");
+        double circ = 47;
+        double diameter = 14.9605;
+        double playerAnswer = 17;
+        TaskControl instance = new TaskControl();
+        double expResult = -2;
+        double result = instance.calcRadius(circ, diameter, playerAnswer);
+        assertEquals(expResult, result, 0.001);
+        
+    }
     
 }
