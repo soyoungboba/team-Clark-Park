@@ -213,7 +213,7 @@ public class TaskControlTest {
         System.out.println("\tTest case 2");
         circ = 0;
         diameter = 15;
-        playerAnswer = 21;
+        playerAnswer = 5;
         expResult = -1;
         result = instance.calcRadius(circ, diameter, playerAnswer);
         assertEquals(expResult, result, 0.001);
