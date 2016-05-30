@@ -45,11 +45,11 @@ public class TaskControl {
         if (diameter < 0){
             return -1;
         }
-        double radius = (circ/Math.PI)*2;
+        double radius = (circ/(Math.PI))/2;
         if (playerAnswer != radius){
             return -2;
         }
-        return radius;
+        return -3;
     }
     
 }
