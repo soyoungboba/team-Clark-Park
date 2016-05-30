@@ -208,6 +208,60 @@ public class TaskControlTest {
         double result = instance.calcRadius(circ, diameter, playerAnswer);
         assertEquals(expResult, result, 0.001);
         
+        
+        //test case2
+        System.out.println("\tTest case 2");
+        circ = 0;
+        diameter = 15;
+        playerAnswer = 21;
+        expResult = -1;
+        result = instance.calcRadius(circ, diameter, playerAnswer);
+        assertEquals(expResult, result, 0.001);
+        
+        //test case3
+        System.out.println("\tTest case 3");
+        circ = 15;
+        diameter = -1;
+        playerAnswer = 5;
+        expResult = -1;
+        result = instance.calcRadius(circ, diameter, playerAnswer);
+        assertEquals(expResult, result, 0.001);
+        
+        //test case4
+        System.out.println("\tTest case 4");
+        circ = 51;
+        diameter = 16.2338;
+        playerAnswer = 5;
+        expResult = -1;
+        result = instance.calcRadius(circ, diameter, playerAnswer);
+        assertEquals(expResult, result, 0.001);
+        
+        //test case5
+        System.out.println("\tTest case 5");
+        circ = 1;
+        diameter = .318309886;
+        playerAnswer = .159;
+        expResult = -2;
+        result = instance.calcRadius(circ, diameter, playerAnswer);
+        assertEquals(expResult, result, 0.0001);
+        
+        //test case6
+        System.out.println("\tTest case 6");
+        circ = 3.141592654;
+        diameter = 1;
+        playerAnswer = 5;
+        expResult = -2;
+        result = instance.calcRadius(circ, diameter, playerAnswer);
+        assertEquals(expResult, result, 0.0001);
+        
+        //test case7
+        System.out.println("\tTest case 7");
+        circ = 50;
+        diameter = 15.91549431;
+        playerAnswer = 7.95;
+        expResult = -2;
+        result = instance.calcRadius(circ, diameter, playerAnswer);
+        assertEquals(expResult, result, 0.001);
     }
     
 }
