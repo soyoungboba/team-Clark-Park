@@ -5,6 +5,10 @@
  */
 package citbyui.cit260.Hogwarts.view;
 
+import byui.cit260.Hogwarts.control.GameControl;
+import byui.cit260.Hogwarts.model.Player;
+import java.util.Scanner;
+
 /**
  *
  * @author boba
@@ -35,5 +39,67 @@ public class StartProgramView {
        );
       
     }
+
+    public void displayStartProgramView() {
+        
+        boolean done = false;
+        do {
+            String playerName = this.getPlayerName();
+            if (playerName.toUpperCase().equals("Q"))
+                return;
+            
+            done = this.doAction(playerName);
+            
+        } while (!done);
+        
+    }
+
+    private String getPlayerName() {
+        
+        Scanner keyboard = new Scanner(System.in); // get infile for keyboard
+        String value = ""; // value to be returned
+        boolean valid = false; // initialize to not valid
+        
+        while (!valid) { // loop while an invalid value is enter
+            System.out.println("\n" + this.promptMessage);
+            
+            value = keyboard.nextLine(); // get next line typed on keyboard
+            value = value.trim(); // trim off leading and trailing blanks
+            
+            if (value.length() < 1) { // value is blank
+                System.out.println("\nInvalid value value can not be blank");
+                continue;
+            }
+            
+            break; // end the loop
+        }
+        
+        return value; // return the value entered
+    }
+
+    private boolean doAction(String playerName) {
+       
+        if (playerName.length() <2) {
+            System.out.println("\nInvalid players name:"
+                    + "The name must be greater than one character in length");
+            return false;
+            // display customized welcome message
+            // display mainMenuView
+            
+        }
+        
+        
+        Player player = GameControl.createPlayer(playerName);
+        
+        if (player == null) {
+            System.out.println("\nError creating the player.");
+            return false;
+        }
     
+        this.displayNextView(player);
+    
+    }
+    private void displayNextView(Player player) {
+        System.out.println("\n*** displayNextView() called***");
+    }
 }
