@@ -91,13 +91,13 @@ public class MainMenuView {
             case "N": // create and start a new game
                 this.startNewGame();
                 break;
-            case "R": // create and start a new game
+            case "R": // restart game
                 this.startExistingGame();
                 break;
-            case "H": // create and start a new game
+            case "H": // get help 
                 this.GetHelpHowToPlayTheGame();
                 break;
-            case "E": // create and start a new game
+            case "E": // exit game
                 this.Exit();
                 break;
             default:
