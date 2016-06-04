@@ -17,5 +17,9 @@ public class GameControl {
         System.out.println("\n*** createPlayer() function called ***");
         return new Player();
     }
+
+    public static void createNewGame(Player player) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
