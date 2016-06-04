@@ -5,6 +5,10 @@
  */
 package citbyui.cit260.Hogwarts.view;
 
+import byui.cit260.Hogwarts.control.GameControl;
+import hogwarts.Hogwarts;
+import java.util.Scanner;
+
 /**
  *
  * @author boba
@@ -22,6 +26,8 @@ public class MainMenuView {
                   + "\nH - Get Help How To Play The Game"
                   + "\nE - Exit"
                   + "\n-------------------------------------";
+        
+        System.out.println(menu);
     }
      
     void displayMainMenuView() {
@@ -38,49 +44,28 @@ public class MainMenuView {
             
         } while (!done);
         
-        
-        boolean done = false; // set flag to not done
-        do {
-            // promp for and get players name
-            String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("R")) // user wants to restart existing game
-                return; // exit the game
-            
-            // do the requested action and display the next view
-            done = this.doAction(menuOption);
-            
-        } while (!done);
-        
-        
-        boolean done = false; // set flag to not done
-        do {
-            // promp for and get players name
-            String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("H")) // user wants to get help how to play the game
-                return; // exit the game
-            
-            // do the requested action and display the next view
-            done = this.doAction(menuOption);
-            
-        } while (!done);
-        
-        
-        boolean done = false; // set flag to not done
-        do {
-            // promp for and get players name
-            String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("N")) // user wants to start new game
-                return; // exit the game
-            
-            // do the requested action and display the next view
-            done = this.doAction(menuOption);
-            
-        } while (!done);
     }
 
     private String getMenuOption() {
-        System.out.println("\n*** getMenuOption() function called ***");
-        return "N";
+        Scanner keyboard = new Scanner(System.in); // get infile for keyboard
+        String value = ""; // value to be returned
+        boolean valid = false; // initialize to not valid
+        
+        while (!valid) { // loop while an invalid value is enter
+            System.out.println("\n" + "Enter menu option:");
+            
+            value = keyboard.nextLine(); // get next line typed on keyboard
+            value = value.trim(); // trim off leading and trailing blanks
+            
+            if (value.length() < 1) { // value is blank
+                System.out.println("\nInvalid value value can not be blank");
+                continue;
+            }
+            
+            break; // end the loop
+        }
+        
+        return value; // return the value entered
     }
 
     private boolean doAction(String choice) {
@@ -108,7 +93,12 @@ public class MainMenuView {
     }
 
     private void startNewGame() {
-        System.out.println("*** startNewGame function called ***");
+                // create a new game
+        GameControl.createNewGame(Hogwarts.getPlayer());
+        
+        // display the game menu
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.displayMenu();
     }
 
     private void startExistingGame() {
@@ -116,7 +106,9 @@ System.out.println("*** startExistingGame function called ***");
     }
 
     private void GetHelpHowToPlayTheGame() {
-System.out.println("*** getHelpHowToPlayTheGame function called ***");
+        HelpMenuView helpMenuView = new HelpMenuView();
+        helpMenuView.displayHelpMenuView();
+        
     }
 
     private void Exit() {
