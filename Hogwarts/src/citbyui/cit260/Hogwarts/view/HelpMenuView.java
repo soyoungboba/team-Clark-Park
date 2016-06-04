@@ -111,11 +111,11 @@ public class HelpMenuView {
     }
 
     private void Exit() {
-System.out.println("*** Exit function called ***");
+        System.out.println("*** Exit function called ***");
     }
    
     private void goalOfTheGame() {
-System.out.println("*** goalOfTheGame function called ***");
+        System.out.println("*** goalOfTheGame function called ***");
     }
     
     
