@@ -97,7 +97,7 @@ public class StartProgramView {
         }
     
         this.displayNextView(player);
-    
+    return true;
     }
     private void displayNextView(Player player) {
         System.out.println("\n*** displayNextView() called***");
