@@ -102,7 +102,7 @@ public class MainMenuView {
     }
 
     private void startExistingGame() {
-System.out.println("*** startExistingGame function called ***");
+        System.out.println("*** startExistingGame function called ***");
     }
 
     private void GetHelpHowToPlayTheGame() {
@@ -112,7 +112,7 @@ System.out.println("*** startExistingGame function called ***");
     }
 
     private void Exit() {
-System.out.println("*** Exit function called ***");
+        System.out.println("*** Exit function called ***");
     }
    
     
