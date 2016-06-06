@@ -35,7 +35,7 @@ public class HelpMenuView {
         do {
             // promp for and get players name
             String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("Q")) // user wants to exit
+            if (menuOption.toUpperCase().equals("")) // user wants to exit
                 return; // exit the game
             
             // do the requested action and display the next view
@@ -43,7 +43,7 @@ public class HelpMenuView {
             
         } while (!done);
         
-    }
+    } 
 
     private String getMenuOption() {
         Scanner keyboard = new Scanner(System.in); // get infile for keyboard
