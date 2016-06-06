@@ -85,7 +85,7 @@ public class HelpMenuView {
                 this.startNewGame();
                 break;
             case "Q": // quit
-                this.Exit();
+                this.exit();
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
@@ -110,7 +110,7 @@ public class HelpMenuView {
         System.out.println("*** howToMove function called ***");
     }
 
-    private void Exit() {
+    private void exit() {
         System.out.println("*** Exit function called ***");
     }
    

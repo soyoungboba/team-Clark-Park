@@ -6,6 +6,7 @@
 package byui.cit260.Hogwarts.control;
 
 import byui.cit260.Hogwarts.model.Player;
+import hogwarts.Hogwarts;
 
 /**
  *
@@ -13,13 +14,19 @@ import byui.cit260.Hogwarts.model.Player;
  */
 public class GameControl {
 
-    public static Player createPlayer(String playerName) {
-        System.out.println("\n*** createPlayer() function called ***");
-        return new Player();
+    public static Player createPlayer(String name) {
+        if (name == null) {
+            return null;
+        }
+        Player player = new Player();
+        player.setName(name);
+        Hogwarts.setPlayer(player);
+        
+        return player;
     }
 
     public static void createNewGame(Player player) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("\n*** createNewGame() function called ***"); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
