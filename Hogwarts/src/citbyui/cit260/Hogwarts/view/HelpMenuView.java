@@ -35,7 +35,7 @@ public class HelpMenuView {
         do {
             // promp for and get players name
             String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("Q")) // user wants to exit
+            if (menuOption.toUpperCase().equals("")) // user wants to exit
                 return; // exit the game
             
             // do the requested action and display the next view
@@ -85,7 +85,7 @@ public class HelpMenuView {
                 this.startNewGame();
                 break;
             case "Q": // quit
-                this.exit();
+                this.Exit();
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
@@ -110,7 +110,7 @@ public class HelpMenuView {
         System.out.println("*** howToMove function called ***");
     }
 
-    private void exit() {
+    private void Exit() {
         System.out.println("*** Exit function called ***");
     }
    
