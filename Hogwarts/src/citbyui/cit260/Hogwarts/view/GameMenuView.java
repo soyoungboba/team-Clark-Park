@@ -12,11 +12,9 @@ import java.util.Scanner;
  * @author boba
  */
 class GameMenuView {
-    
-    
     private String menu;
-    
-    public void GameMenuView () {
+    public void displayMenu() {
+        
         this.menu = "\n"
                   + "\n------------------------------------------"
                   + "\n| Game Menu                              |"
@@ -110,8 +108,8 @@ class GameMenuView {
             case "H": // Help
                 this.HelpMenuView();
                 break;
-            case "Q": // Quit
-                this.Exit();
+            case "Q": // Go back to main menu
+                this.MainMenuView();
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
@@ -164,9 +162,10 @@ class GameMenuView {
         System.out.println("*** HelpMenuView function called ***");
     }
 
-    private void Exit() {
-        System.out.println("*** Exit function called ***");
+    private void MainMenuView() {
+        System.out.println("*** MainMenuView function called ***");
     }
+           
 }
 
     
