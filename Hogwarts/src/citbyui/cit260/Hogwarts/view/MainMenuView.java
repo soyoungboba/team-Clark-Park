@@ -98,7 +98,7 @@ public class MainMenuView {
         
         // display the game menu
         GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayGameMenuView();
+        gameMenu.displayMenu();
     }
 
     private void startExistingGame() {
