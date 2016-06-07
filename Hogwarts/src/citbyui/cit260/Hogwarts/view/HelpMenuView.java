@@ -35,7 +35,7 @@ public class HelpMenuView {
         do {
             // promp for and get players name
             String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals(""))
+            if (menuOption.toUpperCase().equals("")) 
                 return; // exit the game
             
             // do the requested action and display the next view
