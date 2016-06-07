@@ -29,7 +29,7 @@ class GameMenuView {
                   + "\nC - Number of coins needed for eash task"
                   + "\nG - Save game"
                   + "\nH - Help"
-                  + "\nQ - Quit"
+                  + "\nQ - Go back to main menu"
                   + "\n------------------------------------------";
         System.out.println(menu);
     }
