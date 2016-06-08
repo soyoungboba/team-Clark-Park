@@ -108,7 +108,6 @@ public class MainMenuView {
     private void GetHelpHowToPlayTheGame() {
         HelpMenuView helpMenuView = new HelpMenuView();
         helpMenuView.displayHelpMenuView();
-        
     }
 
     private void Exit() {
