@@ -28,5 +28,7 @@ public class GameControl {
     public static void createNewGame(Player player) {
         System.out.println("\n*** createNewGame() function called ***"); //To change body of generated methods, choose Tools | Templates.
     }
-    
+    public static void saveHouse(String house) {
+        System.out.println("\n*** saveHouse() function called ***"); //To change body of generated methods, choose Tools | Templates.
+    }
 }
