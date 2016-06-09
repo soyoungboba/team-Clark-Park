@@ -102,6 +102,7 @@ public class MainMenuView {
         // display the game menu 
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.displayMenu();
+        gameMenu.displayGameMenuView();
     }
 
     private void startExistingGame() {
@@ -111,13 +112,9 @@ public class MainMenuView {
     private void GetHelpHowToPlayTheGame() {
         HelpMenuView helpMenuView = new HelpMenuView();
         helpMenuView.displayHelpMenuView();
-        
     }
 
     private void Exit() {
         System.out.println("*** Exit function called ***");
     }
-   
-    
-    
 }
