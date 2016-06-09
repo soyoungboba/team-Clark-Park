@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package citbyui.cit260.Hogwarts.view;
-
+import byui.cit260.Hogwarts.control.GameControl; //needed?//
+import hogwarts.Hogwarts;
 import java.util.Scanner;
 
 /**
@@ -13,6 +14,7 @@ import java.util.Scanner;
  */
 class GameMenuView {
     private String menu;
+    
     public void displayMenu() {
         
         this.menu = "\n"
@@ -26,7 +28,7 @@ class GameMenuView {
                   + "\nL - View current location"
                   + "\nVC - View number or coins collected"
                   + "\nVT - View list of tools acquired"
-                  + "\nC - Number of coins needed for eash task"
+                  + "\nC - Number of coins needed for each task"
                   + "\nG - Save game"
                   + "\nH - Help"
                   + "\nQ - Main menu"
@@ -70,7 +72,7 @@ class GameMenuView {
         
         return value; // return the value entered    
     }
-
+    
     private boolean doAction(String choice) {
          choice = choice.toUpperCase(); // convert choice to upper case
         
@@ -159,11 +161,13 @@ class GameMenuView {
     }
 
     private void HelpMenuView() {
-        System.out.println("*** HelpMenuView function called ***");
+        HelpMenuView helpMenuView = new HelpMenuView();
+        helpMenuView.displayHelpMenuView();
     }
 
     private void MainMenuView() {
-        System.out.println("*** MainMenuView function called ***");
+        MainMenuView mainMenuView = new MainMenuView();
+        mainMenuView.displayMainMenuView();
     }
            
 }
