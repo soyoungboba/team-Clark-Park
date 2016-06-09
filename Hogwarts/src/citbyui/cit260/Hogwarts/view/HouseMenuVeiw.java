@@ -26,7 +26,7 @@ public class HouseMenuVeiw {
                   + "\nR - Ravenclaw"
                   + "\nQ - Quit"
                   + "\n-------------------------------------";
-        System.out.println(menu);
+        //System.out.println(menu);
     }
     
     void displayHouseMenuView() {
@@ -35,7 +35,7 @@ public class HouseMenuVeiw {
         do {
             // promp for and get players name
             String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("Q")) // user wants to exit
+            if (menuOption.toUpperCase().equals("e")) // user wants to exit
                 return; // exit the game
             
             // do the requested action and display the next view
@@ -54,7 +54,7 @@ public class HouseMenuVeiw {
         
         while (!valid) { // loop while an invalid value is enter
             System.out.println(menu);
-           
+            System.out.println("\n" + "Enter menu option:");
            
             value = keyboard.nextLine(); // get next line typed on keyboard
             value = value.trim(); // trim off leading and trailing blanks
@@ -88,9 +88,9 @@ public class HouseMenuVeiw {
             case "R": // house name Ravenclaw
                 this.ravenclaw();
                 break;
-            //case "Q": // Main menu
-                //this.Exit();
-                //break;
+            case "Q": // Main menu
+                this.Exit();
+                break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
@@ -98,10 +98,12 @@ public class HouseMenuVeiw {
         return false;
     }
 
-    //private void Exit() {
-        //System.out.println("*** Exit function called ***");
-    ////}
-
+    private void Exit() {
+        MainMenuView mainMenuView = new MainMenuView();
+                
+        // Display the main menu view
+        mainMenuView.displayMainMenuView();
+    }
     private void gryffindor() {
         GameControl.saveHouse(houseName);
     }
