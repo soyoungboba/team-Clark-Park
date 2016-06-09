@@ -19,7 +19,7 @@ public class HouseMenuVeiw {
     public HouseMenuVeiw() {
         this.menu = "\n"
                   + "\n-------------------------------------"
-                  + "\n| Choose Your House                      |"
+                  + "\n| Choose Your House                 |"
                   + "\nG - Gryffindor"
                   + "\nS - Slytherin"
                   + "\nH - Hufflepuff"
