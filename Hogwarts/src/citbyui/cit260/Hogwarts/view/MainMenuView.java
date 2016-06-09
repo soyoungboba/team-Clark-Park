@@ -82,9 +82,9 @@ public class MainMenuView {
             case "H": // get help 
                 this.GetHelpHowToPlayTheGame();
                 break;
-            case "E": // exit game
-                this.Exit();
-                break;
+            //case "E": // exit game
+               // this.Exit();
+               // break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
@@ -113,7 +113,7 @@ public class MainMenuView {
         helpMenuView.displayHelpMenuView();
     }
 
-    private void Exit() {
-        System.out.println("*** Exit function called ***");
-    }
+    //private void Exit() {
+       // System.out.println("*** Exit function called ***");
 }
+
