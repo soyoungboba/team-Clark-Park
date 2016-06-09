@@ -20,7 +20,7 @@ public class Hogwarts {
     
     private static Game currentGame = null;
     private static Player player = null;
-    
+    private static House houseName = null;
     /**
      * @param args the command line arguments
      */
@@ -42,6 +42,14 @@ public class Hogwarts {
 
     public static void setCurrentGame(Game currentGame) {
         Hogwarts.currentGame = currentGame;
+    }
+
+    public static House getHouseName() {
+        return houseName;
+    }
+
+    public static void setHouseName(House houseName) {
+        Hogwarts.houseName = houseName;
     }
 
 }
