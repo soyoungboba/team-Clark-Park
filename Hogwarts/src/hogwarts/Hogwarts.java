@@ -15,6 +15,8 @@ import byui.cit260.Hogwarts.model.Item;
 import byui.cit260.Hogwarts.model.Map;
 import byui.cit260.Hogwarts.model.Game;
 import citbyui.cit260.Hogwarts.view.StartProgramView;
+import citbyui.cit260.Hogwarts.view.HelpMenuView;
+import citbyui.cit260.Hogwarts.view.MainMenuView;
 
 public class Hogwarts {
     
