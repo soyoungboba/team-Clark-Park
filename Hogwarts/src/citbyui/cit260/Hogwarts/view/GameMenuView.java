@@ -34,7 +34,7 @@ class GameMenuView {
         System.out.println(menu);
     }
     
-    void displayGameMenuView() {
+    public void displayGameMenuView() {
     
         boolean done = false; // set flag to not done
         do {
