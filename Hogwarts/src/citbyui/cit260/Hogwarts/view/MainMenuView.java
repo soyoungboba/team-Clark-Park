@@ -100,8 +100,8 @@ public class MainMenuView {
         HouseMenuVeiw houseMenu = new HouseMenuVeiw();
         houseMenu.displayHouseMenuView();
         // display the game menu 
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+        //GameMenuView gameMenu = new GameMenuView();//
+        //gameMenu.displayMenu();//
     }
 
     private void startExistingGame() {
