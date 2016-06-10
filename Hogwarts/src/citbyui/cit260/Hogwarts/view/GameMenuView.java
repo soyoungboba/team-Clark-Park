@@ -29,7 +29,7 @@ public class GameMenuView {
                   + "\nT - Third task"
                   + "\nM - Move to new location"
                   + "\nL - View current location"
-                  + "\nVC - View number or coins collected"
+                  + "\nVC - View number of coins collected"
                   + "\nVT - View list of tools acquired"
                   + "\nC - Number of coins needed for each task"
                   + "\nG - Save game"
