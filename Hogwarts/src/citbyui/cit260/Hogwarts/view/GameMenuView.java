@@ -12,9 +12,12 @@ import java.util.Scanner;
  *
  * @author boba
  */
-class GameMenuView {
+public class GameMenuView {
     private String menu;
     
+    public GameMenuView() {
+      displayMenu();  
+    }
     public void displayMenu() {
         
         this.menu = "\n"
