@@ -11,5 +11,8 @@ import hogwarts.Hogwarts;
  * @author boba
  */
 public class InventoryControl {
-    
+    public double calcAreaOfCoins(){		
+	
+    }
 }
+
