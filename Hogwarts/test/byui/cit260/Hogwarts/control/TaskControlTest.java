@@ -312,7 +312,7 @@ public class TaskControlTest {
          base2= 12;
          height = 20;
         
-         expResult = 0;
+         expResult = -1;
          result = instance.calcAreaOfTrapezoid(base1,base2, height);
         assertEquals(expResult, result, 0.0);
         
@@ -322,7 +322,7 @@ public class TaskControlTest {
          base2 = 0;
          height = 20;
         
-         expResult = 0;
+         expResult = -1;
          result = instance.calcAreaOfTrapezoid(base1,base2, height);
         assertEquals(expResult, result, 0.0);
         
@@ -332,7 +332,7 @@ public class TaskControlTest {
          base2 = 30;
          height = 0;
         
-         expResult = 0;
+         expResult =-1;
          result = instance.calcAreaOfTrapezoid(base1, base2, height);
         assertEquals(expResult, result, 0.0);
     }
