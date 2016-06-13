@@ -5,7 +5,7 @@
  */
 package citbyui.cit260.Hogwarts.view;
 
-import byui.cit260.Hogwarts.control.GameControl;
+import byui.cit260.Hogwarts.control.GameControl; //needed?//
 import hogwarts.Hogwarts;
 import java.util.Scanner;
 
@@ -35,7 +35,9 @@ public class HelpMenuView {
         do {
             // promp for and get players name
             String menuOption = this.getMenuOption();
+
             if (menuOption.toUpperCase().equals("")) // user wants to exit
+
                 return; // exit the game
             
             // do the requested action and display the next view
@@ -85,13 +87,26 @@ public class HelpMenuView {
                 this.startNewGame();
                 break;
             case "Q": // quit
-                this.exit();
+                this.Exit();
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
         }
         return false;
+    }
+
+    private void goalOfTheGame() {
+        System.out.println("*** goalOfTheGame function called ***");
+    }
+    
+    private void howToMove() {
+        System.out.println("*** howToMove function called ***");
+    }
+    // game menu view? //
+    private void startGameMenu() {
+      GameMenuView gameMenuView = new GameMenuView();
+      gameMenuView.displayGameMenuView();
     }
 
     private void startNewGame() {
@@ -102,22 +117,9 @@ public class HelpMenuView {
         mainMenuView.displayMainMenuView(); 
     }
 
-    private void startGameMenu() {
-        System.out.println("*** startGameMenu function called ***");
-    }
-
-    private void howToMove() {
-        System.out.println("*** howToMove function called ***");
-    }
-
-    private void exit() {
+    private void Exit() {
         System.out.println("*** Exit function called ***");
     }
    
-    private void goalOfTheGame() {
-        System.out.println("*** goalOfTheGame function called ***");
-    }
     
-    
-
 }

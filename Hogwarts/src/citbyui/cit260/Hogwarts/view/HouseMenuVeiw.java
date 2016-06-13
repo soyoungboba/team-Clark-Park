@@ -6,45 +6,46 @@
 package citbyui.cit260.Hogwarts.view;
 
 import byui.cit260.Hogwarts.control.GameControl;
-import hogwarts.Hogwarts;
+import byui.cit260.Hogwarts.model.House;
 import java.util.Scanner;
 
 /**
  *
- * @author boba
+ * @author Cody
  */
-public class MainMenuView {
-
+public class HouseMenuVeiw {
     private String menu;
-
-    public MainMenuView() {
+    private String houseName;
+    public HouseMenuVeiw() {
         this.menu = "\n"
                   + "\n-------------------------------------"
-                  + "\n| Main Menu                         |"
-                  + "\nN - Start New Game"
-                  + "\nR - Restart Existing Game"
-                  + "\nH - Get Help How To Play The Game"
-                  + "\nE - Exit"
+                  + "\n| Choose Your House                 |"
+                  + "\nG - Gryffindor"
+                  + "\nS - Slytherin"
+                  + "\nH - Hufflepuff"
+                  + "\nR - Ravenclaw"
+                  + "\nQ - Quit"
                   + "\n-------------------------------------";
-        
-        System.out.println(menu);
+        //System.out.println(menu);
     }
-     
-    void displayMainMenuView() {
+    
+    void displayHouseMenuView() {
         
         boolean done = false; // set flag to not done
         do {
             // promp for and get players name
             String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("E")) // user wants to exit
+            if (menuOption.toUpperCase().equals("e")) // user wants to exit
                 return; // exit the game
             
             // do the requested action and display the next view
             done = this.doAction(menuOption);
             
         } while (!done);
-        
-    }
+    }   
+    //static void chooseHouse(House houseName) {
+        //System.out.println("*** chooseHouse function called ***"); //To change body of generated methods, choose Tools | Templates.
+    //}
 
     private String getMenuOption() {
         Scanner keyboard = new Scanner(System.in); // get infile for keyboard
@@ -52,8 +53,9 @@ public class MainMenuView {
         boolean valid = false; // initialize to not valid
         
         while (!valid) { // loop while an invalid value is enter
+            System.out.println(menu);
             System.out.println("\n" + "Enter menu option:");
-            
+           
             value = keyboard.nextLine(); // get next line typed on keyboard
             value = value.trim(); // trim off leading and trailing blanks
             
@@ -67,24 +69,28 @@ public class MainMenuView {
         
         return value; // return the value entered
     }
+    
 
     private boolean doAction(String choice) {
         
         choice = choice.toUpperCase(); // convert choice to upper case
         
         switch (choice) {
-            case "N": // create and start a new game
-                this.startNewGame();
+            case "G": // house name griffindor
+                this.gryffindor();
                 break;
-            case "R": // restart game
-                this.startExistingGame();
+            case "S": // house name slytherin
+                this.slytherin();
                 break;
-            case "H": // get help 
-                this.GetHelpHowToPlayTheGame();
+            case "H": // house name hufflepuff 
+                this.hufflepuff();
                 break;
-            //case "E": // exit game
-               // this.Exit();
-               // break;
+            case "R": // house name Ravenclaw
+                this.ravenclaw();
+                break;
+            case "Q": // Main menu
+                this.Exit();
+                break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
@@ -92,28 +98,26 @@ public class MainMenuView {
         return false;
     }
 
-    private void startNewGame() {
-                // create a new game
-        GameControl.createNewGame(Hogwarts.getPlayer());
-        //choose house
-        //HouseMenuVeiw.chooseHouse(Hogwarts.getHouseName());
-        HouseMenuVeiw houseMenu = new HouseMenuVeiw();
-        houseMenu.displayHouseMenuView();
-        // display the game menu 
-        //GameMenuView gameMenu = new GameMenuView();//
-        //gameMenu.displayMenu();//
+    private void Exit() {
+        MainMenuView mainMenuView = new MainMenuView();
+                
+        // Display the main menu view
+        mainMenuView.displayMainMenuView();
+    }
+    private void gryffindor() {
+        GameControl.saveHouse(houseName);
     }
 
-    private void startExistingGame() {
-        System.out.println("*** startExistingGame function called ***");
+    private void slytherin() {
+        System.out.println("*** slytherin function called ***");    
+    }
+    private void hufflepuff() {
+        System.out.println("*** hufflepuff function called ***");
     }
 
-    private void GetHelpHowToPlayTheGame() {
-        HelpMenuView helpMenuView = new HelpMenuView();
-        helpMenuView.displayHelpMenuView();
+    private void ravenclaw() {
+        System.out.println("*** ravenclaw function called ***");
     }
-
-    //private void Exit() {
-       // System.out.println("*** Exit function called ***");
+    
+    
 }
-
