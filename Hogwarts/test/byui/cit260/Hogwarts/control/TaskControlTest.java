@@ -308,21 +308,21 @@ public class TaskControlTest {
         
         //test case 5
         System.out.println("\tTest case 5");
-         base1 = 0;
+         base1 = 1;
          base2= 12;
          height = 20;
         
-         expResult = -1;
+         expResult = 130;
          result = instance.calcAreaOfTrapezoid(base1,base2, height);
         assertEquals(expResult, result, 0.0);
         
         //test case 6
         System.out.println("\tTest case 6");
          base1 = 24;
-         base2 = 0;
+         base2 = 1;
          height = 20;
         
-         expResult = -1;
+         expResult = 250;
          result = instance.calcAreaOfTrapezoid(base1,base2, height);
         assertEquals(expResult, result, 0.0);
         
@@ -330,9 +330,9 @@ public class TaskControlTest {
         System.out.println("\tTest case 7");
          base1 = 24;
          base2 = 30;
-         height = 0;
+         height = 1;
         
-         expResult =-1;
+         expResult =27;
          result = instance.calcAreaOfTrapezoid(base1, base2, height);
         assertEquals(expResult, result, 0.0);
     }
