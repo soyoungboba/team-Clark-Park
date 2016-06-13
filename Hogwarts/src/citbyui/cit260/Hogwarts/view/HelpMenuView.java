@@ -45,7 +45,7 @@ public class HelpMenuView {
             
         } while (!done);
         
-    }
+    } 
 
     private String getMenuOption() {
         Scanner keyboard = new Scanner(System.in); // get infile for keyboard
