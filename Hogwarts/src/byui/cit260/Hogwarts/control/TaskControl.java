@@ -53,17 +53,17 @@ public class TaskControl {
         return radius;
     }
         public double calcAreaOfTrapezoid(double base1, double base2, double height){		
-	if (height < 0 || height > 24) {	
+	if (height < 1 || height > 24) {	
             return -1;	
         }	
-	if (base1 < 0 || base1 > 30) {	
+	if (base1 < 1 || base1 > 30) {	
             return -1;	
         }
         
-       if (base2 < 0 || base2 > 30) {	
+       if (base2 < 1 || base2 > 30) {	
             return -1;	
         }	
-	double area = (base1+base2/2)*height;	
+	double area = ((base1+base2)*height)/2;	
 		
 	return area;	
     }	
