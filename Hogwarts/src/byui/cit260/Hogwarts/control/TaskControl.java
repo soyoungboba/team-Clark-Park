@@ -49,7 +49,7 @@ public class TaskControl {
         if (playerAnswer != radius){
             return -2;
         }
-        return -3;
+        return radius;
     }
     
 }

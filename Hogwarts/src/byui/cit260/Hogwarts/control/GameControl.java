@@ -30,5 +30,7 @@ public class GameControl {
     }
     public static void saveHouse(String house) {
         System.out.println("\n*** saveHouse() function called ***"); //To change body of generated methods, choose Tools | Templates.
+    
+    
     }
 }
