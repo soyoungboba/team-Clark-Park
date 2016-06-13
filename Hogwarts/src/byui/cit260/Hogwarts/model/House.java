@@ -60,5 +60,5 @@ public class House implements Serializable{
         return "House{" + "houseName=" + houseName + '}';
     }
     
-    
+ 
 }
