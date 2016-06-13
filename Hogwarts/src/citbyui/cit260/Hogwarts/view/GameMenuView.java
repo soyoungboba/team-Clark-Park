@@ -12,9 +12,12 @@ import java.util.Scanner;
  *
  * @author boba
  */
-class GameMenuView {
+public class GameMenuView {
     private String menu;
     
+    public GameMenuView() {
+      displayMenu();  
+    }
     public void displayMenu() {
         
         this.menu = "\n"
@@ -26,7 +29,7 @@ class GameMenuView {
                   + "\nT - Third task"
                   + "\nM - Move to new location"
                   + "\nL - View current location"
-                  + "\nVC - View number or coins collected"
+                  + "\nVC - View number of coins collected"
                   + "\nVT - View list of tools acquired"
                   + "\nC - Number of coins needed for each task"
                   + "\nG - Save game"
