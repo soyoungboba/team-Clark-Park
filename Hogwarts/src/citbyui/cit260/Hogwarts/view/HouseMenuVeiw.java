@@ -26,7 +26,7 @@ public class HouseMenuVeiw {
                   + "\nR - Ravenclaw"
                   + "\nQ - Quit"
                   + "\n-------------------------------------";
-        //System.out.println(menu);
+        System.out.println(menu);
     }
     
     void displayHouseMenuView() {
@@ -35,7 +35,7 @@ public class HouseMenuVeiw {
         do {
             // promp for and get players name
             String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("e")) // user wants to exit
+            if (menuOption.toUpperCase().equals("E")) // user wants to exit
                 return; // exit the game
             
             // do the requested action and display the next view
@@ -53,7 +53,7 @@ public class HouseMenuVeiw {
         boolean valid = false; // initialize to not valid
         
         while (!valid) { // loop while an invalid value is enter
-            System.out.println(menu);
+            //System.out.println(menu);
             System.out.println("\n" + "Enter menu option:");
            
             value = keyboard.nextLine(); // get next line typed on keyboard
@@ -98,15 +98,15 @@ public class HouseMenuVeiw {
         return false;
     }
 
-    private void Exit() {
-        MainMenuView mainMenuView = new MainMenuView();
-                
+    //private void Exit() {
+        //MainMenuView mainMenuView = new MainMenuView();        
         // Display the main menu view
-        mainMenuView.displayMainMenuView();
-    }
+        //mainMenuView.displayMainMenuView();
+    
     private void gryffindor() {
         GameControl.saveHouse(houseName);
     }
+         
 
     private void slytherin() {
         System.out.println("*** slytherin function called ***");    
@@ -118,6 +118,9 @@ public class HouseMenuVeiw {
     private void ravenclaw() {
         System.out.println("*** ravenclaw function called ***");
     }
-    
-    
+    private void Exit() {
+        MainMenuView mainMenuView = new MainMenuView();        
+        // Display the main menu view
+        mainMenuView.displayMainMenuView();
+    }
 }
