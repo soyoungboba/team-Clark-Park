@@ -50,7 +50,9 @@ public class TaskControl {
         if (playerAnswer != radius){
             return -2;
         }
+        
         return radius;
+        
     }
         public double calcAreaOfTrapezoid(double base1, double base2, double height){		
 	if (height < 1 || height > 24) {	
