@@ -263,6 +263,7 @@ public class TaskControlTest {
         result = instance.calcRadius(circ, diameter, playerAnswer);
         assertEquals(expResult, result, 0.001);
     }
+    @Test
     public void testCalcAreaOfTrapezoid() {
         System.out.println("calcAreaOfTrapezoid");
         //test case1
