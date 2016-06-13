@@ -263,5 +263,79 @@ public class TaskControlTest {
         result = instance.calcRadius(circ, diameter, playerAnswer);
         assertEquals(expResult, result, 0.01);
     }
+    public void testCalcAreaOfTrapezoid() {
+        System.out.println("calcAreaOfTrapezoid");
+        //test case1
+        System.out.println("\tTest case 1");
+        double base1 = 17;
+        double base2 = 15;
+        double height = 12;
+        TaskControl instance = new TaskControl();
+        double expResult = 192;
+        double result = instance.calcAreaOfTrapezoid(base1, base2, height);
+        assertEquals(expResult, result, 0.0);
+        
+        //test case 2
+        System.out.println("\tTest case 2");
+         base1 = -1;
+         base2 = 15;
+         height = 12;
+        
+         expResult = -1;
+         result = instance.calcAreaOfTrapezoid(base1,base2, height); 
+        assertEquals(expResult, result, 0.0);
+        
+        //test case 3
+        System.out.println("\tTest case 3");
+         base1 = 15;
+         base2 =  -1;
+         height = 12;
+        
+         expResult = -1;
+         result = instance.calcAreaOfTrapezoid(base1,base2, height);
+        assertEquals(expResult, result, 0.0);
+        
+        //test case 4
+        System.out.println("\tTest case 4");
+         base1 = 17;
+         base2 = 31;
+         height = 14;
+        
+         expResult = -1;
+         result = instance.calcAreaOfTrapezoid(base1,base2, height);
+        assertEquals(expResult, result, 0.0);
+        
+        //test case 5
+        System.out.println("\tTest case 5");
+         base1 = 0;
+         base2= 12;
+         height = 20;
+        
+         expResult = 0;
+         result = instance.calcAreaOfTrapezoid(base1,base2, height);
+        assertEquals(expResult, result, 0.0);
+        
+        //test case 6
+        System.out.println("\tTest case 6");
+         base1 = 24;
+         base2 = 0;
+         height = 20;
+        
+         expResult = 0;
+         result = instance.calcAreaOfTrapezoid(base1,base2, height);
+        assertEquals(expResult, result, 0.0);
+        
+        //test case 7
+        System.out.println("\tTest case 7");
+         base1 = 24;
+         base2 = 30;
+         height = 0;
+        
+         expResult = 0;
+         result = instance.calcAreaOfTrapezoid(base1, base2, height);
+        assertEquals(expResult, result, 0.0);
+    }
+ 
+    }
     
-}
+
