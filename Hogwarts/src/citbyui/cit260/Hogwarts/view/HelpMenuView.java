@@ -114,7 +114,7 @@ public class HelpMenuView {
         MainMenuView mainMenuView = new MainMenuView();
                 
         // Display the main menu view
-        mainMenuView.displayMainMenuView(); 
+        mainMenuView.display(); 
     }
 
     private void Exit() {

@@ -102,7 +102,7 @@ public class HouseMenuVeiw {
         MainMenuView mainMenuView = new MainMenuView();
                 
         // Display the main menu view
-        mainMenuView.displayMainMenuView();
+        mainMenuView.display();
     }
     private void gryffindor() {
         GameControl.saveHouse(houseName);
