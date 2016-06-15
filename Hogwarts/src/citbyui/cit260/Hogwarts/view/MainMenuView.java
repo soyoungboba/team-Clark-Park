@@ -69,7 +69,7 @@ public boolean doAction(String value) {
 
     private void GetHelpHowToPlayTheGame() {
         HelpMenuView helpMenuView = new HelpMenuView();
-        helpMenuView.displayHelpMenuView();
+        helpMenuView.display();
     }
 
     //private void Exit() {
