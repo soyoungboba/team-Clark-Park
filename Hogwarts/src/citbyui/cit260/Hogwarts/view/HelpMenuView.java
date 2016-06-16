@@ -65,7 +65,7 @@ public boolean doAction(String value) {
     // game menu view? //
     private void startGameMenu() {
       GameMenuView gameMenuView = new GameMenuView();
-      gameMenuView.displayGameMenuView();
+      gameMenuView.display();
     }
 
     private void startNewGame() {
