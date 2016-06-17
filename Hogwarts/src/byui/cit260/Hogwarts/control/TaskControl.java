@@ -11,8 +11,8 @@ package byui.cit260.Hogwarts.control;
  */
 public class TaskControl {
     // insert function task 1
-    public double calcAreaOfTriangle(double base,double height){		
-	if (height < 0 || height > 24) {	
+    public static double calcAreaOfTriangle(double base,double height){		
+	if (height < 0 || height > 30) {	
             return -1;	
         }	
 	if (base < 0 || base > 30) {	
