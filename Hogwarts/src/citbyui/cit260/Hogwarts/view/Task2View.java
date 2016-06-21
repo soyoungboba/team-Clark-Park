@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package citbyui.cit260.Hogwarts.view;
+
 import java.util.Random;
 import byui.cit260.Hogwarts.control.GameControl;
 import byui.cit260.Hogwarts.control.TaskControl;
@@ -21,15 +22,16 @@ public class Task2View extends View {
     private double answer;
     
     public Task2View() {
-        super("\nPlease Enter Your Answer");
+        super("\nPlease Enter Your Answer:");
         randOne = GameControl.randNum();
         randTwo = GameControl.randNum();
         randThree = GameControl.randNum();
-        System.out.println("\n Your challenge in this taks is to"
-                +"\n calculate the volume of rectangle"
-                +"\n that has a width of " + randOne + ", height"
-                +"\n of " + randTwo + ", and length of " 
-                +"\n randThree" + ".");
+        System.out.println("\n-------------------------------------"
+                          +"\n Your challenge in this taks is to"
+                          +"\n calculate the volume of rectangle"
+                          +"\n that has a width of " + randOne + ", height"
+                          +"\n of " + randTwo + ", and length of " + randThree + "."
+                          +"\n-------------------------------------");
     }
 
     @Override
