@@ -37,13 +37,17 @@ public class Task2View extends View {
     @Override
     public boolean doAction(String value) {
 
-        answer = TaskControl.calcVolumeOfRectangle(randOne, randTwo, randThree);
+        TaskControl taskControl = new TaskControl();
+        
+        answer = taskControl.calcVolumeOfRectangle(randOne, randTwo, randThree);
         double input = Double.parseDouble(value);
         if (input== answer) {
             System.out.println("Correct!");
         } else {
             System.out.println("Try again!");
         }
-        return true; //or false?//
+        return true; 
     }
 }
+    
+
