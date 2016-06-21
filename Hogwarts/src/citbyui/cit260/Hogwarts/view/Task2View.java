@@ -31,4 +31,17 @@ public class Task2View extends View {
                 +"\n of " + randTwo + ", and length of " 
                 +"\n randThree" + ".");
     }
+
+    @Override
+    public boolean doAction(String value) {
+
+        answer = TaskControl.calcVolumeOfRectangle(randOne, randTwo, randThree);
+        double input = Double.parseDouble(value);
+        if (input== answer) {
+            System.out.println("Correct!");
+        } else {
+            System.out.println("Try again!");
+        }
+        return true; //or false?//
+    }
 }
