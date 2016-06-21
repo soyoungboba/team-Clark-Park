@@ -25,7 +25,7 @@ public class Task1View extends View {
         super("\nPlease Enter Your Answer");
         randOne = GameControl.randNum();
         randTwo = GameControl.randNum();
-        System.out.println("\n Your chalange in this task is to "
+        System.out.println("\n Your challenge in this task is to "
                 + "\n calculate the area of a triangle"
                 + "\n that has a base of " + randOne + " and the height"
                 + "\n of " + randTwo + ".");
