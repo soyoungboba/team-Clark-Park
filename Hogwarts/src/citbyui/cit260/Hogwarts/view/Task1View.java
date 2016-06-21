@@ -22,7 +22,7 @@ public class Task1View extends View {
     //private String input;
 
     public Task1View() {
-        super("\nPlease Enter Your Answer");
+        super("\nPlease Enter Your Answer:");
         randOne = GameControl.randNum();
         randTwo = GameControl.randNum();
         System.out.println("\n Your challenge in this task is to "
@@ -41,7 +41,7 @@ public class Task1View extends View {
         } else {
             System.out.println("try again");
         }
-        return true;
+        return false;
     }
     //public int randOne;
     //private void randNum() {
