@@ -14,11 +14,12 @@ import java.util.Objects;
 public class Player implements Serializable{
     
     // class instance variables
+    //private String name;//
     private String name;
+    private String description;
 
     public Player() {
     }
-
     
     public String getName() {
         return name;
