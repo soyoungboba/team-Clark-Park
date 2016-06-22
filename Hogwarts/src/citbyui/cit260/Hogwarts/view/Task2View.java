@@ -49,5 +49,3 @@ public class Task2View extends View {
         return true; 
     }
 }
-    
-
