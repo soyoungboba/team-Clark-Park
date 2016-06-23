@@ -11,38 +11,41 @@ import java.util.Objects;
  *
  * @author boba
  */
-public class Player implements Serializable{
+public enum Player implements Serializable{
+    Harry Potter("He's a brave guy."),
+    Cody("Married."),
+    Jessica("She's a brave girl.");
     
-    // class instance variables
     //private String name;//
-    private String name;
-    private String description;
-    private Point coordinates;
+    private final String description;
+    private final Point coordinates;
 
-    public Player() {
+    Player(String description) {
+        this.description = description;
+        coordinates = new Point(1,1);
     }
     
-    public String getName() {
+    /*public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
+    }*/
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    /*public void setDescription(String description) {
         this.description = description;
-    }
+    }*/
 
     public Point getCoordinates() {
         return coordinates;
     }
 
-    public void setCoordinates(Point coordinates) {
+    /*public void setCoordinates(Point coordinates) {
         this.coordinates = coordinates;
     }
 
@@ -74,7 +77,5 @@ public class Player implements Serializable{
     @Override
     public String toString() {
         return "Player{" + "name=" + name + '}';
-    }
-    
-    
+    }*/
 }
