@@ -5,47 +5,59 @@
  */
 package byui.cit260.Hogwarts.model;
 
+import java.awt.Point;
 import java.io.Serializable;
 import java.util.Objects;
 /**
  *
  * @author boba
  */
-public class Character implements Serializable{
+public enum Character implements Serializable{
     
-    // class instance variables
-    private String name;
-    private String description;
+    Harry("dfsdf."),
+    Herminone("asdf."),
+    Ron("asdf."),
+    Cedric("Asdf,"),
+    Cho("asdf."),
+    Luna("asdf."),
+    Malfoy("asdf."),
+    Derrick("asdf.");
+    
+    
+    //private String name;
+    private final String description;
+    private final Point coordinates;
 
-    public Character() {
+    Character(String description) {
+        this.description = description;
+        coordinates = new Point(1,1);
     }
 
-    public String getName() {
+    /*public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
-
+*/
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    /*public void setDescription(String description) {
         this.description = description;
-    }
+    }*/
 
-    public String getCoordinates() {
+    public Point getCoordinates() {
         return coordinates;
     }
 
-    public void setCoordinates(String coordinates) {
+    /*public void setCoordinates(String coordinates) {
         this.coordinates = coordinates;
-    }
-    private String coordinates;
+    }*/
 
-    @Override
+    /*@Override
     public int hashCode() {
         int hash = 7;
         hash = 59 * hash + Objects.hashCode(this.name);
@@ -76,12 +88,10 @@ public class Character implements Serializable{
             return false;
         }
         return true;
-    }
+    }*/
 
     @Override
     public String toString() {
-        return "Character{" + "name=" + name + ", description=" + description + ", coordinates=" + coordinates + '}';
+        return "Character{" + "description= " + description + " coordinates=" + coordinates + '}';
     }
-    
-    
 }

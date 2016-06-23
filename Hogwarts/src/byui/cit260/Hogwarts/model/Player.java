@@ -11,45 +11,21 @@ import java.util.Objects;
  *
  * @author boba
  */
-public enum Player implements Serializable{
-   
-    Harry("asdf."),
-    Cody("asdf."),
-    Jessica("asdf.");
+public class Player implements Serializable{
     
-    //private String name;
-    private final String description;
-    private final Point coordinates;
+    private String name;
 
-    Player(String description) {
-        this.description = description;
-        coordinates = new Point(1,1);
+    public Player() { 
     }
     
-    /*public String getName() {
+    public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
-    }*/
-
-    public String getDescription() {
-        return description;
     }
-
-    /*public void setDescription(String description) {
-        this.description = description;
-    }*/
-
-    public Point getCoordinates() {
-        return coordinates;
-    }
-
-    /*public void setCoordinates(Point coordinates) {
-        this.coordinates = coordinates;
-    }
-
+    
     @Override
     public int hashCode() {
         int hash = 3;
@@ -77,6 +53,6 @@ public enum Player implements Serializable{
 
     @Override
     public String toString() {
-        return "Player{" + "name=" + name + '}';
-    }*/
+        return "Player{" + "name=" + name + '}';  
+    }
 }
