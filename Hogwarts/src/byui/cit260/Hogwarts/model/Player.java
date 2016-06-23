@@ -17,6 +17,7 @@ public class Player implements Serializable{
     //private String name;//
     private String name;
     private String description;
+    private Point coordinates;
 
     public Player() {
     }
@@ -27,6 +28,22 @@ public class Player implements Serializable{
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Point getCoordinates() {
+        return coordinates;
+    }
+
+    public void setCoordinates(Point coordinates) {
+        this.coordinates = coordinates;
     }
 
     @Override
