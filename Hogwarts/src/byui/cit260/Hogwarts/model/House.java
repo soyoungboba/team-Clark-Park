@@ -14,20 +14,45 @@ import java.util.Objects;
  *
  * @author Cody
  */
-public class House implements Serializable{
+public enum House implements Serializable{
     
-    private String houseName;
+    Gryffindor("asdf."),
+    Slytherin("asdf."),
+    Hufflepuff("asdf."),
+    Ravenclaw("asdf.");
+    
+    //private String houseName;
+    private final String description;
+    private final Point coordinates;
+    
 
-    public House() {
+    House(String description) {
+        this.description = description;
+        coordinates = new Point(1,1);
     }
-        
-
-    public String getHouseName() {
+    
+    /*public String getHouseName() {
         return houseName;
     }
 
     public void setHouseName(String houseName) {
         this.houseName = houseName;
+    }*/
+
+    public String getDescription() {
+        return description;
+    }
+
+    /*public void setDescription(String description) {
+        this.description = description;
+    }*/
+
+    public Point getCoordinates() {
+        return coordinates;
+    }
+
+    /*public void setCoordinates(Point coordinates) {
+        this.coordinates = coordinates;
     }
 
     @Override
@@ -59,6 +84,6 @@ public class House implements Serializable{
     public String toString() {
         return "House{" + "houseName=" + houseName + '}';
     }
-    
+    */
  
 }

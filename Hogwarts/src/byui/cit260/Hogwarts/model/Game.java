@@ -14,6 +14,7 @@ public class Game implements Serializable{
     // class instance variables
     private double startGame;
     private double endGame;
+   
 
     public double getStartGame() {
         return startGame;
@@ -67,6 +68,7 @@ public class Game implements Serializable{
     public String toString() {
         return "Game{" + "startGame=" + startGame + ", endGame=" + endGame + '}';
     }
+    
     
     
 }

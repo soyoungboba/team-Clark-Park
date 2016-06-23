@@ -12,11 +12,12 @@ import java.util.Objects;
  * @author boba
  */
 public enum Player implements Serializable{
-    Harry Potter("He's a brave guy."),
-    Cody("Married."),
-    Jessica("She's a brave girl.");
+   
+    Harry("asdf."),
+    Cody("asdf."),
+    Jessica("asdf.");
     
-    //private String name;//
+    //private String name;
     private final String description;
     private final Point coordinates;
 
