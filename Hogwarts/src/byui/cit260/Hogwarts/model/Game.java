@@ -15,7 +15,18 @@ public class Game implements Serializable{
     private double startGame;
     private double endGame;
    
-    private Player[] player;
+    private Player player;
+    private Item[] item;
+    private Map map;
+
+    public Item[] getItem() {
+        return item;
+    }
+
+    public void setItem(Item[] item) {
+        this.item = item;
+    }
+    private Player player;
     
     public Game() {
     }
@@ -34,14 +45,6 @@ public class Game implements Serializable{
 
     public void setEndGame(double endGame) {
         this.endGame = endGame;
-    }
-
-    public Player[] getPlayer() {
-        return player;
-    }
-
-    public void setPlayer(Player[] player) {
-        this.player = player;
     }
 
     @Override
@@ -76,6 +79,18 @@ public class Game implements Serializable{
     @Override
     public String toString() {
         return "Game{" + "startGame=" + startGame + ", endGame=" + endGame + '}';
+    }
+
+    public void setPlayer(Player player) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setPlayer(Player player) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setMap(Map map) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

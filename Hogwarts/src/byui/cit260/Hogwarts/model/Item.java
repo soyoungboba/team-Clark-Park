@@ -17,6 +17,35 @@ public class Item implements Serializable{
     private String inventoryType;
     private double quantityInStock;
 
+public static Item[] createItem() {
+
+    //created array(list) of items
+    Item[] item = new Item[3];
+    
+    Item wand = new Item();
+    wand.setDescription("Wand");
+    wand.setInventoryType(inventoryType);
+    wand.setQuantityInStock(0);
+    item[0] = wand;
+    
+    Item invisibility cloak  = new Item();
+    invisibility_cloak.setDescription("Invisibility cloak");
+    invisibility_cloak.setInventoryType(inventoryType);
+    item[1] = invisibility_cloak;
+    
+    Item  = new Item();
+    broomstick.setDescription("Broomstick");
+    broomstick.setInventoryType(inventoryType);
+    broomstick.setQuantityInStock(0);
+    item[2] = broomstick;
+    
+    Item  = new Item();
+    gillyweed.setDescription("Gillyweed");
+    gillyweed.setInventoryType(inventoryType);
+    gillyweed.setQuantityInStock(0);
+    item[3] = gillyweed;
+}
+
     public String getInventoryType() {
         return inventoryType;
     }
