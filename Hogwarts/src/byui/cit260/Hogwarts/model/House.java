@@ -17,10 +17,15 @@ import java.util.Objects;
  */
 public enum House implements Serializable{
     
-    Gryffindor("asdf."),
-    Slytherin("asdf."),
-    Hufflepuff("asdf."),
-    Ravenclaw("asdf.");
+    Gryffindor("Our emblem is the lion, the bravest of all creatures. "
+             + "It’s where the bravest and boldest end up."),
+    Slytherin("Our emblem is the serpent, the wisest of creatures. We are the "
+            + "coolest and edgiest house in this school."),
+    Hufflepuff("Our emblem is the badger, which can fight off animals much "
+             + "larger than itself, including wolves. "
+             + "Hufflepuffs are trustworthy and loyal."),
+    Ravenclaw("Our emblem is the eagle, which soars where others cannot climb. "
+             + "This is the house where the cleverest witches and wizards live. ");
     
     //private String houseName;
     private final String description;
