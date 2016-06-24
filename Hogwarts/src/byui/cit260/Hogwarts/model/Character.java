@@ -28,6 +28,8 @@ public enum Character implements Serializable{
     //private String name;
     private final String description;
     private final Point coordinates;
+    
+    
 
     Character(String description) {
         this.description = description;

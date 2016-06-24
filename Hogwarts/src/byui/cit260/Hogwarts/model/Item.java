@@ -11,61 +11,60 @@ import java.util.Objects;
  *
  * @author boba
  */
-public class Item implements Serializable{
+public enum Item implements Serializable{
+    Wand("Tool", 50),
+    Invisibility_cloak("Tool", 50),
+    Broomstick("Tool", 50),
+    Gillyweed("Tool", 50);
     
     // class instance variables
+   
     private String inventoryType;
     private double quantityInStock;
 
-public static Item[] createItem() {
+Item(String inventoryType, double quantityInStock) {
+    this.inventoryType = inventoryType;
+    this.quantityInStock = quantityInStock;
+}
 
+  
     //created array(list) of items
-    Item[] item = new Item[3];
+    /*Item[] items = new Item[4];
     
     Item wand = new Item();
     wand.setDescription("Wand");
     wand.setInventoryType(inventoryType);
     wand.setQuantityInStock(0);
-    item[0] = wand;
+    items[Item.wand.ordinal()] = wand;
+   
     
     Item invisibility cloak  = new Item();
     invisibility_cloak.setDescription("Invisibility cloak");
     invisibility_cloak.setInventoryType(inventoryType);
-    item[1] = invisibility_cloak;
+    items[1] = invisibility_cloak;
     
     Item  = new Item();
     broomstick.setDescription("Broomstick");
     broomstick.setInventoryType(inventoryType);
     broomstick.setQuantityInStock(0);
-    item[2] = broomstick;
+    items[2] = broomstick;
     
     Item  = new Item();
     gillyweed.setDescription("Gillyweed");
     gillyweed.setInventoryType(inventoryType);
     gillyweed.setQuantityInStock(0);
-    item[3] = gillyweed;
-}
+    items[3] = gillyweed;
+}*/
 
     public String getInventoryType() {
         return inventoryType;
-    }
-
-    public void setInventoryType(String inventoryType) {
-        this.inventoryType = inventoryType;
     }
 
     public double getQuantityInStock() {
         return quantityInStock;
     }
 
-    public void setQuantityInStock(double quantityInStock) {
-        this.quantityInStock = quantityInStock;
-    }
-
-    public Item() {
-    }
-
-    @Override
+   /* @Override
     public int hashCode() {
         int hash = 7;
         hash = 67 * hash + Objects.hashCode(this.inventoryType);
@@ -98,6 +97,5 @@ public static Item[] createItem() {
     public String toString() {
         return "Item{" + "inventoryType=" + inventoryType + ", quantityInStock=" + quantityInStock + '}';
     }
-    
-    
+    */
 }
