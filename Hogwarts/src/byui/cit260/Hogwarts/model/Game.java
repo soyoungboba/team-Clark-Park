@@ -26,8 +26,7 @@ public class Game implements Serializable{
     public void setItem(Item[] item) {
         this.item = item;
     }
-    private Player player;
-    
+
     public Game() {
     }
 
@@ -79,10 +78,6 @@ public class Game implements Serializable{
     @Override
     public String toString() {
         return "Game{" + "startGame=" + startGame + ", endGame=" + endGame + '}';
-    }
-
-    public void setPlayer(Player player) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public void setPlayer(Player player) {
