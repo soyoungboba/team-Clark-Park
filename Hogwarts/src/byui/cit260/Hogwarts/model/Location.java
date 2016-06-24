@@ -6,6 +6,7 @@
 package byui.cit260.Hogwarts.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -18,8 +19,8 @@ public class Location implements Serializable{
     private double column;
     private boolean visited;
     private float amountRemaining;
-
     private Scene scene;
+    private ArrayList<Character> character;
 
     public Scene getScene() {
         return scene;
