@@ -15,7 +15,7 @@ public class Game implements Serializable{
     private double startGame;
     private double endGame;
    
-    private Player player;
+    private Player[] player;
     
     public Game() {
     }
@@ -36,11 +36,11 @@ public class Game implements Serializable{
         this.endGame = endGame;
     }
 
-    public Player getPlayer() {
+    public Player[] getPlayer() {
         return player;
     }
 
-    public void setPlayer(Player player) {
+    public void setPlayer(Player[] player) {
         this.player = player;
     }
 
