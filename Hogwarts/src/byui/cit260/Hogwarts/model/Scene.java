@@ -12,7 +12,30 @@ import java.util.Objects;
  *
  * @author Cody
  */
-public class Scene implements Serializable{
+public enum Scene implements Serializable{
+    Office_of_Professor_McGonagall("."),
+    Gryffindor_Dormitory("."),
+    Chamber_of_Secrets(""),
+    The_Green_Houses(""),
+    Black_Lake(""),
+    Classroom(""),
+    Stairway(""),
+    Library(""),
+    Hut_of_Hagrid(""),
+    Forbidden_Forest(""),
+    Office_of_Dumbledore(""),
+    Hallway(""),
+    Great_Hall(""),
+    Quidditch_Field(""),
+    Lavatory_of_Girls(""),
+    Hospital_Wing(""),
+    Front_Walk(""),
+    Room_of_Requirement(""),
+    Office_of_Professor_Snape(""),
+    Slytherin_Dormitory(""),
+    Dungeon(""),
+    Garden("");
+    
     
     private String description;
     private boolean blockedLocation;
@@ -20,6 +43,10 @@ public class Scene implements Serializable{
 
     public Scene() {
     }
+
+    Scene(String description) {
+    this.description = description;
+}
 
     public String getDescription() {
         return description;
