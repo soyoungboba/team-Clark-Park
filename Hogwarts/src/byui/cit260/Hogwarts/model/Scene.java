@@ -41,8 +41,8 @@ public enum Scene implements Serializable{
     private boolean blockedLocation;
     private boolean displaySymbol;
 
-    public Scene() {
-    }
+    //public Scene() {
+    //}
 
     Scene(String description) {
     this.description = description;
