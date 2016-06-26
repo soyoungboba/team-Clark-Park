@@ -7,8 +7,11 @@ package byui.cit260.Hogwarts.control;
 
 import byui.cit260.Hogwarts.model.Game;
 import byui.cit260.Hogwarts.model.Item;
+import byui.cit260.Hogwarts.model.Location;
 import byui.cit260.Hogwarts.model.Map;
 import byui.cit260.Hogwarts.model.Player;
+import byui.cit260.Hogwarts.model.Scene;
+import byui.cit260.Hogwarts.model.SceneType;
 import hogwarts.Hogwarts;
 import java.util.Random;
 
@@ -61,5 +64,15 @@ public class GameControl {
         randOne = rand.nextInt(30)+1;
         //randOne = (int)(Math.random()*50 + 1);
         return randOne;
+    }
+
+    static void assignScenesToLocations(Map map, Scene[] scenes) {
+        Location[][] locations = map.getLocations();
+        
+        locations[0][0].setScene(scenes[SceneType.start.ordinal()]);
+        
+        //other locations
+        locations[4][4].setScene(scenes[SceneType.finish.ordinal()]);
+        
     }
 }

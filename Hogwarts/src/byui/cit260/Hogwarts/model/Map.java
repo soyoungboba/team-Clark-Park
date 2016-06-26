@@ -5,6 +5,7 @@
  */
 package byui.cit260.Hogwarts.model;
 import java.io.Serializable;
+import java.util.Arrays;
 /**
  *
  * @author boba
@@ -12,33 +13,47 @@ import java.io.Serializable;
 public class Map implements Serializable{
     
     // class instance variables
-    private double rowCount;
-    private double columnCount;
+    private double noOfRows;
+    private double noOfColumns;
+    private Location locations[][];
 
-    public double getRowCount() {
-        return rowCount;
+    public Location[][] getLocations() {
+        return locations;
     }
-
-    public void setRowCount(double rowCount) {
-        this.rowCount = rowCount;
-    }
-
-    public double getColumnCount() {
-        return columnCount;
-    }
-
-    public void setColumnCount(double columnCount) {
-        this.columnCount = columnCount;
-    }
-
     public Map() {
+        
+    }
+    public Map(int noOfRows, int noOfColumns){
+      if (noOfRows < 1 || noOfColumns <1){
+          System.out.println("The number of rows and columns must be > zero");
+          return;
+      }  
+      this.noOfRows = noOfRows;
+      this.noOfColumns = noOfColumns;
+      
+      this.locations = new Location[noOfRows][noOfColumns];
+      for (int row = 0; row < noOfRows; row++){
+          for(int column = 0; column < noOfColumns; column++){
+              Location location = new Location();
+              location.setColumn(column);
+              location.setRow(row);
+              location.setVisited(false);
+              locations[row][column] = location;
+          }
+      }
+    }
+
+    @Override
+    public String toString() {
+        return "Map{" + "noOfRows=" + noOfRows + ", noOfColumns=" + noOfColumns + ", locations=" + locations + '}';
     }
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 37 * hash + (int) (Double.doubleToLongBits(this.rowCount) ^ (Double.doubleToLongBits(this.rowCount) >>> 32));
-        hash = 37 * hash + (int) (Double.doubleToLongBits(this.columnCount) ^ (Double.doubleToLongBits(this.columnCount) >>> 32));
+        int hash = 3;
+        hash = 97 * hash + (int) (Double.doubleToLongBits(this.noOfRows) ^ (Double.doubleToLongBits(this.noOfRows) >>> 32));
+        hash = 97 * hash + (int) (Double.doubleToLongBits(this.noOfColumns) ^ (Double.doubleToLongBits(this.noOfColumns) >>> 32));
+        hash = 97 * hash + Arrays.deepHashCode(this.locations);
         return hash;
     }
 
@@ -54,19 +69,35 @@ public class Map implements Serializable{
             return false;
         }
         final Map other = (Map) obj;
-        if (Double.doubleToLongBits(this.rowCount) != Double.doubleToLongBits(other.rowCount)) {
+        if (Double.doubleToLongBits(this.noOfRows) != Double.doubleToLongBits(other.noOfRows)) {
             return false;
         }
-        if (Double.doubleToLongBits(this.columnCount) != Double.doubleToLongBits(other.columnCount)) {
+        if (Double.doubleToLongBits(this.noOfColumns) != Double.doubleToLongBits(other.noOfColumns)) {
+            return false;
+        }
+        if (!Arrays.deepEquals(this.locations, other.locations)) {
             return false;
         }
         return true;
     }
-
-    @Override
-    public String toString() {
-        return "Map{" + "rowCount=" + rowCount + ", columnCount=" + columnCount + '}';
+    public double getRowCount() {
+        return noOfRows;
     }
+
+    public void setRowCount(double rowCount) {
+        this.noOfRows = rowCount;
+    }
+
+    public double getColumnCount() {
+        return noOfColumns;
+    }
+
+    public void setColumnCount(double columnCount) {
+        this.noOfColumns = columnCount;
+    }
+
+    
+
     
     
 }
