@@ -14,7 +14,51 @@ public class Map implements Serializable{
     // class instance variables
     private double rowCount;
     private double columnCount;
+    private Location[][] locations;
 
+    private static Map createMap() {
+        //create the map
+        Map map = new Map(5,5);
+        
+        //create the scenes for the game
+        Scene[] scene = createScenes();
+        
+        //assign scenes to locations
+        GameControl.assignScenesToLocation(map, scene);
+        
+        return map;
+    }
+    public Map() {
+    }
+    
+    public Map(int rowCount, int columnCount) {
+        
+        if (rowCount < 1 || columnCount < 1) {
+            System.out.println("The number of rows and columns must be "
+                             + "greater than zero");
+            return;
+        }
+        
+        this.rowCount = rowCount;
+        this.columnCount = columnCount;
+        
+        // create 2-D array for Location objects
+        this.locations = new Location[rowCount][columnCount];
+        
+        for (int row = 0; row < rowCount; row++) {
+            for (int column = 0; column < columnCount; column++) {
+                //create and initialize new Location object instance
+                Location location = new Location();
+                location.setColumn(column);
+                location.setRow(row);
+                location.setVisitied(false);
+                
+                //assign the Location object to the current position in array
+                location[row][column] = location;
+            }
+        }
+    }
+    
     public double getRowCount() {
         return rowCount;
     }
@@ -31,8 +75,6 @@ public class Map implements Serializable{
         this.columnCount = columnCount;
     }
 
-    public Map() {
-    }
 
     @Override
     public int hashCode() {
