@@ -16,7 +16,11 @@ public class Map implements Serializable{
     private double noOfRows;
     private double noOfColumns;
     private Location locations[][];
-    
+
+    public Location[][] getLocations() {
+        return locations;
+    }
+
     public Map() { 
     }
     
@@ -77,7 +81,7 @@ public class Map implements Serializable{
         }
         return true;
     }
-    
+
     public double getRowCount() {
         return noOfRows;
     }
