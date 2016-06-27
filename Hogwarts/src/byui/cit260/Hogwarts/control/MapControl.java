@@ -210,7 +210,7 @@ public class MapControl {
         
         Scene Slytherin_Dormitory = new Scene();
         Slytherin_Dormitory.setDescription(
-                "Slytherin_Dormitory."
+                "Slytherin Dormitory."
         );
         Slytherin_Dormitory.setMapSymbol("SD");
         Slytherin_Dormitory.setBlocked(false);
