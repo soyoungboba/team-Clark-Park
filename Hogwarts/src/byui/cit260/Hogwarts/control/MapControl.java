@@ -194,7 +194,7 @@ public class MapControl {
         
         Scene Room_of_Requirement = new Scene();
         Room_of_Requirement.setDescription(
-                "Room of Requiremente."
+                "Room of Requirement."
         );
         Room_of_Requirement.setMapSymbol("RR");
         Room_of_Requirement.setBlocked(false);
