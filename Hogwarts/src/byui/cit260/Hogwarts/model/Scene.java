@@ -12,30 +12,7 @@ import java.util.Objects;
  *
  * @author Cody
  */
-public enum Scene implements Serializable{
-    Office_of_Professor_McGonagall("."),
-    Gryffindor_Dormitory("."),
-    Chamber_of_Secrets(""),
-    The_Green_Houses(""),
-    Black_Lake(""),
-    Classroom(""),
-    Stairway(""),
-    Library(""),
-    Hut_of_Hagrid(""),
-    Forbidden_Forest(""),
-    Office_of_Dumbledore(""),
-    Hallway(""),
-    Great_Hall(""),
-    Quidditch_Field(""),
-    Lavatory_of_Girls(""),
-    Hospital_Wing(""),
-    Front_Walk(""),
-    Room_of_Requirement(""),
-    Office_of_Professor_Snape(""),
-    Slytherin_Dormitory(""),
-    Dungeon(""),
-    Garden("");
-    
+public class Scene implements Serializable{
     
     private String description;
     private boolean blockedLocation;
@@ -44,8 +21,8 @@ public enum Scene implements Serializable{
     //public Scene() {
     //}
 
-    Scene(String description) {
-    this.description = description;
+   public Scene() {
+    
 }
 
     public String getDescription() {
@@ -108,6 +85,14 @@ public enum Scene implements Serializable{
     @Override
     public String toString() {
         return "Scene{" + "description=" + description + ", blockedLocation=" + blockedLocation + ", displaySymbol=" + displaySymbol + '}';
+    }
+
+    public void setMapSymbol(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setBlocked(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
