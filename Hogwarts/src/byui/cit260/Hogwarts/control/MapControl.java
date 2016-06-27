@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package byui.cit260.Hogwarts.control;
+import byui.cit260.Hogwarts.model.Location;
 import byui.cit260.Hogwarts.model.Map;
 import byui.cit260.Hogwarts.model.Player;
 import byui.cit260.Hogwarts.model.Scene;
@@ -40,9 +41,34 @@ public class MapControl {
         return scenes;
     }
 
-    public static class MapControlException extends Exception {
-
-        public MapControlException() {
-        }
+   private static void assignScenesToLocations(Map map, Scene[] scenes) {
+        Location[][]locations = map.getLocations();
+        
+        //start
+        locations[0][0].setScene(scenes[SceneType.office,ordinal()]);
+        locations[0][1].setScene(scenes[SceneType.office,ordinal()]);
+        locations[0][2].setScene(scenes[SceneType.office,ordinal()]);
+        locations[0][3].setScene(scenes[SceneType.office,ordinal()]);
+        locations[0][4].setScene(scenes[SceneType.office,ordinal()]);
+        locations[1][0].setScene(scenes[SceneType.office,ordinal()]);
+        locations[1][1].setScene(scenes[SceneType.office,ordinal()]);
+        locations[1][2].setScene(scenes[SceneType.office,ordinal()]);
+        locations[1][3].setScene(scenes[SceneType.office,ordinal()]);
+        locations[1][4].setScene(scenes[SceneType.office,ordinal()]);
+        locations[2][0].setScene(scenes[SceneType.office,ordinal()]);
+        locations[2][1].setScene(scenes[SceneType.office,ordinal()]);
+        locations[2][2].setScene(scenes[SceneType.office,ordinal()]);
+        locations[2][3].setScene(scenes[SceneType.office,ordinal()]);
+        locations[2][4].setScene(scenes[SceneType.office,ordinal()]);
+        locations[3][0].setScene(scenes[SceneType.office,ordinal()]);
+        locations[3][1].setScene(scenes[SceneType.office,ordinal()]);
+        locations[3][2].setScene(scenes[SceneType.office,ordinal()]);
+        locations[3][3].setScene(scenes[SceneType.office,ordinal()]);
+        locations[3][4].setScene(scenes[SceneType.office,ordinal()]);
+        locations[4][0].setScene(scenes[SceneType.office,ordinal()]);
+        locations[4][1].setScene(scenes[SceneType.office,ordinal()]);
+        locations[4][2].setScene(scenes[SceneType.office,ordinal()]);
+        locations[4][3].setScene(scenes[SceneType.office,ordinal()]);
+        locations[4][4].setScene(scenes[SceneType.finish,ordinal()]);
     }
 }

@@ -42,7 +42,7 @@ public class Map implements Serializable{
           }
       }
     }
-
+    
     @Override
     public String toString() {
         return "Map{" + "noOfRows=" + noOfRows + ", noOfColumns=" + noOfColumns + ", locations=" + locations + '}';
