@@ -17,7 +17,7 @@ public class GameMenuView extends View {
     public GameMenuView() {
         super(      "\n"
                   + "\n------------------------------------------"
-                  + "\n|             Game Menu                  |"
+                  + "\n|               Game Menu                |"
                   + "\nV - View map"
                   + "\nF - First task"
                   + "\nS - Second task"
