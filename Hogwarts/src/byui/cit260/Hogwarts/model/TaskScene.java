@@ -82,7 +82,5 @@ public class TaskScene extends Scene implements Serializable{
     public String toString() {
         return "TaskScene{"+super.toString() + "amountAvailable=" + amountAvailable + ", resourcesNeeded=" + resourcesNeeded + ", attribute=" + attribute + '}';
    
-    } 
-    
-    
+    }   
 }

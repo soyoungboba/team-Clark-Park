@@ -18,8 +18,12 @@ public class Scene implements Serializable{
     private boolean blockedLocation;
     private boolean displaySymbol;
 
-    public Scene() {
-    }
+    //public Scene() {
+    //}
+
+   public Scene() {
+    
+}
 
     public String getDescription() {
         return description;
@@ -81,6 +85,14 @@ public class Scene implements Serializable{
     @Override
     public String toString() {
         return "Scene{" + "description=" + description + ", blockedLocation=" + blockedLocation + ", displaySymbol=" + displaySymbol + '}';
+    }
+
+    public void setMapSymbol(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setBlocked(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

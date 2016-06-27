@@ -69,7 +69,7 @@ public class GameControl {
     static void assignScenesToLocations(Map map, Scene[] scenes) {
         Location[][] locations = map.getLocations();
         
-        locations[0][0].setScene(scenes[SceneType.start.ordinal()]);
+        locations[0][0].setScene(scenes[SceneType.Office_of_Professor_McGonagall.ordinal()]);
         
         //other locations
         locations[4][4].setScene(scenes[SceneType.finish.ordinal()]);

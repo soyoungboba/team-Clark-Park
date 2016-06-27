@@ -20,9 +20,10 @@ public class Map implements Serializable{
     public Location[][] getLocations() {
         return locations;
     }
-    public Map() {
-        
+
+    public Map() { 
     }
+    
     public Map(int noOfRows, int noOfColumns){
       if (noOfRows < 1 || noOfColumns <1){
           System.out.println("The number of rows and columns must be > zero");
@@ -80,6 +81,7 @@ public class Map implements Serializable{
         }
         return true;
     }
+
     public double getRowCount() {
         return noOfRows;
     }
@@ -95,9 +97,4 @@ public class Map implements Serializable{
     public void setColumnCount(double columnCount) {
         this.noOfColumns = columnCount;
     }
-
-    
-
-    
-    
 }
