@@ -15,7 +15,7 @@ import hogwarts.Hogwarts;
  * @author boba
  */
 public class MapControl {
-    public static Map createMap() throws MapControlException {
+    public static Map createMap() {
         //create the map
         Map map = new Map(5,5);
         
