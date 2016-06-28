@@ -81,11 +81,11 @@ public class Game implements Serializable{
     }
 
     public void setPlayer(Player player) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("\n*** called setPlayer() in Game ***");
     }
 
     public void setMap(Map map) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("\n*** called setmap() in Game ***");
     }
     
     
