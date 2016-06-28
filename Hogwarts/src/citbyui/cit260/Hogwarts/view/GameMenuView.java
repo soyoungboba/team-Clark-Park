@@ -154,5 +154,5 @@ public class GameMenuView extends View {
     private void MainMenuView() {
         MainMenuView mainMenuView = new MainMenuView();
         mainMenuView.display();
-    }          
+    }        
 }

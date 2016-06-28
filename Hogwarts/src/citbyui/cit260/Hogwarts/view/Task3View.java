@@ -32,12 +32,13 @@ public class Task3View extends View {
                 + "\n that has a base of " + randOne + " and another base of"
                 + "\n  " + randTwo + "and a height of" + randThree + ".");
     }
-
     
     @Override
     public boolean doAction(String value) {
 
-        answer = TaskControl.calcAreaOfTrapezoid(randOne, randTwo, randThree);
+        TaskControl taskControl = new TaskControl();
+        
+        answer = taskControl.calcAreaOfTrapezoid(randOne, randTwo, randThree);
         double input = Double.parseDouble(value);
         if (input == answer) {
             System.out.println("That is correct");
@@ -49,7 +50,4 @@ public class Task3View extends View {
     //public int randOne;
     //private void randNum() {
     //GameControl.randNum(randOne);
-
 }
-  
-
