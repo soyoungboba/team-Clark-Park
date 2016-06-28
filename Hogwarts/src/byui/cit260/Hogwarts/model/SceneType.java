@@ -11,10 +11,6 @@ import java.io.Serializable;
  *
  * @author Cody
  */
-/*public enum SceneType {
-    start,
-    finish;
-}*/
 
 public enum SceneType {
     Office_of_Professor_McGonagall,

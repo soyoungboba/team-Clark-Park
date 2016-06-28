@@ -17,7 +17,7 @@ public class GameMenuView extends View {
     public GameMenuView() {
         super(      "\n"
                   + "\n------------------------------------------"
-                  + "\n| Game Menu                              |"
+                  + "\n|               Game Menu                |"
                   + "\nV - View map"
                   + "\nF - First task"
                   + "\nS - Second task"
@@ -96,7 +96,8 @@ public class GameMenuView extends View {
     }
 
     private void thirdTask() {
-        System.out.println("*** thirdTask function called ***");
+        Task3View task3 = new Task3View();
+        task3.display();
     }
 
     private void moveToNewLocation() {
