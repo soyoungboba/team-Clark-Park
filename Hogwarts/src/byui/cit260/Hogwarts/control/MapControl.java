@@ -239,30 +239,30 @@ public class MapControl {
         Location[][]locations = map.getLocations();
         
         //start
-        locations[0][0].setScene(scenes[SceneType.office,ordinal()]);
-        locations[0][1].setScene(scenes[SceneType.office,ordinal()]);
-        locations[0][2].setScene(scenes[SceneType.office,ordinal()]);
-        locations[0][3].setScene(scenes[SceneType.office,ordinal()]);
-        locations[0][4].setScene(scenes[SceneType.office,ordinal()]);
-        locations[1][0].setScene(scenes[SceneType.office,ordinal()]);
-        locations[1][1].setScene(scenes[SceneType.office,ordinal()]);
-        locations[1][2].setScene(scenes[SceneType.office,ordinal()]);
-        locations[1][3].setScene(scenes[SceneType.office,ordinal()]);
-        locations[1][4].setScene(scenes[SceneType.office,ordinal()]);
-        locations[2][0].setScene(scenes[SceneType.office,ordinal()]);
-        locations[2][1].setScene(scenes[SceneType.office,ordinal()]);
-        locations[2][2].setScene(scenes[SceneType.office,ordinal()]);
-        locations[2][3].setScene(scenes[SceneType.office,ordinal()]);
-        locations[2][4].setScene(scenes[SceneType.office,ordinal()]);
-        locations[3][0].setScene(scenes[SceneType.office,ordinal()]);
-        locations[3][1].setScene(scenes[SceneType.office,ordinal()]);
-        locations[3][2].setScene(scenes[SceneType.office,ordinal()]);
-        locations[3][3].setScene(scenes[SceneType.office,ordinal()]);
-        locations[3][4].setScene(scenes[SceneType.office,ordinal()]);
-        locations[4][0].setScene(scenes[SceneType.office,ordinal()]);
-        locations[4][1].setScene(scenes[SceneType.office,ordinal()]);
-        locations[4][2].setScene(scenes[SceneType.office,ordinal()]);
-        locations[4][3].setScene(scenes[SceneType.office,ordinal()]);
-        locations[4][4].setScene(scenes[SceneType.finish,ordinal()]);
+        locations[0][0].setScene(scenes[SceneType.Office_of_Professor_McGonagall.ordinal()]);
+        locations[0][1].setScene(scenes[SceneType.Gryffindor_Dormitory.ordinal()]);
+        locations[0][2].setScene(scenes[SceneType.Chamber_of_Secrets.ordinal()]);
+        locations[0][3].setScene(scenes[SceneType.The_Green_Houses.ordinal()]);
+        locations[0][4].setScene(scenes[SceneType.Black_Lake.ordinal()]);
+        locations[1][0].setScene(scenes[SceneType.Classroom.ordinal()]);
+        locations[1][1].setScene(scenes[SceneType.Stairway.ordinal()]);
+        locations[1][2].setScene(scenes[SceneType.Library.ordinal()]);
+        locations[1][3].setScene(scenes[SceneType.Hut_of_Hagrid.ordinal()]);
+        locations[1][4].setScene(scenes[SceneType.Forbidden_Forest.ordinal()]);
+        locations[2][0].setScene(scenes[SceneType.Office_of_Dumbledore.ordinal()]);
+        locations[2][1].setScene(scenes[SceneType.Hallway.ordinal()]);
+        locations[2][2].setScene(scenes[SceneType.Great_Hall.ordinal()]);
+        locations[2][3].setScene(scenes[SceneType.Quidditch_Field.ordinal()]);
+        locations[2][4].setScene(scenes[SceneType.Forbidden_Forest.ordinal()]);
+        locations[3][0].setScene(scenes[SceneType.Lavatory_of_Girls.ordinal()]);
+        locations[3][1].setScene(scenes[SceneType.Hospital_Wing.ordinal()]);
+        locations[3][2].setScene(scenes[SceneType.Classroom.ordinal()]);
+        locations[3][3].setScene(scenes[SceneType.Hallway.ordinal()]);
+        locations[3][4].setScene(scenes[SceneType.Front_Walk.ordinal()]);
+        locations[4][0].setScene(scenes[SceneType.Room_of_Requirement.ordinal()]);
+        locations[4][1].setScene(scenes[SceneType.Office_of_Professor_Snape.ordinal()]);
+        locations[4][2].setScene(scenes[SceneType.Slytherin_Dormitory.ordinal()]);
+        locations[4][3].setScene(scenes[SceneType.Dungeon.ordinal()]);
+        locations[4][4].setScene(scenes[SceneType.finish.ordinal()]);
     }
 }
