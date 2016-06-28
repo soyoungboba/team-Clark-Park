@@ -34,7 +34,7 @@ public class GameControl {
         return player;
     }
 
-    public static void createNewGame(Player player) throws MapControl.MapControlException {
+    public static void createNewGame(Player player) {
         Game game = new Game(); //create new game
         Hogwarts.setCurrentGame(game); //save in Hogwarts
         
