@@ -5,6 +5,8 @@
  */
 package citbyui.cit260.Hogwarts.view;
 import byui.cit260.Hogwarts.control.GameControl; //needed?//
+import byui.cit260.Hogwarts.model.Game;
+import byui.cit260.Hogwarts.model.Item;
 import hogwarts.Hogwarts;
 import java.util.Scanner;
 
@@ -13,7 +15,7 @@ import java.util.Scanner;
  * @author boba
  */
 public class GameMenuView extends View {
-   
+    
     public GameMenuView() {
         super(      "\n"
                   + "\n------------------------------------------"
@@ -113,7 +115,27 @@ public class GameMenuView extends View {
     }
 
     private void viewListOfToolsAcquired() {
-        System.out.println("*** viewListOfToolsAcquired function called ***");
+        
+        StringBuilder line;
+        
+        Game game = Hogwarts.getCurrentGame();
+        Item[] items = game.getItem();
+        
+        System.out.println("\n            List of Items");
+        line = new StringBuilder("                            ");
+        line.insert(0, "Description");
+        line.insert(30, "In Stock");
+        System.out.println(line.toString());
+        
+        //for each inventory item
+        for (Item item : items) {
+        line = new StringBuilder("                              ");
+        line.insert(0, item.getInventoryType());
+        line.insert(23, item.getQuantityInStock());
+        }
+        
+        //display
+        System.out.println(line.toString());
     }
 
     private void numOfCoinsNeeded() {
