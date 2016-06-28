@@ -106,6 +106,4 @@ public class Location implements Serializable{
     public String toString() {
         return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", amountRemaining=" + amountRemaining + '}';
     }
-    
-    
 }
