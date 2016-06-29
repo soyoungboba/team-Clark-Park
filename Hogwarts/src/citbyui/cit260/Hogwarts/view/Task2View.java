@@ -46,10 +46,6 @@ public class Task2View extends View {
         } else {
             System.out.println("Try again!");
         }     
-        
-            }
-            
-            break; // end the loop
         return true; 
     }
 }

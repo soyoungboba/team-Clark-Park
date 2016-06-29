@@ -37,8 +37,7 @@ public class Task3View extends View {
     public boolean doAction(String value) {
 
         TaskControl taskControl = new TaskControl();
-        
-        TaskControl taskControl = new TaskControl();
+               
         answer = taskControl.calcAreaOfTrapezoid(randOne, randTwo, randThree);
         double input = Double.parseDouble(value);
         if (input == answer) {
