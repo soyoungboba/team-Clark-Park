@@ -45,7 +45,11 @@ public class Task2View extends View {
             System.out.println("Correct!");
         } else {
             System.out.println("Try again!");
-        }
+        }     
+        
+            }
+            
+            break; // end the loop
         return true; 
     }
 }

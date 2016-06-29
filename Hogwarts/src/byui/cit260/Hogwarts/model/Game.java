@@ -81,11 +81,11 @@ public class Game implements Serializable{
     }
 
     public void setPlayer(Player player) {
-       System.out.println("*** setPlayer function called ***");
+        System.out.println("\n*** called setPlayer() in Game ***");
     }
 
     public void setMap(Map map) {
-        System.out.println("*** setMap function called ***");
+        System.out.println("\n*** called setmap() in Game ***");
     }
     
     

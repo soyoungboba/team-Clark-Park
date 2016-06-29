@@ -4,9 +4,11 @@
  * and open the template in the editor.
  */
 package citbyui.cit260.Hogwarts.view;
+
 import byui.cit260.Hogwarts.control.GameControl; //needed?//
 import byui.cit260.Hogwarts.model.Game;
 import byui.cit260.Hogwarts.model.Item;
+import byui.cit260.Hogwarts.model.ItemType;
 import hogwarts.Hogwarts;
 import java.util.Scanner;
 
@@ -15,29 +17,29 @@ import java.util.Scanner;
  * @author boba
  */
 public class GameMenuView extends View {
-    
+
     public GameMenuView() {
-        super(      "\n"
-                  + "\n------------------------------------------"
-                  + "\n|               Game Menu                |"
-                  + "\nV - View map"
-                  + "\nF - First task"
-                  + "\nS - Second task"
-                  + "\nT - Third task"
-                  + "\nM - Move to new location"
-                  + "\nL - View current location"
-                  + "\nVC - View number of coins collected"
-                  + "\nVT - View list of tools acquired"
-                  + "\nC - Number of coins needed for each task"
-                  + "\nG - Save game"
-                  + "\nH - Help"
-                  + "\nQ - Main menu"
-                  + "\n------------------------------------------");
-           }
-    
+        super("\n"
+                + "\n------------------------------------------"
+                + "\n|               Game Menu                |"
+                + "\nV - View map"
+                + "\nF - First task"
+                + "\nS - Second task"
+                + "\nT - Third task"
+                + "\nM - Move to new location"
+                + "\nL - View current location"
+                + "\nVC - View number of coins collected"
+                + "\nVT - View list of tools acquired"
+                + "\nC - Number of coins needed for each task"
+                + "\nG - Save game"
+                + "\nH - Help"
+                + "\nQ - Main menu"
+                + "\n------------------------------------------");
+    }
+
     public boolean doAction(String value) {
-         value = value.toUpperCase(); // convert choice to upper case
-        
+        value = value.toUpperCase(); // convert choice to upper case
+
         switch (value) {
             case "V": // View map
                 this.viewMap();
@@ -83,7 +85,7 @@ public class GameMenuView extends View {
     }
 
     private void viewMap() {
-       System.out.println("*** viewMap function called ***");
+        System.out.println("*** viewMap function called ***");
     }
 
     private void firstTask() {
@@ -115,27 +117,35 @@ public class GameMenuView extends View {
     }
 
     private void viewListOfToolsAcquired() {
-        
-        StringBuilder line;
-        
+        //System.out.println("*** viewNumOftoolsCollected function called ***");
+       StringBuilder line;
+
         Game game = Hogwarts.getCurrentGame();
-        Item[] items = game.getItem();
-        
+        //Item[] items = game.getItem();
+        Item[] items = GameControl.createItemList();
+        //items[2].setHasItem(true);
         System.out.println("\n            List of Items");
         line = new StringBuilder("                            ");
         line.insert(0, "Description");
         line.insert(30, "In Stock");
         System.out.println(line.toString());
         
+
         //for each inventory item
         for (Item item : items) {
-        line = new StringBuilder("                              ");
-        line.insert(0, item.getInventoryType());
-        line.insert(23, item.getQuantityInStock());
+            String has = "no";
+            if (item.isHasItem()){
+                has = "yes";
+            }
+            int ordinalValue = item.getOrdinalValue();
+            line = new StringBuilder("                              ");
+            line.insert(0, ItemType.values()[ordinalValue].getInventoryType());
+            line.insert(32, has);
+            System.out.println(line.toString());
         }
-        
+
         //display
-        System.out.println(line.toString());
+        
     }
 
     private void numOfCoinsNeeded() {
@@ -154,5 +164,5 @@ public class GameMenuView extends View {
     private void MainMenuView() {
         MainMenuView mainMenuView = new MainMenuView();
         mainMenuView.display();
-    }        
+    }
 }
