@@ -7,6 +7,7 @@ package byui.cit260.Hogwarts.control;
 
 import byui.cit260.Hogwarts.model.Game;
 import byui.cit260.Hogwarts.model.Item;
+import byui.cit260.Hogwarts.model.ItemType;
 import byui.cit260.Hogwarts.model.Location;
 import byui.cit260.Hogwarts.model.Map;
 import byui.cit260.Hogwarts.model.Player;
@@ -52,8 +53,11 @@ public class GameControl {
     }
     
     public static Item[] createItemList() {
-        System.out.println("\n*** called createItemList() in GameControl ***");
-        return null;
+        Item[] items = new Item[ItemType.values().length];
+        for (int i = 0; i < ItemType.values().length; i++){
+             items[i] = new Item(i);
+        }
+        return items;
     }
     
     public static void saveHouse(String house) {
