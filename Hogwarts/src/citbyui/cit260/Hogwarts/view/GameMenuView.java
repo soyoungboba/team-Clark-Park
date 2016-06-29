@@ -9,6 +9,8 @@ import byui.cit260.Hogwarts.control.GameControl; //needed?//
 import byui.cit260.Hogwarts.model.Game;
 import byui.cit260.Hogwarts.model.Item;
 import byui.cit260.Hogwarts.model.ItemType;
+import byui.cit260.Hogwarts.model.Location;
+import byui.cit260.Hogwarts.model.Map;
 import hogwarts.Hogwarts;
 import java.util.Scanner;
 
@@ -18,8 +20,10 @@ import java.util.Scanner;
  */
 public class GameMenuView extends View {
 
+    private Game game;
+    
     public GameMenuView() {
-        super("\n"
+       super("\n"
                 + "\n------------------------------------------"
                 + "\n|               Game Menu                |"
                 + "\nV - View map"
@@ -35,6 +39,7 @@ public class GameMenuView extends View {
                 + "\nH - Help"
                 + "\nQ - Main menu"
                 + "\n------------------------------------------");
+    game = Hogwarts.getCurrentGame();
     }
 
     public boolean doAction(String value) {
@@ -85,7 +90,15 @@ public class GameMenuView extends View {
     }
 
     private void viewMap() {
-        System.out.println("*** viewMap function called ***");
+        Game game = new Game();
+        Map map = game.getMap();
+        Location[][] locations = map.getLocations();
+        System.out.println("    Map    ");
+        
+        for (int i = 0; i < 5; i++) {
+            System.out.print(i + 1 +"  ");
+            
+        }
     }
 
     private void firstTask() {
@@ -120,7 +133,7 @@ public class GameMenuView extends View {
         //System.out.println("*** viewNumOftoolsCollected function called ***");
        StringBuilder line;
 
-        Game game = Hogwarts.getCurrentGame();
+        
         //Item[] items = game.getItem();
         Item[] items = GameControl.createItemList();
         //items[2].setHasItem(true);
