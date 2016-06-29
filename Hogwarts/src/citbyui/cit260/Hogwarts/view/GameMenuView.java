@@ -97,7 +97,9 @@ public class GameMenuView extends View {
         
         for (int i = 0; i < 5; i++) {
             System.out.print(i + 1 +"  ");
-            
+        }
+        for (int i = 0; i < 5; i++) {
+            System.out.print("|");
         }
     }
 
