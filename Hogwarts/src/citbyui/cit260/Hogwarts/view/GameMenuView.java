@@ -93,14 +93,23 @@ public class GameMenuView extends View {
         Game game = new Game();
         Map map = game.getMap();
         Location[][] locations = map.getLocations();
-        System.out.println("    Map    ");
+        System.out.println("            MAP");
+        System.out.print("   ");
         
         for (int i = 0; i < 5; i++) {
-            System.out.print(i + 1 +"  ");
+            System.out.print(i + 1 + "    ");
         }
+        System.out.print("\n");
         for (int i = 0; i < 5; i++) {
-            System.out.print("|");
+            System.out.println("--------------------------");
+            System.out.print(i + 1);
+            for (int j = 0; j < 5; j++) {
+                System.out.print("|");
+                System.out.print(" ?? ");
+            }
+            System.out.print("\n");
         }
+        
     }
 
     private void firstTask() {
