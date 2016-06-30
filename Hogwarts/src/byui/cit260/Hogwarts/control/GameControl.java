@@ -31,52 +31,77 @@ public class GameControl {
         Player player = new Player();
         player.setName(name);
         Hogwarts.setPlayer(player);
-        
+
         return player;
     }
 
     public static void createNewGame(Player player) {
         Game game = new Game(); //create new game
         Hogwarts.setCurrentGame(game); //save in Hogwarts
-        
+
         game.setPlayer(player); //save player in game
-        
+
         //create the item and save in the game
-        Item[] itemList = GameControl.createItemList(); 
+        Item[] itemList = GameControl.createItemList();
         game.setItem(itemList);
-        
+
         Map map = MapControl.createMap(); //create and initialize new map
         game.setMap(map); //save map in game
-        
+
         //move characters to starting position in the map
         MapControl.moveCharactersToStartingLocation(map);
     }
-    
+
     public static Item[] createItemList() {
         Item[] items = new Item[ItemType.values().length];
-        for (int i = 0; i < ItemType.values().length; i++){
-             items[i] = new Item(i);
+        for (int i = 0; i < ItemType.values().length; i++) {
+            items[i] = new Item(i);
+            /*Item[] items = new Item[4];
+
+            Item wand = new Item();
+            wand.setDescription("Wand");
+            wand.setInventoryType(inventoryType);
+            wand.setQuantityInStock(0);
+            items[Item.wand.ordinal()] = wand;
+
+            Item invisibility cloak = new Item();
+            invisibility_cloak.setDescription("Invisibility cloak");
+            invisibility_cloak.setInventoryType(inventoryType);
+            items[1] = invisibility_cloak;
+
+            Item = new Item();
+            broomstick.setDescription("Broomstick");
+            broomstick.setInventoryType(inventoryType);
+            broomstick.setQuantityInStock(0);
+            items[2] = broomstick;
+
+            Item = new Item();
+            gillyweed.setDescription("Gillyweed");
+            gillyweed.setInventoryType(inventoryType);
+            gillyweed.setQuantityInStock(0);
+            items[3] = gillyweed;  */
         }
         return items;
     }
-    
+
     public static void saveHouse(String house) {
         System.out.println("\n*** saveHouse() function called ***");
     }
+
     public static int randNum() {
         Random rand = new Random();
-        randOne = rand.nextInt(30)+1;
+        randOne = rand.nextInt(30) + 1;
         //randOne = (int)(Math.random()*50 + 1);
         return randOne;
     }
 
     static void assignScenesToLocations(Map map, Scene[] scenes) {
         Location[][] locations = map.getLocations();
-        
+
         locations[0][0].setScene(scenes[SceneType.Office_of_Professor_McGonagall.ordinal()]);
-        
+
         //other locations
         locations[4][4].setScene(scenes[SceneType.finish.ordinal()]);
-        
+
     }
 }
