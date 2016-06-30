@@ -49,7 +49,7 @@ public class Task2View extends View {
             value2 = Double.parseDouble(value);
         } catch (NumberFormatException nf) {
         System.out.println("\nYou must enter a valid number");
-        }
+        }*/
         return true; 
-    }*/
+    }
 }
