@@ -19,6 +19,10 @@ public class Game implements Serializable{
     private Item[] item;
     private Map map;
 
+    public Map getMap() {
+        return new Map();
+    }
+
     public Item[] getItem() {
         return item;
     }
@@ -46,6 +50,7 @@ public class Game implements Serializable{
         this.endGame = endGame;
     }
 
+    
     @Override
     public int hashCode() {
         int hash = 7;
