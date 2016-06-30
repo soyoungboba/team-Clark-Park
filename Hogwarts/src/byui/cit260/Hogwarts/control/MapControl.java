@@ -9,7 +9,9 @@ import byui.cit260.Hogwarts.model.Map;
 import byui.cit260.Hogwarts.model.Player;
 import byui.cit260.Hogwarts.model.Scene;
 import byui.cit260.Hogwarts.model.SceneType;
+import citbyui.cit260.Hogwarts.exceptions.MapControlException;
 import hogwarts.Hogwarts;
+import java.awt.Point;
 /**
  *
  * @author boba
@@ -26,8 +28,14 @@ public class MapControl {
         return map;
     }
 
-    static void moveCharactersToStartingLocation(Map map) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public static void moveCharactersToStartingLocation(Map map)
+                        throws MapControlException {
+        Character[] characters = Character.values();
+        //for every character
+        for (Character character : characters) {
+            Point coordinates = character.getCoordinates();
+            MapControl.moveToCurrentLocation(character, coordinates);
+        }
     }
 
     private static Scene[] createScenes() {
@@ -264,5 +272,9 @@ public class MapControl {
         locations[4][2].setScene(scenes[SceneType.Slytherin_Dormitory.ordinal()]);
         locations[4][3].setScene(scenes[SceneType.Dungeon.ordinal()]);
         locations[4][4].setScene(scenes[SceneType.finish.ordinal()]);
+   }
+
+    private static void moveToCurrentLocation(Character character, Point coordinates) {
+       System.out.println("move to current location function called");
     }
 }

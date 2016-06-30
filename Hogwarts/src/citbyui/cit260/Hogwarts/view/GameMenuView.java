@@ -6,12 +6,15 @@
 package citbyui.cit260.Hogwarts.view;
 
 import byui.cit260.Hogwarts.control.GameControl; //needed?//
+import byui.cit260.Hogwarts.model.Character;
 import byui.cit260.Hogwarts.model.Game;
 import byui.cit260.Hogwarts.model.Item;
 import byui.cit260.Hogwarts.model.ItemType;
 import byui.cit260.Hogwarts.model.Location;
 import byui.cit260.Hogwarts.model.Map;
+import citbyui.cit260.Hogwarts.exceptions.MapControlException;
 import hogwarts.Hogwarts;
+import java.awt.Point;
 import java.util.Scanner;
 
 /**
@@ -27,6 +30,7 @@ public class GameMenuView extends View {
                 + "\n------------------------------------------"
                 + "\n|               Game Menu                |"
                 + "\nV - View map"
+                + "\nC - Display character"
                 + "\nF - First task"
                 + "\nS - Second task"
                 + "\nT - Third task"
@@ -49,6 +53,9 @@ public class GameMenuView extends View {
             case "V": // View map
                 this.viewMap();
                 break;
+            /*case "C": // Character
+                this.Character();
+                break;*/
             case "F": // First task
                 this.firstTask();
                 break;
@@ -128,12 +135,24 @@ public class GameMenuView extends View {
         task3.display();
     }
 
+    private static void moveToCurrentLocation(Character character, Point coordinates) 
+                                            throws MapControlException {
+        
+        Map map = Hogwarts.getCurrentGame().getMap();
+        int newRow = coordinates.x-1;
+        int newColumn = coordinates.y-1;
+        
+        if (newRow < 0 || newRow >= map.getNoOfRows() ||
+            newColumn <0 || newColumn >= map.getNoOfColumns()) {
+            throw new MapControlException("Can not move character to location"
+                                        + coordinates.x + ", " + coordinates.y 
+                                        + "because that location is outside "
+                                        + "the bounds of the map.");
+        }
+    }
+    
     private void moveToNewLocation() {
         System.out.println("*** moveToNewLocation function called ***");
-    }
-
-    private void moveToCurrentLocation() {
-        System.out.println("*** moveToCurrentLocation function called ***");
     }
 
     private void viewNumOfCoinsCollected() {
@@ -189,4 +208,16 @@ public class GameMenuView extends View {
         MainMenuView mainMenuView = new MainMenuView();
         mainMenuView.display();
     }
+
+@Override
+public boolean doAction(String choice) {
+    Character character = null;
+    
+    //move character to specified location
+    try {
+        MapControl.moveToCurrentLoacation(character, coordinates);
+    } catch (MapControlException me) {
+        System.out.println("\nERROR" + character + "could not be moved to location"
+                        + coordinates.x + ", " + coordinates.y);
+    }  
 }
