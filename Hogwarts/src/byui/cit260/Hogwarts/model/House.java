@@ -18,21 +18,21 @@ import java.util.Objects;
 public enum House implements Serializable{
     
     Gryffindor("Our emblem is the lion, the bravest of all creatures. "
-             + "It’s where the bravest and boldest end up."),
+             + "It’s where the bravest and boldest end up.","Gryffindor"),
     Slytherin("Our emblem is the serpent, the wisest of creatures. We are the "
-            + "coolest and edgiest house in this school."),
+            + "coolest and edgiest house in this school.","Slytherin"),
     Hufflepuff("Our emblem is the badger, which can fight off animals much "
              + "larger than itself, including wolves. "
-             + "Hufflepuffs are trustworthy and loyal."),
+             + "Hufflepuffs are trustworthy and loyal.","Hufflepuff"),
     Ravenclaw("Our emblem is the eagle, which soars where others cannot climb. "
-             + "This is the house where the cleverest witches and wizards live. ");
+             + "This is the house where the cleverest witches and wizards live. ","Ravenclaw");
     
     //private String houseName;
     private final String description;
     private final Point coordinates;
     
 
-    House(String description) {
+    House(String description, String name) {
         this.description = description;
         coordinates = new Point(1,1);
     }

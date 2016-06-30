@@ -27,8 +27,7 @@ public class MapControl {
     }
 
     static void moveCharactersToStartingLocation(Map map) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        System.out.println("set move characters function called");    }
 
     private static Scene[] createScenes() {
         Scene[] scenes = new Scene[SceneType.values().length];
