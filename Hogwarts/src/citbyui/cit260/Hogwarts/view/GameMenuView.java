@@ -32,7 +32,6 @@ public class GameMenuView extends View {
                 + "\n------------------------------------------"
                 + "\n|               Game Menu                |"
                 + "\nV - View map"
-                + "\nCC - Display character"
                 + "\nF - First task"
                 + "\nS - Second task"
                 + "\nT - Third task"
@@ -58,9 +57,6 @@ public class GameMenuView extends View {
         switch (value) {
             case "V": // View map
                 this.viewMap();
-                break;
-            case "CC": // Character
-                this.Character();
                 break;
             case "F": // First task
                 this.firstTask();
@@ -125,11 +121,6 @@ public class GameMenuView extends View {
             }
             System.out.print("\n");
         }
-        
-    }
-
-    private void Character() {
-        Character.display();
     }
     
     private void firstTask() {
