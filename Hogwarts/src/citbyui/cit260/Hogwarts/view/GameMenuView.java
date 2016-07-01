@@ -124,7 +124,6 @@ public class GameMenuView extends View {
     }
     
     private void firstTask() {
-        //System.out.println("*** firstTask function called ***");
         Task1View task1 = new Task1View();
         task1.display();
     }

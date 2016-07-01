@@ -35,16 +35,19 @@ public class Task1View extends View {
     public boolean doAction(String value) {
 
         answer = TaskControl.calcAreaOfTriangle(randOne, randTwo);
-        double input = Double.parseDouble(value);
-        if (input == answer) {
-            System.out.println("That is correct");
-        } else {
-            System.out.println("try again");
+        
+         try {
+            // parse and convert number from text to a double
+           double input = Double.parseDouble(value);
+         if (input == answer) {
+            System.out.println("That is correct");}
+         else {
+            System.out.println("try again");}
+         }catch (NumberFormatException nf) {
+        
+                System.out.println("\nYou must enter a valid number."
+                                + "Try again or enter Q to exit.");
         }
         return false;
     }
-    //public int randOne;
-    //private void randNum() {
-    //GameControl.randNum(randOne);
-
 }

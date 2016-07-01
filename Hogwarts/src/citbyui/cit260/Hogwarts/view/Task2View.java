@@ -36,20 +36,24 @@ public class Task2View extends View {
 
     @Override
     public boolean doAction(String value) {
+        
         Double value2;
         TaskControl taskControl = new TaskControl();
         
         answer = taskControl.calcVolumeOfRectangle(randOne, randTwo, randThree);
-        /*double input = Double.parseDouble(value);
+        
+        try {
+            double input = Double.parseDouble(value);
+            
         if (input== answer) {
             System.out.println("Correct!");
         } else {
             System.out.println("Try again!");
-        } try {
-            value2 = Double.parseDouble(value);
+        } 
         } catch (NumberFormatException nf) {
-        System.out.println("\nYou must enter a valid number");
-        }*/
-        return true; 
+        System.out.println("\nYou must enter a valid number."
+                        + "Try again or enter Q to exit.");
+        }
+        return false; 
     }
 }

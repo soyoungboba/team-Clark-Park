@@ -39,15 +39,18 @@ public class Task3View extends View {
         TaskControl taskControl = new TaskControl();
                
         answer = taskControl.calcAreaOfTrapezoid(randOne, randTwo, randThree);
-        double input = Double.parseDouble(value);
-        if (input == answer) {
-            System.out.println("That is correct");
-        } else {
-            System.out.println("try again");
+        try {
+            // parse and convert number from text to a double
+           double input = Double.parseDouble(value);
+         if (input == answer) {
+            System.out.println("That is correct");}
+         else {
+            System.out.println("try again");}
+         }catch (NumberFormatException nf) {
+        
+                System.out.println("\nYou must enter a valid number."
+                                + "Try again or enter Q to exit.");
         }
-        return true;
+        return false;
     }
-    //public int randOne;
-    //private void randNum() {
-    //GameControl.randNum(randOne);
 }
