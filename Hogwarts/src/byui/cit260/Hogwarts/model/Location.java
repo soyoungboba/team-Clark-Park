@@ -141,6 +141,6 @@ public class Location implements Serializable{
     }
 
     void hasObstacle(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("obstacle function called");
     }
 }
