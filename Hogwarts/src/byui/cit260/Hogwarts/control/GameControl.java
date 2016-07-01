@@ -13,6 +13,7 @@ import byui.cit260.Hogwarts.model.Map;
 import byui.cit260.Hogwarts.model.Player;
 import byui.cit260.Hogwarts.model.Scene;
 import byui.cit260.Hogwarts.model.SceneType;
+import citbyui.cit260.Hogwarts.exceptions.MapControlException;
 import hogwarts.Hogwarts;
 import java.util.Random;
 
@@ -24,9 +25,10 @@ public class GameControl {
 
     public static int randOne;
 
-    public static Player createPlayer(String name) {
+    public static Player createPlayer(String name)
+                throws MapControlException /*chance to gameControl*/{
         if (name == null) {
-            return null;
+            throw new MapControlException("Player name can not be Null");
         }
         Player player = new Player();
         player.setName(name);

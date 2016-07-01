@@ -14,14 +14,13 @@ import java.util.Objects;
  */
 public enum Character implements Serializable{
     
-    Harry("Gryffindor student, Gryffindor Quidditch Seeker and captain, "
-        + "leader of Dumbledore's Army."),
-    Hermione("asdf."),
-    Ron("asdf."),
+    Harry("He's the bravest witch."),
+    Hermione("She is one of the brightest witches."),
+    Ron("He's very loyal and a brilliant player of wizarding chess."),
     Cedric("Asdf,"),
     Cho("asdf."),
     Luna("asdf."),
-    Draco("asdf."),
+    Draco("He comes from an ancient, wealthy wizarding family."),
     Derrick("asdf.");
     
     

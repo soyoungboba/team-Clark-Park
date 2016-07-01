@@ -7,6 +7,7 @@ package citbyui.cit260.Hogwarts.view;
 
 import byui.cit260.Hogwarts.control.GameControl;
 import byui.cit260.Hogwarts.model.Player;
+import citbyui.cit260.Hogwarts.exceptions.MapControlException;
 import java.util.Scanner;
 
 /**
@@ -88,16 +89,20 @@ public class StartProgramView {
             
         }
         
-        
+        try{
         Player player = GameControl.createPlayer(playerName);
-        
-        if (player == null) {
-            System.out.println("\nError creating the player.");
-            return false;
-        }
-    
         this.displayNextView(player);
         return true;
+        }catch(MapControlException me) {
+            System.out.println(me.getMessage());
+            return false;
+        }
+        //if (player == null) {
+            //System.out.println("\nError creating the player.");
+            
+        //}
+    
+        
     }
     private void displayNextView(Player player) {
         System.out.println("\n======================================="
