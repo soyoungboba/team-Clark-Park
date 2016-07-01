@@ -30,7 +30,7 @@ public class GameMenuView extends View {
                 + "\n------------------------------------------"
                 + "\n|               Game Menu                |"
                 + "\nV - View map"
-                + "\nC - Display character"
+                + "\nCC - Display character"
                 + "\nF - First task"
                 + "\nS - Second task"
                 + "\nT - Third task"
