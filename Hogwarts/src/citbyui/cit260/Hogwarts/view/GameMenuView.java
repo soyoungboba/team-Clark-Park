@@ -53,9 +53,9 @@ public class GameMenuView extends View {
             case "V": // View map
                 this.viewMap();
                 break;
-            /*case "C": // Character
+            case "CC": // Character
                 this.Character();
-                break;*/
+                break;
             case "F": // First task
                 this.firstTask();
                 break;
@@ -69,7 +69,7 @@ public class GameMenuView extends View {
                 this.moveToNewLocation();
                 break;
             case "L": // View current location
-                this.moveToCurrentLocation();
+                //this.moveToCurrentLocation();
                 break;
             case "VC": // View number of coins collected 
                 this.viewNumOfCoinsCollected();
@@ -119,6 +119,10 @@ public class GameMenuView extends View {
         
     }
 
+    private void Character() {
+        Character.display();
+    }
+    
     private void firstTask() {
         //System.out.println("*** firstTask function called ***");
         Task1View task1 = new Task1View();
@@ -209,7 +213,7 @@ public class GameMenuView extends View {
         mainMenuView.display();
     }
 
-@Override
+/*@Override
 public boolean doAction(String choice) {
     Character character = null;
     
@@ -219,5 +223,5 @@ public boolean doAction(String choice) {
     } catch (MapControlException me) {
         System.out.println("\nERROR" + character + "could not be moved to location"
                         + coordinates.x + ", " + coordinates.y);
-    }  
+    }  */
 }
