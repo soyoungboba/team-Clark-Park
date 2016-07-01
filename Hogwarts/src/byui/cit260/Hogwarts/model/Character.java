@@ -17,11 +17,15 @@ public enum Character implements Serializable{
     Harry("He's the bravest witch."),
     Hermione("She is one of the brightest witches."),
     Ron("He's very loyal and a brilliant player of wizarding chess."),
-    Cedric("Asdf,"),
-    Cho("asdf."),
-    Luna("asdf."),
-    Draco("He comes from an ancient, wealthy wizarding family."),
-    Derrick("asdf.");
+    Cedric("He is honest and hardworking."),
+    Cho("She is an excellent Quidditch player."),
+    Luna("Even though she is seen as an odd and weird person, she is quite clever."),
+    Draco("He comes from an ancient, wealthy wizarding family.");
+
+    public static void display() {
+        System.out.println(Harry + "\n" + Hermione + "\n" + Ron + "\n" + Cedric + "\n" 
+                        + Cho + "\n" + Luna + "\n" + Draco);
+    }
     
     
     //private String name;
@@ -92,8 +96,8 @@ public enum Character implements Serializable{
         return true;
     }*/
 
-    @Override
+    /*@Override
     public String toString() {
         return "Character{" + "description= " + description + " coordinates=" + coordinates + '}';
-    }
+    }*/
 }
