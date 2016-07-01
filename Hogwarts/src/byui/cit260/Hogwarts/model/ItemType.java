@@ -17,10 +17,10 @@ package byui.cit260.Hogwarts.model;
  * @author boba
  */
 public enum ItemType{
-    Wand("Tool 1", 50),
-    Invisibility_cloak("Tool 2", 50),
-    Broomstick("Tool 3", 50),
-    Gillyweed("Tool 4", 50);
+    Wand("Magic Wand", 50),
+    Invisibility_cloak("Invisibility Cloak", 50),
+    Broomstick("Broomstick", 50),
+    Gillyweed("Gillyweed", 50);
     
     // class instance variables
    

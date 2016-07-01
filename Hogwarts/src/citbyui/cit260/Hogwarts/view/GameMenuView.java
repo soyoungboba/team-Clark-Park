@@ -8,6 +8,7 @@ package citbyui.cit260.Hogwarts.view;
 import byui.cit260.Hogwarts.control.GameControl; //needed?//
 import byui.cit260.Hogwarts.model.Character;
 import byui.cit260.Hogwarts.model.Game;
+import byui.cit260.Hogwarts.model.House;
 import byui.cit260.Hogwarts.model.Item;
 import byui.cit260.Hogwarts.model.ItemType;
 import byui.cit260.Hogwarts.model.Location;
@@ -38,6 +39,7 @@ public class GameMenuView extends View {
                 + "\nL - View current location"
                 + "\nVC - View number of coins collected"
                 + "\nVT - View list of tools acquired"
+                + "\nVHL - View House list"
                 + "\nC - Number of coins needed for each task"
                 + "\nG - Save game"
                 + "\nH - Help"
@@ -76,6 +78,9 @@ public class GameMenuView extends View {
                 break;
             case "VT": // View list of tools acquired
                 this.viewListOfToolsAcquired();
+                break;
+            case "VHL": // View list of tools acquired
+                this.viewListOfHouses();
                 break;
             case "C": // Number of coins needed for eash task
                 this.numOfCoinsNeeded();
@@ -213,15 +218,12 @@ public class GameMenuView extends View {
         mainMenuView.display();
     }
 
-/*@Override
-public boolean doAction(String choice) {
-    Character character = null;
-    
-    //move character to specified location
-    try {
-        MapControl.moveToCurrentLoacation(character, coordinates);
-    } catch (MapControlException me) {
-        System.out.println("\nERROR" + character + "could not be moved to location"
-                        + coordinates.x + ", " + coordinates.y);
-    }  */
+    private void viewListOfHouses() {
+        House[] houses = House.values();
+        System.out.println("\n         List of Houses");
+        //for (int i =0; i < houses.length; i++){
+        for ( House house:houses )
+            System.out.println(houses);
+        }
+    //}
 }

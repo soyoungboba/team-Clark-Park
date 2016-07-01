@@ -10,6 +10,12 @@ package byui.cit260.Hogwarts.control;
  * @author Cody
  */
 public class TaskControl {
+    private static boolean equals(double a, double b, double epsilon){
+        if (a==b) {
+            return true;
+        }
+        return Math.abs(a-b)<epsilon;
+    }
     // insert function task 1
     public static double calcAreaOfTriangle(double base,double height){		
 	if (height < 0 || height > 30) {	
@@ -48,7 +54,7 @@ public class TaskControl {
             return -1;
         }
         double radius = (circ/(Math.PI))*.5;
-        if (playerAnswer != radius){
+        if (!equals(playerAnswer, radius, 0.01d)){
             return -2;
         }
         
