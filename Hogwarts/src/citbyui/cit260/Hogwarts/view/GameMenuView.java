@@ -219,5 +219,4 @@ public class GameMenuView extends View {
         for ( House house:houses )
             System.out.println(houses);
         }
-    //}
 }
