@@ -21,6 +21,23 @@ public class Location implements Serializable{
     private float amountRemaining;
     private Scene scene;
     private ArrayList<Character> character;
+    private boolean hasObstacle;
+
+    public ArrayList<Character> getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(ArrayList<Character> character) {
+        this.character = character;
+    }
+
+    public boolean hasObstacle() {
+        return hasObstacle;
+    }
+
+    public void setObstacle(boolean hasObstacle) {
+        this.hasObstacle = hasObstacle;
+    }
 
     public Scene getScene() {
         return scene;
@@ -31,6 +48,7 @@ public class Location implements Serializable{
     }
     
     public Location() {
+        hasObstacle = false;
     }
 
     public double getRow() {
@@ -105,5 +123,9 @@ public class Location implements Serializable{
     @Override
     public String toString() {
         return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", amountRemaining=" + amountRemaining + '}';
+    }
+
+    void hasObstacle(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

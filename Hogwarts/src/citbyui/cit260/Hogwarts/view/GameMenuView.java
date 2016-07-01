@@ -160,7 +160,7 @@ public class GameMenuView extends View {
     }
 
     private void viewNumOfCoinsCollected() {
-        System.out.println("*** viewNumOfCoinsCollected function called ***");
+        
     }
 
     private void viewListOfToolsAcquired() {

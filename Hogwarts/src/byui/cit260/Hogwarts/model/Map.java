@@ -6,6 +6,7 @@
 package byui.cit260.Hogwarts.model;
 import java.io.Serializable;
 import java.util.Arrays;
+import java.util.Random;
 /**
  *
  * @author boba
@@ -29,20 +30,45 @@ public class Map implements Serializable{
           System.out.println("The number of rows and columns must be > zero");
           return;
       }  
-      this.noOfRows = noOfRows;
-      this.noOfColumns = noOfColumns;
       
-      this.locations = new Location[noOfRows][noOfColumns];
-      for (int row = 0; row < noOfRows; row++){
-          for(int column = 0; column < noOfColumns; column++){
-              Location location = new Location();
-              location.setColumn(column);
-              location.setRow(row);
-              location.setVisited(false);
-              locations[row][column] = location;
-          }
-      }
+    int[] intArray = new int[6];
+    
+    Random randomGenerator = new Random();
+    
+    for (int idx = 0; idx < 6; idx++) {
+      intArray[idx] = randomGenerator.nextInt(5);
     }
+      
+    this.noOfRows = noOfRows;
+    this.noOfColumns = noOfColumns;
+      
+    this.locations = new Location[noOfRows][noOfColumns];
+    
+    for (int row = 0; row < noOfRows; row++) {
+        for(int column = 0; column < noOfColumns; column++) {
+            Location location = new Location();
+            location.setColumn(column);
+            location.setRow(row);
+            location.setVisited(false);
+            location.setObstacle(true);
+            locations[row][column] = location;
+            }
+        }
+    
+    Location location = new Location();
+    location.hasObstacle(true);
+    locations[intArray[0]][intArray[1]] = location;
+    
+    Location location2 = new Location();
+    location.hasObstacle(true);
+    locations[intArray[2]][intArray[3]] = location;
+    
+    Location location3 = new Location();
+    location.hasObstacle(true);
+    locations[intArray[4]][intArray[5]] = location;
+    }
+
+    
     
     @Override
     public String toString() {

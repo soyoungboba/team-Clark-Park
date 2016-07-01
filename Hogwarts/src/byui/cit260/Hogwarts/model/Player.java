@@ -14,9 +14,18 @@ import java.util.Objects;
 public class Player implements Serializable{
     
     private String name;
-    
+    private Double coin;
+
+    public Double getCoin() {
+        return coin;
+    }
+
+    public void setCoin(Double coin) {
+        this.coin = coin;
+    }
 
     public Player() { 
+        coin = 0.0;
     }
     
     public String getName() {
