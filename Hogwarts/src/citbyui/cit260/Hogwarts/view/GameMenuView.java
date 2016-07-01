@@ -13,6 +13,7 @@ import byui.cit260.Hogwarts.model.Item;
 import byui.cit260.Hogwarts.model.ItemType;
 import byui.cit260.Hogwarts.model.Location;
 import byui.cit260.Hogwarts.model.Map;
+import byui.cit260.Hogwarts.model.Player;
 import citbyui.cit260.Hogwarts.exceptions.MapControlException;
 import hogwarts.Hogwarts;
 import java.awt.Point;
@@ -31,7 +32,6 @@ public class GameMenuView extends View {
                 + "\n------------------------------------------"
                 + "\n|               Game Menu                |"
                 + "\nV - View map"
-                + "\nCC - Display character"
                 + "\nF - First task"
                 + "\nS - Second task"
                 + "\nT - Third task"
@@ -49,14 +49,14 @@ public class GameMenuView extends View {
     }
 
     public boolean doAction(String value) {
+        
         value = value.toUpperCase(); // convert choice to upper case
-
+        
+        Character character = Character.Cedric;
+        Point coord = character.getCoordinates();
         switch (value) {
             case "V": // View map
                 this.viewMap();
-                break;
-            case "CC": // Character
-                this.Character();
                 break;
             case "F": // First task
                 this.firstTask();
@@ -70,8 +70,8 @@ public class GameMenuView extends View {
             case "M": // Move to new location
                 this.moveToNewLocation();
                 break;
-            case "L": // View current location
-                //this.moveToCurrentLocation();
+            case "L": //View current location
+                //this.moveToCurrentLocation(character, coord);
                 break;
             case "VC": // View number of coins collected 
                 this.viewNumOfCoinsCollected();
@@ -121,11 +121,6 @@ public class GameMenuView extends View {
             }
             System.out.print("\n");
         }
-        
-    }
-
-    private void Character() {
-        Character.display();
     }
     
     private void firstTask() {
@@ -161,11 +156,11 @@ public class GameMenuView extends View {
     }
     
     private void moveToNewLocation() {
-        System.out.println("*** moveToNewLocation function called ***");
+        
     }
 
     private void viewNumOfCoinsCollected() {
-        System.out.println("*** viewNumOfCoinsCollected function called ***");
+        
     }
 
     private void viewListOfToolsAcquired() {

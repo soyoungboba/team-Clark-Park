@@ -8,6 +8,7 @@ package byui.cit260.Hogwarts.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.Scanner;
 
 /**
  *
@@ -21,6 +22,37 @@ public class Location implements Serializable{
     private float amountRemaining;
     private Scene scene;
     private ArrayList<Character> character;
+    private boolean hasObstacle;
+
+    public void displayMathQuestion() {
+        System.out.println("You have an opportunity to gain coins or a tool. Do you wish to continue? (y or n)");
+        
+        String input;
+     
+       Scanner scanIn = new Scanner(System.in);
+       input = scanIn.nextLine();
+
+       scanIn.close();
+       
+       if (input == "y") {
+           System.out.println("What is 1 + 1?");
+       }
+    }
+    public ArrayList<Character> getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(ArrayList<Character> character) {
+        this.character = character;
+    }
+
+    public boolean hasObstacle() {
+        return hasObstacle;
+    }
+
+    public void setObstacle(boolean hasObstacle) {
+        this.hasObstacle = hasObstacle;
+    }
 
     public Scene getScene() {
         return scene;
@@ -31,6 +63,7 @@ public class Location implements Serializable{
     }
     
     public Location() {
+        hasObstacle = false;
     }
 
     public double getRow() {
@@ -105,5 +138,9 @@ public class Location implements Serializable{
     @Override
     public String toString() {
         return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", amountRemaining=" + amountRemaining + '}';
+    }
+
+    void hasObstacle(boolean b) {
+        System.out.println("obstacle function called");
     }
 }
