@@ -31,7 +31,7 @@ public class GameMenuView extends View {
                 + "\n------------------------------------------"
                 + "\n|               Game Menu                |"
                 + "\nV - View map"
-                + "\nC - Display character"
+                + "\nCC - Display character"
                 + "\nF - First task"
                 + "\nS - Second task"
                 + "\nT - Third task"
@@ -55,9 +55,9 @@ public class GameMenuView extends View {
             case "V": // View map
                 this.viewMap();
                 break;
-            /*case "C": // Character
+            case "CC": // Character
                 this.Character();
-                break;*/
+                break;
             case "F": // First task
                 this.firstTask();
                 break;
@@ -71,7 +71,7 @@ public class GameMenuView extends View {
                 this.moveToNewLocation();
                 break;
             case "L": // View current location
-                this.moveToCurrentLocation();
+                //this.moveToCurrentLocation();
                 break;
             case "VC": // View number of coins collected 
                 this.viewNumOfCoinsCollected();
@@ -124,6 +124,10 @@ public class GameMenuView extends View {
         
     }
 
+    private void Character() {
+        Character.display();
+    }
+    
     private void firstTask() {
         //System.out.println("*** firstTask function called ***");
         Task1View task1 = new Task1View();
