@@ -8,6 +8,7 @@ package byui.cit260.Hogwarts.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.Scanner;
 
 /**
  *
@@ -23,6 +24,20 @@ public class Location implements Serializable{
     private ArrayList<Character> character;
     private boolean hasObstacle;
 
+    public void displayMathQuestion() {
+        System.out.println("You have an opportunity to gain coins or a tool. Do you wish to continue? (y or n)");
+        
+        String input;
+     
+       Scanner scanIn = new Scanner(System.in);
+       input = scanIn.nextLine();
+
+       scanIn.close();
+       
+       if (input == "y") {
+           System.out.println("What is 1 + 1?");
+       }
+    }
     public ArrayList<Character> getCharacter() {
         return character;
     }
