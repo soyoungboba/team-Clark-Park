@@ -14,6 +14,7 @@ import byui.cit260.Hogwarts.model.ItemType;
 import byui.cit260.Hogwarts.model.Location;
 import byui.cit260.Hogwarts.model.Map;
 import byui.cit260.Hogwarts.model.Player;
+import byui.cit260.Hogwarts.model.Scene;
 import citbyui.cit260.Hogwarts.exceptions.MapControlException;
 import hogwarts.Hogwarts;
 import java.awt.Point;
@@ -155,6 +156,13 @@ public class GameMenuView extends View {
     }
     
     private void moveToNewLocation() {
+        Map map = game.getMap();
+        /*for (int i = 0; i < 5; i++)
+            for (int j = 0; j < 5; j++)
+            {
+            Scene scene = locations[i][j].getScene();
+            System.out.println(scene.getDescription());
+            }*/
         
     }
 

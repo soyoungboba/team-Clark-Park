@@ -58,9 +58,15 @@ public boolean doAction(String value) {
         //HouseMenuVeiw.chooseHouse(Hogwarts.getHouseName());
         HouseMenuView houseMenu = new HouseMenuView();
         houseMenu.display();
-        // display the game menu 
-        //GameMenuView gameMenu = new GameMenuView();//
-        //gameMenu.displayMenu();//
+        
+        
+        CharacterMenuView characterMenuView = new CharacterMenuView();
+        characterMenuView.display();
+        /*
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+        System.out.println(input);
+*/
     }
 
     private void startExistingGame() {

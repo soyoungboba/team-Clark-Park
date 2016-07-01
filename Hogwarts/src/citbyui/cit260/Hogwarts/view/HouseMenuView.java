@@ -57,8 +57,9 @@ public class HouseMenuView extends View{
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
+                
         }
-        return false;
+        return true;
     }
 
     //private void Exit() {
