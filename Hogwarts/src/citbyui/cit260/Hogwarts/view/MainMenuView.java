@@ -62,6 +62,10 @@ public boolean doAction(String value) {
         
         CharacterMenuView characterMenuView = new CharacterMenuView();
         characterMenuView.display();
+        
+        GameMenuView gameMenuView = new GameMenuView();
+        gameMenuView.display();
+        
         /*
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();

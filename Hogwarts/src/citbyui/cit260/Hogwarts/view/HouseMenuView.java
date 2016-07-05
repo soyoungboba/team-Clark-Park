@@ -19,7 +19,7 @@ public class HouseMenuView extends View{
     public HouseMenuView() {
          super("\n"
                   + "\n-------------------------------------"
-                  + "\n| Choose Your House                 |"
+                  + "\n|        Choose Your House          |"
                   + "\nG - Gryffindor"
                   + "\nS - Slytherin"
                   + "\nH - Hufflepuff"
