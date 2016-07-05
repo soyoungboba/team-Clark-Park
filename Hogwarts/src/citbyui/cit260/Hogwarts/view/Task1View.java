@@ -34,9 +34,8 @@ public class Task1View extends View {
     @Override
     public boolean doAction(String value) {
 
-        answer = TaskControl.calcAreaOfTriangle(randOne, randTwo);
-        
          try {
+           answer = TaskControl.calcAreaOfTriangle(randOne, randTwo);
             // parse and convert number from text to a double
            double input = Double.parseDouble(value);
          if (input == answer) {
@@ -46,7 +45,7 @@ public class Task1View extends View {
          }catch (NumberFormatException nf) {
         
                 System.out.println("\nYou must enter a valid number."
-                                + "Try again or enter Q to exit.");
+                                + " Try again or enter Q to exit.");
         }
         return false;
     }

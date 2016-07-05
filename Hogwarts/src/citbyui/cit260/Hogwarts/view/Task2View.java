@@ -37,12 +37,14 @@ public class Task2View extends View {
     @Override
     public boolean doAction(String value) {
         
-        Double value2;
-        TaskControl taskControl = new TaskControl();
+       
+        
+        try {
+             Double value2;
+             TaskControl taskControl = new TaskControl();
         
         answer = taskControl.calcVolumeOfRectangle(randOne, randTwo, randThree);
         
-        try {
             double input = Double.parseDouble(value);
             
         if (input== answer) {
@@ -52,7 +54,7 @@ public class Task2View extends View {
         } 
         } catch (NumberFormatException nf) {
         System.out.println("\nYou must enter a valid number."
-                        + "Try again or enter Q to exit.");
+                        + " Try again or enter Q to exit.");
         }
         return false; 
     }

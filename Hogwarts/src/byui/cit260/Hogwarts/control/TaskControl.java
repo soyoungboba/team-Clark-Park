@@ -17,7 +17,9 @@ public class TaskControl {
         return Math.abs(a-b)<epsilon;
     }
     // insert function task 1
-    public static double calcAreaOfTriangle(double base,double height){		
+    public static double calcAreaOfTriangle(double base,double height)
+        throws NumberFormatException {	
+        
 	if (height < 0 || height > 30) {	
             return -1;	
         }	
@@ -30,7 +32,8 @@ public class TaskControl {
     }	
     
     // task 2
-    public double calcVolumeOfRectangle(double width, double height, double length) {
+    public double calcVolumeOfRectangle(double width, double height, double length) 
+          throws NumberFormatException {
         if (width < 0) {
             return -1;
         }
@@ -46,7 +49,9 @@ public class TaskControl {
     }
     
     // task 3
-    public double calcRadius(double circ, double diameter,double playerAnswer){
+    public double calcRadius(double circ, double diameter,double playerAnswer)
+        throws NumberFormatException{
+        
         if (circ < 1 || circ > 50){
             return -1;
         }
