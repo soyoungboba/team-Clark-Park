@@ -18,8 +18,11 @@ import citbyui.cit260.Hogwarts.view.StartProgramView;
 import citbyui.cit260.Hogwarts.view.HelpMenuView;
 import citbyui.cit260.Hogwarts.view.MainMenuView;
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Hogwarts {
     
@@ -46,6 +49,16 @@ public class Hogwarts {
     }
     private static BufferedReader inFile = null;
     
+    public static PrintWriter logFile = null;
+
+    public static PrintWriter getLogFile() {
+        return logFile;
+    }
+
+    public static void setLogFile(PrintWriter logFile) {
+        Hogwarts.logFile = logFile;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -60,9 +73,13 @@ public class Hogwarts {
         Hogwarts.outFile = new PrintWriter(System.out, true);
         
         // create StartProgramView and start the program
-        StartProgramView startProgramView = new StartProgramView();
+        /*StartProgramView startProgramView = new StartProgramView();
         startProgramView.display();
-        return;
+        return;*/
+        
+        // open log file
+        String filePath = "log.txt";
+        Hogwarts.logFile = new PrintWriter(filePath);
 
         } catch (Throwable te) {
             
@@ -72,6 +89,23 @@ public class Hogwarts {
            
             te.printStackTrace();
         }  
+        
+        finally {
+            try {
+                if (Hogwarts.inFile != null)
+                    Hogwarts.inFile.close();
+                
+                if (Hogwarts.outFile != null)
+                    Hogwarts.outFile.close();
+                
+                if (Hogwarts.logFile != null)
+                    Hogwarts.logFile.close();
+                
+            } catch (IOException ex) {
+                System.out.println("Error closing files");
+                return;
+            }
+        }
     }
     
     public static Player getPlayer() {
@@ -96,6 +130,10 @@ public class Hogwarts {
 
     public static void setHouseName(House houseName) {
         Hogwarts.houseName = houseName;
+    }
+
+    public static PrintWriter getoutFile() {
+        throw new UnsupportedOperationException("Not supported yet."); 
     }
 
 }
