@@ -87,9 +87,12 @@ public class GameControl {
     }
 
     public static void saveHouse(String house) {
-        System.out.println("\n*** saveHouse() function called ***");
+        Hogwarts.getPlayer().setHouse(house);
     }
 
+    public static void saveCharacter(String character){
+        Hogwarts.getPlayer().setCharacter(character);
+    }
     public static int randNum() {
         Random rand = new Random();
         randOne = rand.nextInt(30) + 1;

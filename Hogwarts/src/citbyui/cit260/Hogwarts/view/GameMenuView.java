@@ -225,6 +225,6 @@ public class GameMenuView extends View {
         System.out.println("\n         List of Houses");
         //for (int i =0; i < houses.length; i++){
         for ( House house:houses )
-            System.out.println(houses);
+            System.out.println(house);
         }
 }

@@ -5,6 +5,8 @@
  */
 package citbyui.cit260.Hogwarts.view;
 
+import byui.cit260.Hogwarts.control.GameControl;
+
 /**
  *
  * @author boba
@@ -37,22 +39,25 @@ public class CharacterMenuView extends View {
         
         switch (value) {
             case "HR": // house name griffindor
-                this.harry();
+                this.saveCharacter("Harry");
                 break;
             case "HM":
-                this.hermione();
+                this.saveCharacter("HERMIONE");
                 break;
             case "R":
-                this.ron();
+                this.saveCharacter("Ron");
                 break;
             case "CE":
-                this.cedric();
+                this.saveCharacter("Cedric");
                 break;
             case "CH":
-                this.cho();
+                this.saveCharacter("Cho");
                 break;
             case "L":
-                this.luna();
+                this.saveCharacter("Luna");
+                break;
+            case "D":
+                this.saveCharacter("Draco");
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
@@ -60,8 +65,10 @@ public class CharacterMenuView extends View {
         }
         return true;
     }
-    
-    private void harry() {
+    private void saveCharacter(String charName){
+        GameControl.saveCharacter(charName);
+    }
+    /*private void harry() {
         System.out.println("\n*** Harry function was called");
     }
     
@@ -87,5 +94,5 @@ public class CharacterMenuView extends View {
     
     private void draco() {
         System.out.println("\n*** Luna function was called");
-    }
+    }*/
 }
