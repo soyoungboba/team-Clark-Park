@@ -5,9 +5,6 @@
  */
 package citbyui.cit260.Hogwarts.view;
 
-import hogwarts.Hogwarts;
-import java.io.BufferedReader;
-import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
@@ -17,9 +14,6 @@ import java.util.Scanner;
 public abstract class View implements ViewInterface {
     
     protected String displayMessage; 
-    
-    protected final BufferedReader keyboard = Hogwarts.getInFile();
-    protected final PrintWriter console = Hogwarts.getOutFile();
     
     public View() {
     }
@@ -46,27 +40,25 @@ public abstract class View implements ViewInterface {
     
     @Override
     public String getInput() {
-        
-        //Scanner keyboard = new Scanner(System.in); 
-        boolean valid = false; 
-        String selection = null;
-        try {
-        while (!valid) { 
+         
+        Scanner keyboard = new Scanner(System.in); 
+        boolean valid = false;  
+        String value = null;
     
-            // get the value entered from the keyboard
-            selection = keyboard.readLine();
-            selection = selection.trim();
+        while (!valid) { // loop while an invalid value is enter
+            System.out.println("\n" + this.displayMessage);
             
-            if (selection.length() < 1) { // blank value entered
-                System.out.println("You must enter a value.");
+            value = keyboard.nextLine(); // get next line typed on keyboard
+            value = value.trim(); // trim off leading and trailing blanks
+            
+            if (value.length() < 1) { // value is blank
+                System.out.println("\n***You must enter a value***");
                 continue;
             }
-            break; 
-        }
-        } catch (Exception te) {    
-        System.out.println("Error reading input: " + te.getMessage());
+            
+            break; // end the loop
         }
     
-        return selection; // return the name
-    }       
+        return value; // return the value entered
+        }
 }

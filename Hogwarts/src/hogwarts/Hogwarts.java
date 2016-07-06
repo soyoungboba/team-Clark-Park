@@ -17,97 +17,26 @@ import byui.cit260.Hogwarts.model.Game;
 import citbyui.cit260.Hogwarts.view.StartProgramView;
 import citbyui.cit260.Hogwarts.view.HelpMenuView;
 import citbyui.cit260.Hogwarts.view.MainMenuView;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Hogwarts {
     
     private static Game currentGame = null;
     private static Player player = null;
     private static House houseName = null;
-    
-    private static PrintWriter outFile = null;
-
-    public static PrintWriter getOutFile() {
-        return outFile;
-    }
-
-    public static void setOutFile(PrintWriter outFile) {
-        Hogwarts.outFile = outFile;
-    }
-
-    public static BufferedReader getInFile() {
-        return inFile;
-    }
-
-    public static void setInFile(BufferedReader inFile) {
-        Hogwarts.inFile = inFile;
-    }
-    private static BufferedReader inFile = null;
-    
-    public static PrintWriter logFile = null;
-
-    public static PrintWriter getLogFile() {
-        return logFile;
-    }
-
-    public static void setLogFile(PrintWriter logFile) {
-        Hogwarts.logFile = logFile;
-    }
-    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        StartProgramView startProgramView = new StartProgramView();
+        try{
+        startProgramView.displayStartProgramView();
         
-        try {   
-        
-        // open character stream files for end user input and output
-        Hogwarts.inFile = 
-                new BufferedReader(new InputStreamReader(System.in));
-        
-        Hogwarts.outFile = new PrintWriter(System.out, true);
-        
-        // create StartProgramView and start the program
-        /*StartProgramView startProgramView = new StartProgramView();
-        startProgramView.display();
-        return;*/
-        
-        // open log file
-        String filePath = "log.txt";
-        Hogwarts.logFile = new PrintWriter(filePath);
-
         } catch (Throwable te) {
-            
-            System.out.println("Exception: " + te.toString() +
-                               "\nCause: " + te.getCause() +
-                               "\nMessage: " + te.getMessage());
-           
+            System.out.println(te.getMessage());
             te.printStackTrace();
+            startProgramView.displayStartProgramView();
         }  
-        
-        finally {
-            try {
-                if (Hogwarts.inFile != null)
-                    Hogwarts.inFile.close();
-                
-                if (Hogwarts.outFile != null)
-                    Hogwarts.outFile.close();
-                
-                if (Hogwarts.logFile != null)
-                    Hogwarts.logFile.close();
-                
-            } catch (IOException ex) {
-                System.out.println("Error closing files");
-                return;
-            }
-        }
-    }
-    
+}
     public static Player getPlayer() {
         return player;
     }
@@ -132,8 +61,4 @@ public class Hogwarts {
         Hogwarts.houseName = houseName;
     }
 
-    public static PrintWriter getoutFile() {
-        throw new UnsupportedOperationException("Not supported yet."); 
     }
-
-}
