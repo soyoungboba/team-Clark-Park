@@ -5,6 +5,8 @@
  */
 package byui.cit260.Hogwarts.model;
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.Objects;
 /**
  *
  * @author boba
@@ -16,11 +18,15 @@ public class Game implements Serializable{
     private double endGame;
    
     private Player player;
+
+    public Player getPlayer() {
+        return player;
+    }
     private Item[] item;
     private Map map;
 
     public Map getMap() {
-        return new Map();
+        return map;
     }
 
     public Item[] getItem() {
@@ -51,11 +57,24 @@ public class Game implements Serializable{
     }
 
     
+    
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 73 * hash + (int) (Double.doubleToLongBits(this.startGame) ^ (Double.doubleToLongBits(this.startGame) >>> 32));
-        hash = 73 * hash + (int) (Double.doubleToLongBits(this.endGame) ^ (Double.doubleToLongBits(this.endGame) >>> 32));
+        hash = 59 * hash + (int) (Double.doubleToLongBits(this.startGame) ^ (Double.doubleToLongBits(this.startGame) >>> 32));
+        hash = 59 * hash + (int) (Double.doubleToLongBits(this.endGame) ^ (Double.doubleToLongBits(this.endGame) >>> 32));
+        hash = 59 * hash + Objects.hashCode(this.player);
+        hash = 59 * hash + Arrays.deepHashCode(this.item);
+        hash = 59 * hash + Objects.hashCode(this.map);
         return hash;
     }
 
@@ -77,20 +96,21 @@ public class Game implements Serializable{
         if (Double.doubleToLongBits(this.endGame) != Double.doubleToLongBits(other.endGame)) {
             return false;
         }
+        if (!Objects.equals(this.player, other.player)) {
+            return false;
+        }
+        if (!Arrays.deepEquals(this.item, other.item)) {
+            return false;
+        }
+        if (!Objects.equals(this.map, other.map)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Game{" + "startGame=" + startGame + ", endGame=" + endGame + '}';
-    }
-
-    public void setPlayer(Player player) {
-        this.player = player;
-    }
-
-    public void setMap(Map map) {
-        this.map = map;
+        return "Game{" + "startGame=" + startGame + ", endGame=" + endGame + ", player=" + player + ", item=" + item + ", map=" + map + '}';
     }
     
     

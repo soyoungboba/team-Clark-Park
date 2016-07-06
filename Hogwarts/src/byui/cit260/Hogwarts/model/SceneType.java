@@ -34,5 +34,5 @@ public enum SceneType {
     Office_of_Professor_Snape,
     Slytherin_Dormitory,
     Dungeon,
-    finish;
+    Finish;
 }
