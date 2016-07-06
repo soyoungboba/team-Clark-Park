@@ -5,6 +5,9 @@
  */
 package citbyui.cit260.Hogwarts.view;
 
+import hogwarts.Hogwarts;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
@@ -14,6 +17,9 @@ import java.util.Scanner;
 public abstract class View implements ViewInterface {
     
     protected String displayMessage; 
+    
+    protected final BufferedReader keyboard = Hogwarts.getInFile();
+    protected final PrintWriter console = Hogwarts.getOutFile();
     
     public View() {
     }
@@ -41,7 +47,7 @@ public abstract class View implements ViewInterface {
     @Override
     public String getInput() {
         
-        Scanner keyboard = new Scanner(System.in); 
+        //Scanner keyboard = new Scanner(System.in); 
         boolean valid = false; 
         String value = null;
         
