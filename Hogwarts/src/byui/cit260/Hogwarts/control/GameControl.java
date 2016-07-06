@@ -24,7 +24,7 @@ import java.util.Random;
 public class GameControl {
 
     public static int randOne;
-
+    
     public static Player createPlayer(String name)
                 throws MapControlException /*chance to gameControl*/{
         if (name == null) {
@@ -33,6 +33,8 @@ public class GameControl {
         Player player = new Player();
         player.setName(name);
         Hogwarts.setPlayer(player);
+        player.setRow(0);
+        player.setCol(0);
 
         return player;
     }
@@ -49,9 +51,9 @@ public class GameControl {
 
         Map map = MapControl.createMap(); //create and initialize new map
         game.setMap(map); //save map in game
-
+       
         //move characters to starting position in the map
-        MapControl.moveCharactersToStartingLocation(map);
+        //GameControl.moveCharactersToStartingLocation(map,player);
     }
 
     public static Item[] createItemList() {
@@ -99,6 +101,7 @@ public class GameControl {
         //randOne = (int)(Math.random()*50 + 1);
         return randOne;
     }
-
+    static void moveCharactersToStartingLocation(Map map,Player player) {
+        System.out.println("set move characters function called");    }
 
 }

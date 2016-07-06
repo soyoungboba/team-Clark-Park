@@ -103,8 +103,8 @@ public class GameMenuView extends View {
     }
 
     private void viewMap() {
-        Game game = new Game();
-        Map map = game.getMap();
+        
+        Map map = Hogwarts.getCurrentGame().getMap();
         Location[][] locations = map.getLocations();
         System.out.println("            MAP");
         System.out.print("   ");
@@ -118,7 +118,7 @@ public class GameMenuView extends View {
             System.out.print(i + 1);
             for (int j = 0; j < 5; j++) {
                 System.out.print("|");
-                System.out.print(" ?? ");
+                System.out.print(" " + locations[i][j].getScene().getMapSymbol()+ " ");
             }
             System.out.print("\n");
         }

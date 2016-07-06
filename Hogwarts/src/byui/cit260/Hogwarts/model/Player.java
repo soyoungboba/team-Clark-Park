@@ -17,7 +17,24 @@ public class Player implements Serializable{
     private Double coin;
     private String house;
     private String character;
+    private int row;
 
+    public int getRow() {
+        return row;
+    }
+
+    public void setRow(int row) {
+        this.row = row;
+    }
+
+    public int getCol() {
+        return col;
+    }
+
+    public void setCol(int col) {
+        this.col = col;
+    }
+    private int col;
     @Override
     public int hashCode() {
         int hash = 7;

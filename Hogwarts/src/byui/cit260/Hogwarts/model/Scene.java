@@ -17,7 +17,16 @@ public class Scene implements Serializable{
     private String description;
     private boolean blockedLocation;
     private boolean displaySymbol;
+    private String mapSymbol;
 
+    public String getMapSymbol() {
+        return mapSymbol;
+    }
+
+    public void setMapSymbol(String mapSymbol) {
+        this.mapSymbol = mapSymbol;
+    }
+    
     //public Scene() {
     //}
 
@@ -49,12 +58,22 @@ public class Scene implements Serializable{
         this.displaySymbol = displaySymbol;
     }
 
+    public void setBlocked(boolean b) {
+        System.out.println("set blocked function called");   
+    }
+
+    @Override
+    public String toString() {
+        return "Scene{" + "description=" + description + ", blockedLocation=" + blockedLocation + ", displaySymbol=" + displaySymbol + ", mapSymbol=" + mapSymbol + '}';
+    }
+
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 59 * hash + Objects.hashCode(this.description);
-        hash = 59 * hash + (this.blockedLocation ? 1 : 0);
-        hash = 59 * hash + (this.displaySymbol ? 1 : 0);
+        int hash = 7;
+        hash = 89 * hash + Objects.hashCode(this.description);
+        hash = 89 * hash + (this.blockedLocation ? 1 : 0);
+        hash = 89 * hash + (this.displaySymbol ? 1 : 0);
+        hash = 89 * hash + Objects.hashCode(this.mapSymbol);
         return hash;
     }
 
@@ -79,20 +98,12 @@ public class Scene implements Serializable{
         if (!Objects.equals(this.description, other.description)) {
             return false;
         }
+        if (!Objects.equals(this.mapSymbol, other.mapSymbol)) {
+            return false;
+        }
         return true;
     }
-
-    @Override
-    public String toString() {
-        return "Scene{" + "description=" + description + ", blockedLocation=" + blockedLocation + ", displaySymbol=" + displaySymbol + '}';
-    }
-
-    public void setMapSymbol(String string) {
-        System.out.println("set map symbol function called");
-    }
-
-    public void setBlocked(boolean b) {
-        System.out.println("set blocked function called");   
-    }
+    
+    
     
 }
