@@ -49,22 +49,24 @@ public abstract class View implements ViewInterface {
         
         //Scanner keyboard = new Scanner(System.in); 
         boolean valid = false; 
-        String value = null;
-        
-        while (!valid) { // loop while an invalid value is enter
-            System.out.println("\n" + this.displayMessage);
+        String selection = null;
+        try {
+        while (!valid) { 
+    
+            // get the value entered from the keyboard
+            selection = keyboard.readLine();
+            selection = selection.trim();
             
-            value = keyboard.nextLine(); // get next line typed on keyboard
-            value = value.trim(); // trim off leading and trailing blanks
-            
-            if (value.length() < 1) { // value is blank
-                System.out.println("\n***You must enter a value***");
+            if (selection.length() < 1) { // blank value entered
+                System.out.println("You must enter a value.");
                 continue;
             }
-            
-            break; // end the loop
+            break; 
         }
-        
-        return value; // return the value entered
-    }
+        } catch (Exception te) {    
+        System.out.println("Error reading input: " + te.getMessage());
+        }
+    
+        return selection; // return the name
+    }       
 }
