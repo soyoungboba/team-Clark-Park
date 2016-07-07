@@ -53,14 +53,14 @@ public class TaskControl {
         throws NumberFormatException{
         
         if (circ < 1 || circ > 50){
-            return -1;
+            throw new NumberFormatException("Circumference is out of bounds");
         }
         if (diameter < 0){
-            return -1;
+            throw new NumberFormatException("Diameter is out of bounds");
         }
         double radius = (circ/(Math.PI))*.5;
         if (!equals(playerAnswer, radius, 0.01d)){
-            return -2;
+            throw new NumberFormatException("Sorry that is incorrect");
         }
         
         return radius;
@@ -70,14 +70,14 @@ public class TaskControl {
             throws NumberFormatException{
             
 	if (height < 1 || height > 24) {	
-            return -1;	
+            throw new NumberFormatException("Height is out of bounds");	
         }	
 	if (base1 < 1 || base1 > 30) {	
-            return -1;	
+            throw new NumberFormatException("Base 1 is out of bounds");	
         }
         
        if (base2 < 1 || base2 > 30) {	
-            return -1;	
+            throw new NumberFormatException("Base 2 is out of bounds");	
         }	
 	double area = ((base1+base2)*height)/2;	
 		
