@@ -5,60 +5,68 @@
  */
 package citbyui.cit260.Hogwarts.view;
 
+import hogwarts.Hogwarts;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author boba
  */
 public abstract class View implements ViewInterface {
-    
-    protected String displayMessage; 
-    
+
+    protected String displayMessage;
+
+    protected final BufferedReader keyboard = Hogwarts.getInFile();
+    protected final PrintWriter console = Hogwarts.getOutFile();
+
     public View() {
     }
-    
+
     public View(String message) {
         this.displayMessage = message;
     }
-    
+
     @Override
     public void display() {
-        
+        String value;
         boolean done = false; // set flag to not done
+        
         do {
-            // promp for and get players name
-            String value = this.getInput();
-            if (value.toUpperCase().equals("E")) // user wants to exit
-                return; // exit the game
-            
-            // do the requested action and display the next view
+            this.console.println(this.displayMessage);
+            value = this.getInput();
             done = this.doAction(value);
-            
-        } while (!done); 
+
+        } while (!done);
     }
-    
+
     @Override
     public String getInput() {
-         
-        Scanner keyboard = new Scanner(System.in); 
-        boolean valid = false;  
+
+        Scanner keyboard = new Scanner(this.keyboard);
+        boolean valid = false;
         String value = null;
-    
-        while (!valid) { // loop while an invalid value is enter
-            System.out.println("\n" + this.displayMessage);
-            
-            value = keyboard.nextLine(); // get next line typed on keyboard
-            value = value.trim(); // trim off leading and trailing blanks
-            
-            if (value.length() < 1) { // value is blank
-                System.out.println("\n***You must enter a value***");
-                continue;
+
+        try {
+            while (!valid) {
+                value = this.keyboard.readLine();
+                value = value.trim();
+
+                if (value.length() < 1) { // value is blank
+                    System.out.println("You must enter a value.");
+                    continue;
+                }
+
+                break; // end the loop
             }
-            
-            break; // end the loop
+        } catch (IOException te) {
+            System.out.println("Error reading input:" + te.getMessage());
         }
-    
-        return value; // return the value entered
-        }
+
+        return value; // return the name
+    }
 }
