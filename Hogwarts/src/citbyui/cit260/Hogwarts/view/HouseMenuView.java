@@ -13,31 +13,28 @@ import java.util.Scanner;
  *
  * @author Cody
  */
-public class HouseMenuView extends View{
-    
+public class HouseMenuView extends View {
+
     private String houseName;
+
     public HouseMenuView() {
-         super("\n"
-                  + "\n-------------------------------------"
-                  + "\n|        Choose Your House          |"
-                  + "\nG - Gryffindor"
-                  + "\nS - Slytherin"
-                  + "\nH - Hufflepuff"
-                  + "\nR - Ravenclaw"
-                  + "\nQ - Quit"
-                  + "\n-------------------------------------");
-        
+        super("\n"
+                + "\n-------------------------------------"
+                + "\n|        Choose Your House          |"
+                + "\nG - Gryffindor"
+                + "\nS - Slytherin"
+                + "\nH - Hufflepuff"
+                + "\nR - Ravenclaw"
+                + "\nQ - Quit"
+                + "\n-------------------------------------");
+
     }
-    
 
-
-
-    
     @Override
     public boolean doAction(String value) {
-        
+
         value = value.toUpperCase(); // convert choice to upper case
-        
+
         switch (value) {
             case "G": // house name griffindor
                 this.gryffindor();
@@ -57,33 +54,33 @@ public class HouseMenuView extends View{
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
-                
+
         }
         return true;
     }
 
     //private void Exit() {
-        //MainMenuView mainMenuView = new MainMenuView();        
-        // Display the main menu view
-        //mainMenuView.displayMainMenuView();
-    
+    //MainMenuView mainMenuView = new MainMenuView();        
+    // Display the main menu view
+    //mainMenuView.displayMainMenuView();
     private void gryffindor() {
         GameControl.saveHouse(houseName);
     }
-         
 
     private void slytherin() {
-        System.out.println("*** slytherin function called ***");    
+        GameControl.saveHouse(houseName);
     }
+
     private void hufflepuff() {
-        System.out.println("*** hufflepuff function called ***");
+        GameControl.saveHouse(houseName);
     }
 
     private void ravenclaw() {
-        System.out.println("*** ravenclaw function called ***");
+        GameControl.saveHouse(houseName);
     }
+
     private void Exit() {
-        MainMenuView mainMenuView = new MainMenuView();        
+        MainMenuView mainMenuView = new MainMenuView();
         // Display the main menu view
         mainMenuView.display();
     }

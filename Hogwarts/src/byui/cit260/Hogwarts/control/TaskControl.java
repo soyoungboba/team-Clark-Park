@@ -21,10 +21,10 @@ public class TaskControl {
         throws NumberFormatException {	
         
 	if (height < 0 || height > 30) {	
-            return -1;	
+            throw new NumberFormatException("Height is out of bounds");	
         }	
 	if (base < 0 || base > 30) {	
-            return -1;	
+            throw new NumberFormatException("Base is out of bounds");	
         }	
 	double area = height*base/2;	
 		
@@ -35,13 +35,13 @@ public class TaskControl {
     public double calcVolumeOfRectangle(double width, double height, double length) 
           throws NumberFormatException {
         if (width < 0) {
-            return -1;
+            throw new NumberFormatException("Width is out of bounds");
         }
         if (height < 0 || height > 50) {
-            return -1;
+            throw new NumberFormatException("Height is out of bounds");
         }
         if (length < 0 || length > 30) {
-            return -1;
+            throw new NumberFormatException("Length is out of bounds");
         }
         double volume = width*height*length;
         
@@ -66,7 +66,9 @@ public class TaskControl {
         return radius;
         
     }
-        public double calcAreaOfTrapezoid(double base1, double base2, double height){		
+        public double calcAreaOfTrapezoid(double base1, double base2, double height)
+            throws NumberFormatException{
+            
 	if (height < 1 || height > 24) {	
             return -1;	
         }	
