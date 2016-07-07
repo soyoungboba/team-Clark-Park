@@ -75,8 +75,8 @@ public class StartProgramView extends View {
             break;
             // end the loop
         }
-        }catch (Exception e){
-               System.out.println(e.getMessage());
+        }catch (Exception te){
+               System.out.println(te.getMessage());
         }
         return value; // return the value entered
     }
