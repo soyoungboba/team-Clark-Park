@@ -14,7 +14,7 @@ import java.util.Scanner;
  *
  * @author boba
  */
-public class StartProgramView {
+public class StartProgramView extends View {
     private String promptMessage;
     public StartProgramView() {
     
@@ -60,7 +60,7 @@ public class StartProgramView {
         Scanner keyboard = new Scanner(this.keyboard);
         boolean valid = false; // initialize to not valid
         String value = null; 
-        
+        try{
         while (!valid) { // loop while an invalid value is enter
             System.out.println("\n" + this.promptMessage);
             
@@ -72,13 +72,16 @@ public class StartProgramView {
                 continue;
             }
             
-            break; // end the loop
+            break;
+            // end the loop
         }
-        
+        }catch (Exception e){
+               System.out.println(e.getMessage());
+        }
         return value; // return the value entered
     }
-
-    private boolean doAction(String playerName) {
+@Override
+    public boolean doAction(String playerName) {
        
         if (playerName.length() <2) {
             System.out.println("\nInvalid players name:"
