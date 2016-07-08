@@ -68,7 +68,7 @@ public class StartProgramView extends View {
             value = value.trim(); // trim off leading and trailing blanks
             
             if (value.length() < 1) { // value is blank
-                this.console.println("\nInvalid value. Value can not be blank.");
+                ErrorView.display(this.getClass().getName(), "Invalid value. Value can not be blank.");
                 continue;
             }
             
@@ -84,7 +84,7 @@ public class StartProgramView extends View {
     public boolean doAction(String playerName) {
        
         if (playerName.length() <2) {
-            this.console.println("\nInvalid players name:"
+            ErrorView.display(this.getClass().getName(), "Invalid players name:"
                     + "The name must be greater than one character in length");
             return false;
             // display customized welcome message

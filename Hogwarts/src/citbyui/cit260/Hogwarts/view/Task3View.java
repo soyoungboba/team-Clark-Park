@@ -48,7 +48,7 @@ public class Task3View extends View {
             this.console.println("try again");}
          }catch (NumberFormatException nf) {
                 
-                this.console.println("\n"+ nf.getMessage() 
+                ErrorView.display(this.getClass().getName(), nf.getMessage() 
                                 + "You must enter a valid number."
                                 + " Try again or enter Q to exit.");
         }

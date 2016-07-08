@@ -17,20 +17,21 @@ public class MainMenuView extends View {
 
     public MainMenuView() {
         super("\n"
-            + "\n-------------------------------------"
-            + "\n| Main Menu                         |"
-            + "\nN - Start New Game"
-            + "\nR - Restart Existing Game"
-            + "\nH - Get Help How To Play The Game"
-            + "\nE - Exit"
-            + "\n-------------------------------------");
-    } 
+                + "\n-------------------------------------"
+                + "\n| Main Menu                         |"
+                + "\nN - Start New Game"
+                + "\nR - Restart Existing Game"
+                + "\nS - Save Game"
+                + "\nH - Get Help How To Play The Game"
+                + "\nE - Exit"
+                + "\n-------------------------------------");
+    }
 
-@Override
-public boolean doAction(String value) {
-        
-    value = value.toUpperCase(); // convert choice to upper case
-        
+    @Override
+    public boolean doAction(String value) {
+
+        value = value.toUpperCase(); // convert choice to upper case
+
         switch (value) {
             case "N": // create and start a new game
                 this.startNewGame();
@@ -38,39 +39,41 @@ public boolean doAction(String value) {
             case "R": // restart game
                 this.startExistingGame();
                 break;
+            case "s": // save game
+                this.saveGame();
+                break;
             case "H": // get help 
                 this.GetHelpHowToPlayTheGame();
                 break;
             //case "E": // exit game
-               // this.Exit();
-               // break;
+            // this.Exit();
+            // break;
             default:
-                this.console.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(), "Invalid selection. Try again.");
                 break;
         }
         return false;
     }
 
     private void startNewGame() {
-                // create a new game
+        // create a new game
         GameControl.createNewGame(Hogwarts.getPlayer());
         //choose house
         //HouseMenuVeiw.chooseHouse(Hogwarts.getHouseName());
         HouseMenuView houseMenu = new HouseMenuView();
         houseMenu.display();
-        
-        
+
         CharacterMenuView characterMenuView = new CharacterMenuView();
         characterMenuView.display();
-        
+
         GameMenuView gameMenuView = new GameMenuView();
         gameMenuView.display();
-        
+
         /*
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
         System.out.println(input);
-*/
+         */
     }
 
     private void startExistingGame() {
@@ -81,5 +84,19 @@ public boolean doAction(String value) {
         HelpMenuView helpMenuView = new HelpMenuView();
         helpMenuView.display();
     }
-}
 
+    private void saveGame() {
+        this.console.println("\n\nEnter the file path for file where the game "
+                + "is to be saved.");
+        String filePath = this.getInput();
+
+        try {
+            GameControl.saveGame(Hogwarts.getCurrentGame(), filePath);
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
+
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
+    }
+}

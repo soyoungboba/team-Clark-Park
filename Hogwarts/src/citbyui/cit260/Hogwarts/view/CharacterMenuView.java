@@ -42,7 +42,7 @@ public class CharacterMenuView extends View {
                 this.saveCharacter("Harry");
                 break;
             case "HM":
-                this.saveCharacter("HERMIONE");
+                this.saveCharacter("Hermione");
                 break;
             case "R":
                 this.saveCharacter("Ron");
@@ -60,7 +60,7 @@ public class CharacterMenuView extends View {
                 this.saveCharacter("Draco");
                 break;
             default:
-                this.console.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(), "Invalid selection. Try again.");
                 break;
         }
         return true;

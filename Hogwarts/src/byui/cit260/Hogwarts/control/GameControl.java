@@ -13,8 +13,11 @@ import byui.cit260.Hogwarts.model.Map;
 import byui.cit260.Hogwarts.model.Player;
 import byui.cit260.Hogwarts.model.Scene;
 import byui.cit260.Hogwarts.model.SceneType;
+import citbyui.cit260.Hogwarts.exceptions.GameControlException;
 import citbyui.cit260.Hogwarts.exceptions.MapControlException;
 import hogwarts.Hogwarts;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.util.Random;
 
 /**
@@ -103,5 +106,18 @@ public class GameControl {
     }
     static void moveCharactersToStartingLocation(Map map,Player player) {
         System.out.println("set move characters function called");    }
+
+    public static void saveGame(Game currentGame, String filePath) 
+        throws GameControlException {
+    
+    try(FileOutputStream fops = new FileOutputStream(filePath)) {
+        ObjectOutputStream output = new ObjectOutputStream(fops);
+        
+        output.writeObject(currentGame);
+    }
+    catch(Exception e) {
+        throw new GameControlException(e.getMessage());
+    }
+    }
 
 }
