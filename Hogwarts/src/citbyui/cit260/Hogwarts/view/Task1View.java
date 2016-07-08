@@ -25,7 +25,7 @@ public class Task1View extends View {
         super("\nPlease Enter Your Answer:");
         randOne = GameControl.randNum();
         randTwo = GameControl.randNum();
-        System.out.println("\n Your challenge in this task is to "
+        this.console.println("\n Your challenge in this task is to "
                 + "\n calculate the area of a triangle"
                 + "\n that has a base of " + randOne + " and the height"
                 + "\n of " + randTwo + ".");
@@ -39,12 +39,12 @@ public class Task1View extends View {
             // parse and convert number from text to a double
            double input = Double.parseDouble(value);
          if (input == answer) {
-            System.out.println("That is correct");}
+            this.console.println("That is correct");}
          else {
-            System.out.println("try again");}
+            this.console.println("try again");}
          }catch (NumberFormatException nf) {
         
-                System.out.println("\n"+ nf.getMessage()
+                this.console.println("\n"+ nf.getMessage()
                                 + "You must enter a valid number."
                                 + " Try again or enter Q to exit.");
         }

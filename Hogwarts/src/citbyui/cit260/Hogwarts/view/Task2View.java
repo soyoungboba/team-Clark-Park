@@ -26,7 +26,7 @@ public class Task2View extends View {
         randOne = GameControl.randNum();
         randTwo = GameControl.randNum();
         randThree = GameControl.randNum();
-        System.out.println("\n-------------------------------------"
+        this.console.println("\n-------------------------------------"
                           +"\n Your challenge in this taks is to"
                           +"\n calculate the volume of rectangle"
                           +"\n that has a width of " + randOne + ", height"
@@ -48,12 +48,12 @@ public class Task2View extends View {
             double input = Double.parseDouble(value);
             
         if (input== answer) {
-            System.out.println("Correct!");
+            this.console.println("Correct!");
         } else {
-            System.out.println("Try again!");
+            this.console.println("Try again!");
         } 
         } catch (NumberFormatException nf) {
-        System.out.println("\n"+ nf.getMessage()
+        this.console.println("\n"+ nf.getMessage()
                         + "You must enter a valid number."
                         + " Try again or enter Q to exit.");
         }

@@ -45,7 +45,7 @@ public boolean doAction(String value) {
                // this.Exit();
                // break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
         }
         return false;
@@ -74,15 +74,12 @@ public boolean doAction(String value) {
     }
 
     private void startExistingGame() {
-        System.out.println("*** startExistingGame function called ***");
+        this.console.println("*** startExistingGame function called ***");
     }
 
     private void GetHelpHowToPlayTheGame() {
         HelpMenuView helpMenuView = new HelpMenuView();
         helpMenuView.display();
     }
-
-    //private void Exit() {
-       // System.out.println("*** Exit function called ***");
 }
 

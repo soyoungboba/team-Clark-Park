@@ -96,7 +96,7 @@ public class GameMenuView extends View {
                 this.MainMenuView();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
         }
         return false;
@@ -106,21 +106,21 @@ public class GameMenuView extends View {
         
         Map map = Hogwarts.getCurrentGame().getMap();
         Location[][] locations = map.getLocations();
-        System.out.println("            MAP");
-        System.out.print("   ");
+        this.console.println("            MAP");
+        this.console.print("   ");
         
         for (int i = 0; i < 5; i++) {
-            System.out.print(i + 1 + "    ");
+            this.console.print(i + 1 + "    ");
         }
-        System.out.print("\n");
+        this.console.print("\n");
         for (int i = 0; i < 5; i++) {
-            System.out.println("--------------------------");
-            System.out.print(i + 1);
+            this.console.println("--------------------------");
+            this.console.print(i + 1);
             for (int j = 0; j < 5; j++) {
-                System.out.print("|");
-                System.out.print(" " + locations[i][j].getScene().getMapSymbol()+ " ");
+                this.console.print("|");
+                this.console.print(" " + locations[i][j].getScene().getMapSymbol()+ " ");
             }
-            System.out.print("\n");
+            this.console.print("\n");
         }
     }
     
@@ -178,11 +178,11 @@ public class GameMenuView extends View {
         //Item[] items = game.getItem();
         Item[] items = GameControl.createItemList();
         //items[2].setHasItem(true);
-        System.out.println("\n            List of Items");
+        this.console.println("\n            List of Items");
         line = new StringBuilder("                            ");
         line.insert(0, "Description");
         line.insert(30, "In Stock");
-        System.out.println(line.toString());
+        this.console.println(line.toString());
         
 
         //for each inventory item
@@ -195,7 +195,7 @@ public class GameMenuView extends View {
             line = new StringBuilder("                              ");
             line.insert(0, ItemType.values()[ordinalValue].getInventoryType());
             line.insert(32, has);
-            System.out.println(line.toString());
+            this.console.println(line.toString());
         }
 
         //display
@@ -203,11 +203,11 @@ public class GameMenuView extends View {
     }
 
     private void numOfCoinsNeeded() {
-        System.out.println("*** numOfCoinsNeeded function called ***");
+        this.console.println("*** numOfCoinsNeeded function called ***");
     }
 
     private void saveGame() {
-        System.out.println("*** saveGame function called ***");
+        this.console.println("*** saveGame function called ***");
     }
 
     private void HelpMenuView() {
@@ -222,9 +222,9 @@ public class GameMenuView extends View {
 
     private void viewListOfHouses() {
         House[] houses = House.values();
-        System.out.println("\n         List of Houses");
+        this.console.println("\n         List of Houses");
         //for (int i =0; i < houses.length; i++){
         for ( House house:houses )
-            System.out.println(house);
+            this.console.println(house);
         }
 }
