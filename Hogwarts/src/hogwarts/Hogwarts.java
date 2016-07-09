@@ -131,8 +131,4 @@ public class Hogwarts {
         Hogwarts.houseName = houseName;
     }
 
-    public static PrintWriter getoutFile() { // ???
-        throw new UnsupportedOperationException("Not supported yet."); 
-    }
-
 }

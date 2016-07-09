@@ -14,7 +14,7 @@ import java.io.PrintWriter;
  */
 public class ErrorView {
     
-    private static final PrintWriter errorFile = Hogwarts.getoutFile();
+    private static final PrintWriter errorFile = Hogwarts.getOutFile();
     private static final PrintWriter logFile = Hogwarts.getLogFile();
     
     public static void display(String className, String errorMessage) {

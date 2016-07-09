@@ -34,19 +34,20 @@ public class Task1View extends View {
     @Override
     public boolean doAction(String value) {
 
-         try {
-           answer = TaskControl.calcAreaOfTriangle(randOne, randTwo);
+        try {
+            answer = TaskControl.calcAreaOfTriangle(randOne, randTwo);
             // parse and convert number from text to a double
-           double input = Double.parseDouble(value);
-         if (input == answer) {
-            this.console.println("That is correct");}
-         else {
-            this.console.println("try again");}
-         }catch (NumberFormatException nf) {
-        
-                ErrorView.display(this.getClass().getName(), nf.getMessage()
-                                + "You must enter a valid number."
-                                + " Try again or enter Q to exit.");
+            double input = Double.parseDouble(value);
+            if (input == answer) {
+                this.console.println("That is correct");
+            } else {
+                this.console.println("try again");
+            }
+        } catch (NumberFormatException nf) {
+
+            ErrorView.display(this.getClass().getName(), nf.getMessage()
+                    + "You must enter a valid number."
+                    + " Try again or enter Q to exit.");
         }
         return false;
     }

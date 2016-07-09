@@ -39,7 +39,7 @@ public class MainMenuView extends View {
             case "R": // restart game
                 this.startExistingGame();
                 break;
-            case "s": // save game
+            case "S": // save game
                 this.saveGame();
                 break;
             case "H": // get help 
@@ -77,7 +77,21 @@ public class MainMenuView extends View {
     }
 
     private void startExistingGame() {
-        this.console.println("*** startExistingGame function called ***");
+        this.console.println("\n\n enter the file path for file where the game"
+                            + "is to be saved.");
+        
+        String filePath = this.getInput();
+        try {
+            //start asaved game
+            GameControl.getSavedGame(filePath);
+            } catch (Exception ex) {
+                ErrorView.display("MainMenuView", ex.getMessage());
+                
+            }
+            this.console.println("Welcome back" + Hogwarts.getCurrentGame().getPlayer().getName());
+            GameMenuView gameMenu = new GameMenuView();
+            gameMenu.display();
+        
     }
 
     private void GetHelpHowToPlayTheGame() {
