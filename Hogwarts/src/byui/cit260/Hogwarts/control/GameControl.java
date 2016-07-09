@@ -118,6 +118,8 @@ public class GameControl {
     catch(Exception e) {
         throw new GameControlException(e.getMessage());
     }
+    
+    public void getSaveGame
     }
 
 }
