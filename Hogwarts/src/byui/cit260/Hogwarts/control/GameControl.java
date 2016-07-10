@@ -135,9 +135,4 @@ public class GameControl {
        Hogwarts.setCurrentGame(game);//load in hogwarts
     }
     
-    
-        
-
-    
-
 }
