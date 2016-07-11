@@ -84,8 +84,8 @@ public class StartProgramView extends View {
     public boolean doAction(String playerName) {
        
         if (playerName.length() <2) {
-            ErrorView.display(this.getClass().getName(), "Invalid players name:"
-                    + "The name must be greater than one character in length");
+            ErrorView.display(this.getClass().getName(), "Invalid player's name:"
+                    + "The name must be greater than one character in length.");
             return false;
             // display customized welcome message
             // display mainMenuView
@@ -105,7 +105,7 @@ public class StartProgramView extends View {
     private void displayNextView(Player player) {
         this.console.println("\n======================================="
                           +"\n Welcome to the game " + player.getName()
-                          +"\n We hope you have a lot of fun!" 
+                          +"." + "\n We hope you have a lot of fun!" 
                           +"\n========================================"
                           );
         
