@@ -51,9 +51,9 @@ public class Task3View extends View {
             // parse and convert number from text to a double
             double input = Double.parseDouble(value);
             if (input == answer) {
-                this.console.println("That is correct");
+                this.console.println("That is correct!");
             } else {
-                this.console.println("try again");
+                this.console.println("try again!");
             }
         } catch (NumberFormatException nf) {
 
