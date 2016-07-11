@@ -14,8 +14,8 @@ import java.util.Random;
  * @author Jebean
  */
 public class Task3View extends View {
-    
-   //Random rand = new Random();
+
+    //Random rand = new Random();
     private double randOne;
     private double randTwo;
     private double randThree;
@@ -32,26 +32,41 @@ public class Task3View extends View {
                 + "\n that has a base of " + randOne + " and another base of"
                 + "\n  " + randTwo + "and a height of" + randThree + ".");
     }
-    
+
     @Override
     public boolean doAction(String value) {
 
+        value = value.toUpperCase();
+
+        switch (value) {
+            case "Q": // house name griffindor
+                this.Exit();
+                break;
+        }
+
         try {
             TaskControl taskControl = new TaskControl();
-               
+
             answer = taskControl.calcAreaOfTrapezoid(randOne, randTwo, randThree);
             // parse and convert number from text to a double
-           double input = Double.parseDouble(value);
-         if (input == answer) {
-            this.console.println("That is correct");}
-         else {
-            this.console.println("try again");}
-         }catch (NumberFormatException nf) {
-                
-                ErrorView.display(this.getClass().getName(), nf.getMessage() 
-                                + "You must enter a valid number."
-                                + " Try again or enter Q to exit.");
+            double input = Double.parseDouble(value);
+            if (input == answer) {
+                this.console.println("That is correct");
+            } else {
+                this.console.println("try again");
+            }
+        } catch (NumberFormatException nf) {
+
+            ErrorView.display(this.getClass().getName(), nf.getMessage()
+                    + "You must enter a valid number."
+                    + " Try again or enter Q to exit.");
         }
         return false;
+    }
+
+    private void Exit() {
+        GameMenuView gameMenuView = new GameMenuView();
+        // Display the main menu view
+        gameMenuView.display();
     }
 }

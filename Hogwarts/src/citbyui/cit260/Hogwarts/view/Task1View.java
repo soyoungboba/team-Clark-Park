@@ -34,6 +34,14 @@ public class Task1View extends View {
     @Override
     public boolean doAction(String value) {
 
+        value = value.toUpperCase();
+        
+        switch (value) {
+            case "Q": // house name griffindor
+                this.Exit();
+                break; 
+            }
+        
         try {
             answer = TaskControl.calcAreaOfTriangle(randOne, randTwo);
             // parse and convert number from text to a double
@@ -50,5 +58,13 @@ public class Task1View extends View {
                     + " Try again or enter Q to exit.");
         }
         return false;
+        
+        
+    }
+    
+    private void Exit() {
+        GameMenuView gameMenuView = new GameMenuView();
+        // Display the main menu view
+        gameMenuView.display();
     }
 }

@@ -263,7 +263,7 @@ public class GameMenuView extends View {
             }
          
         } catch (IOException ex) {
-            System.out.println("I/O Exception: " + ex.getMessage());
+           System.out.println("I/O Exception: " + ex.getMessage());
         } 
         
     }
