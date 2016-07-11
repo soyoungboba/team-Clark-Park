@@ -18,6 +18,9 @@ import byui.cit260.Hogwarts.model.Scene;
 import citbyui.cit260.Hogwarts.exceptions.MapControlException;
 import hogwarts.Hogwarts;
 import java.awt.Point;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
@@ -44,8 +47,10 @@ public class GameMenuView extends View {
                 + "\nC - Number of coins needed for each task"
                 + "\nG - Save game"
                 + "\nH - Help"
+                + "\nE - Save a list of scenes to an external file" 
                 + "\nQ - Main menu"
                 + "\n------------------------------------------");
+       
     game = Hogwarts.getCurrentGame();
     }
 
@@ -92,6 +97,8 @@ public class GameMenuView extends View {
             case "H": // Help
                 this.HelpMenuView();
                 break;
+            case "E":
+                this.exportFile();
             case "Q": // Go back to main menu
                 this.MainMenuView();
                 break;
@@ -227,4 +234,37 @@ public class GameMenuView extends View {
         for ( House house:houses )
             this.console.println(house);
         }
+
+    private void exportFile() {
+        
+        Location[][] locations = game.getMap().getLocations();
+        
+        // get size info of the map
+        double numCol = game.getMap().getColumnCount();
+        double numRow = game.getMap().getRowCount();
+        
+        Scene[] scenes = new Scene[25];
+        
+        int count = 0;
+
+        
+        String fileLoc = "Scene_List.txt";
+        try (PrintWriter out = new PrintWriter(fileLoc)) {
+            out.println("\n\n           List of Scenes          ");
+            out.printf("%n%-26s%8s", "Name", "Location");
+            out.printf("%n%-26s%8s", "----", "--------");
+            
+            
+            for (int i = 0; i < numCol; i++) {
+                for (int j = 0; j < numRow; j++) {
+                   Scene scene = locations[i][j].getScene();
+                   out.printf("%n%-30s%2d%2d", scene.getDescription(), j, i);
+               }
+            }
+         
+        } catch (IOException ex) {
+            System.out.println("I/O Exception: " + ex.getMessage());
+        } 
+        
+    }
 }
