@@ -134,6 +134,10 @@ public class GameControl {
     }
        Hogwarts.setCurrentGame(game);//load in hogwarts
     }
+
+    public static void saveCharacterList() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
         

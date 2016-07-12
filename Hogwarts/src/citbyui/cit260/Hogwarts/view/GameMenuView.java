@@ -18,6 +18,7 @@ import byui.cit260.Hogwarts.model.Scene;
 import citbyui.cit260.Hogwarts.exceptions.MapControlException;
 import hogwarts.Hogwarts;
 import java.awt.Point;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
@@ -42,6 +43,7 @@ public class GameMenuView extends View {
                 + "\nVT - View list of tools acquired"
                 + "\nVHL - View House list"
                 + "\nC - Number of coins needed for each task"
+                +"\nCL Veiw Character List"
                 + "\nG - Save game"
                 + "\nH - Help"
                 + "\nQ - Main menu"
@@ -72,7 +74,7 @@ public class GameMenuView extends View {
                 this.moveToNewLocation();
                 break;
             case "L": //View current location
-                //this.moveToCurrentLocation(character, coord);
+                //this.moveToCurrentLocation(character, coordinates);
                 break;
             case "VC": // View number of coins collected 
                 this.viewNumOfCoinsCollected();
@@ -85,6 +87,9 @@ public class GameMenuView extends View {
                 break;
             case "C": // Number of coins needed for eash task
                 this.numOfCoinsNeeded();
+                break;
+            case "CL": // veiw characters
+                this.viewCharacters();
                 break;
             case "G": // Save game
                 this.saveGame();
@@ -227,4 +232,26 @@ public class GameMenuView extends View {
         for ( House house:houses )
             this.console.println(house);
         }
+
+    private void viewCharacters() {
+        this.console.println("\n\nEnter the file path for the file where"
+                + "the character list is to be saved");
+        String filePath = this.getInput();
+        
+        Character[] characters =Character.values();
+        try{ //(PrintWriter out = new PrintWriter(Character.values()){
+            
+            this.console.println("\n\n            Character Report          ");
+            this.console.printf("%n%-20s%20s"," Character","Discription");
+            this.console.printf("%n%-20s%20s","----------","-----------");
+            
+            for(Character character : characters){
+                this.console.printf("%n%-20s%20s", character, character.getDescription());
+                
+            }
+            GameControl.saveCharacterList();
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(),"Error reading Input: " +e.getMessage());
+        }
+    }
 }
