@@ -54,7 +54,6 @@ public class Task1View extends View {
                 this.console.println("That is correct");
                 game.getPlayer().setCoin(10.0);
                 return true;
-                
             } else {
                 this.console.println("try again");
             }
