@@ -118,6 +118,22 @@ public class MainMenuView extends View {
        
         this.console.println("\n\nDo you want to save game?");
         
+       /*String answer;
+       boolean yn;
+
+       System.out.println("y/n");
+while (true) {
+  answer = in.nextLine().trim().toLowerCase();
+  if (answer.equals("y")) {
+    yn = true;
+    break;
+  } else if (answer.equals("n")) {
+    yn = false;
+    break;
+  } else {
+     System.out.println("Sorry, I didn't catch that. Please answer y/n");
+  }
+}
         /*this.console.println("\n\nEnter the file path for file where the game "
                 + "is to be saved.");
         String filePath = this.getInput();
