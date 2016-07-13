@@ -9,6 +9,7 @@ import java.util.Random;
 import byui.cit260.Hogwarts.control.GameControl;
 import byui.cit260.Hogwarts.control.TaskControl;
 import byui.cit260.Hogwarts.model.Game;
+import hogwarts.Hogwarts;
 
 
 /**
@@ -34,6 +35,7 @@ public class Task2View extends View {
                           +"\n that has a width of " + randOne + ", height"
                           +"\n of " + randTwo + ", and length of " + randThree + "."
                           +"\n-------------------------------------");
+         game = Hogwarts.getCurrentGame();
     }
 
     @Override

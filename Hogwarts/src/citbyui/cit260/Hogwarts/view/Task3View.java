@@ -8,6 +8,7 @@ package citbyui.cit260.Hogwarts.view;
 import byui.cit260.Hogwarts.control.GameControl;
 import byui.cit260.Hogwarts.control.TaskControl;
 import byui.cit260.Hogwarts.model.Game;
+import hogwarts.Hogwarts;
 import java.util.Random;
 
 /**
@@ -32,6 +33,7 @@ public class Task3View extends View {
                 + "\n calculate the area of a trapezoid"
                 + "\n that has a base of " + randOne + " and another base of"
                 + "\n  " + randTwo + "and a height of" + randThree + ".");
+        game = Hogwarts.getCurrentGame();
     }
 
     @Override
