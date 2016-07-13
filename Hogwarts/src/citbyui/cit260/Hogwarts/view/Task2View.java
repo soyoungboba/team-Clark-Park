@@ -58,6 +58,7 @@ public class Task2View extends View {
         if (input== answer) {
             this.console.println("Correct!");
             game.getPlayer().setCoin(10.0);
+            this.console.println("You have collected 10 coins.");
             return true;
         } else {
             this.console.println("Try again!");
