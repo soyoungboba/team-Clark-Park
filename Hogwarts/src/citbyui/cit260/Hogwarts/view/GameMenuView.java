@@ -45,7 +45,7 @@ public class GameMenuView extends View {
                 + "\nVT - View list of tools acquired"
                 + "\nVHL - View House list"
                 + "\nC - Number of coins needed for each task"
-                +"\nCL Veiw Character List"
+                + "\nCL - Veiw Character List"
                 + "\nG - Save game"
                 + "\nH - Help"
                 + "\nE - Save a list of scenes to an external file" 
