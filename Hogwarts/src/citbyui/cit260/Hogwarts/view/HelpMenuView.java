@@ -56,7 +56,17 @@ public boolean doAction(String value) {
     }
 
     private void goalOfTheGame() {
-        this.console.println("*** goalOfTheGame function called ***");
+        this.console.println(
+        "\n*****************************************************"
+       +"\n* Your goal is to win Harry Potter tournament.      *"
+       +"\n* In order to complete the game, you will have to   *"    
+       +"\n* collect coins which will be required to unlock and*"
+       +"\n* succefully complete the tasks. Tools are optional *"
+       +"\n* to collect that can be useful to complete the     *"
+       +"\n* tasks. If you succefully complete all three tasks,*"
+       +"\n* you officially win the Quad-Wizard tournament.    *"
+       +"\n*****************************************************"
+       );
     }
     
     private void howToMove() {
