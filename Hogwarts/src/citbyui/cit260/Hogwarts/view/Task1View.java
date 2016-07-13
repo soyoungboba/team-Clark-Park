@@ -7,6 +7,8 @@ package citbyui.cit260.Hogwarts.view;
 
 import byui.cit260.Hogwarts.control.GameControl;
 import byui.cit260.Hogwarts.control.TaskControl;
+import byui.cit260.Hogwarts.model.Game;
+import hogwarts.Hogwarts;
 import java.util.Random;
 
 /**
@@ -19,6 +21,7 @@ public class Task1View extends View {
     private double randOne;
     private double randTwo;
     private double answer;
+    private Game game;
     //private String input;
 
     public Task1View() {
@@ -29,6 +32,7 @@ public class Task1View extends View {
                 + "\n calculate the area of a triangle"
                 + "\n that has a base of " + randOne + " and the height"
                 + "\n of " + randTwo + ".");
+        game = Hogwarts.getCurrentGame();
     }
 
     @Override
@@ -48,6 +52,9 @@ public class Task1View extends View {
             double input = Double.parseDouble(value);
             if (input == answer) {
                 this.console.println("That is correct");
+                game.getPlayer().setCoin(10.0);
+                return true;
+                
             } else {
                 this.console.println("try again");
             }

@@ -167,7 +167,8 @@ public class GameMenuView extends View {
     }
 
     private void viewNumOfCoinsCollected() {
-        
+        double numOfCoins = game.getPlayer().getCoin();
+        this.console.println(numOfCoins);
     }
 
     private void viewListOfToolsAcquired() {
