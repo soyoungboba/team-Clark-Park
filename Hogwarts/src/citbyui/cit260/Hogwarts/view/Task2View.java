@@ -37,7 +37,13 @@ public class Task2View extends View {
     @Override
     public boolean doAction(String value) {
         
-       
+       value = value.toUpperCase();
+        
+        switch (value) {
+            case "Q": // house name griffindor
+                this.Exit();
+                break; 
+            }
         
         try {
              Double value2;
@@ -58,5 +64,11 @@ public class Task2View extends View {
                         + " Try again or enter Q to exit.");
         }
         return false; 
+    }
+    
+    private void Exit() {
+        GameMenuView gameMenuView = new GameMenuView();
+        // Display the main menu view
+        gameMenuView.display();
     }
 }

@@ -51,6 +51,8 @@ public class HouseMenuView extends View {
             case "Q": // Main menu
                 this.Exit();
                 break;
+            
+                
             default:
                 ErrorView.display(this.getClass().getName(), "Invalid selection. Try again.");
                 break;

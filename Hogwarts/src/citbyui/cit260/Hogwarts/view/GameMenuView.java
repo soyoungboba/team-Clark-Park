@@ -18,6 +18,8 @@ import byui.cit260.Hogwarts.model.Scene;
 import citbyui.cit260.Hogwarts.exceptions.MapControlException;
 import hogwarts.Hogwarts;
 import java.awt.Point;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
@@ -46,6 +48,7 @@ public class GameMenuView extends View {
                 +"\nCL Veiw Character List"
                 + "\nG - Save game"
                 + "\nH - Help"
+                + "\nE - Save a list of scenes to an external file" 
                 + "\nQ - Main menu"
                 + "\n------------------------------------------");
     game = Hogwarts.getCurrentGame();
@@ -97,6 +100,8 @@ public class GameMenuView extends View {
             case "H": // Help
                 this.HelpMenuView();
                 break;
+            case "E":
+                this.exportFile();
             case "Q": // Go back to main menu
                 this.MainMenuView();
                 break;
@@ -123,7 +128,12 @@ public class GameMenuView extends View {
             this.console.print(i + 1);
             for (int j = 0; j < 5; j++) {
                 this.console.print("|");
+                if (locations[i][j].isVisited()){
                 this.console.print(" " + locations[i][j].getScene().getMapSymbol()+ " ");
+                }
+                else {
+                    this.console.print(" ?? ");
+                }
             }
             this.console.print("\n");
         }
@@ -144,30 +154,15 @@ public class GameMenuView extends View {
         task3.display();
     }
 
-    private static void moveToCurrentLocation(Character character, Point coordinates) 
-                                            throws MapControlException {
+    private static void moveToCurrentLocation() {
+                                            
+        //get input for coordinates and pass to contol
         
-        Map map = Hogwarts.getCurrentGame().getMap();
-        int newRow = coordinates.x-1;
-        int newColumn = coordinates.y-1;
         
-        if (newRow < 0 || newRow >= map.getNoOfRows() ||
-            newColumn <0 || newColumn >= map.getNoOfColumns()) {
-            throw new MapControlException("Can not move character to location"
-                                        + coordinates.x + ", " + coordinates.y 
-                                        + "because that location is outside "
-                                        + "the bounds of the map.");
-        }
     }
     
     private void moveToNewLocation() {
-        Map map = game.getMap();
-        /*for (int i = 0; i < 5; i++)
-            for (int j = 0; j < 5; j++)
-            {
-            Scene scene = locations[i][j].getScene();
-            System.out.println(scene.getDescription());
-            }*/
+        //get input for coordinates and pass to contol
         
     }
 
@@ -249,9 +244,42 @@ public class GameMenuView extends View {
                 this.console.printf("%n%-20s%20s", character, character.getDescription());
                 
             }
-            GameControl.saveCharacterList();
+            GameControl.saveCharacterList(characters, filePath);
         } catch (Exception e) {
             ErrorView.display(this.getClass().getName(),"Error reading Input: " +e.getMessage());
         }
+    }
+    private void exportFile() {
+        
+        Location[][] locations = game.getMap().getLocations();
+        
+        // get size info of the map
+        double numCol = game.getMap().getColumnCount();
+        double numRow = game.getMap().getRowCount();
+        
+        Scene[] scenes = new Scene[25];
+        
+        int count = 0;
+
+        
+        String fileLoc = "Scene_List.txt";
+        try (PrintWriter out = new PrintWriter(fileLoc)) {
+            out.println("\n\n           List of Scenes          ");
+            out.printf("%n%-26s%8s", "Name", "Location");
+            out.printf("%n%-26s%8s", "----", "--------");
+            
+            
+            for (int i = 0; i < numCol; i++) {
+                for (int j = 0; j < numRow; j++) {
+                   Scene scene = locations[i][j].getScene();
+                   out.printf("%n%-30s%2d%2d", scene.getDescription(), j, i);
+               }
+            }
+         
+        } catch (IOException ex) {
+           System.out.println("I/O Exception: " + ex.getMessage());
+        } 
+        
+
     }
 }

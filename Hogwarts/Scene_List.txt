@@ -1,0 +1,31 @@
+
+
+           List of Scenes          
+
+Name                      Location
+----                      --------
+Great Hall.                    0 0
+Gryffindor Dormitory.          1 0
+Chamber of Secrets.            2 0
+The Green Houses.              3 0
+Black Lake.                    4 0
+Hospital Wing.                 0 1
+Hospital Wing.                 1 1
+Library.                       2 1
+Hagrid's Hut.                  3 1
+Forbidden Forest.              4 1
+Dumbledore's Office.           0 2
+Hallway.                       1 2
+null                           2 2
+Quidditch Field.               3 2
+Forbidden Forest.              4 2
+Lavatory of girls.             0 3
+Hospital Wing.                 1 3
+Classroom.                     2 3
+Hallway.                       3 3
+Front Walk.                    4 3
+Room of Requirement.           0 4
+Professor Snape's office.      1 4
+Slytherin Dormitory.           2 4
+Dungeon.                       3 4
+Congratulation! Well done.     4 4
