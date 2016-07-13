@@ -21,7 +21,9 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Random;
-
+import byui.cit260.Hogwarts.model.Character;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 /**
  *
  * @author boba
@@ -29,9 +31,9 @@ import java.util.Random;
 public class GameControl {
 
     public static int randOne;
-    
+
     public static Player createPlayer(String name)
-                throws MapControlException /*chance to gameControl*/{
+            throws MapControlException /*chance to gameControl*/ {
         if (name == null) {
             throw new MapControlException("Player name can not be Null");
         }
@@ -55,12 +57,30 @@ public class GameControl {
         game.setItem(itemList);
 
         Map map = MapControl.createMap(); //create and initialize new map
+        map.getLocations()[0][0].setVisited(true);
         game.setMap(map); //save map in game
-       
-        //move characters to starting position in the map
-        //GameControl.moveCharactersToStartingLocation(map,player);
-    }
 
+        
+    }
+    public static void moveToLocation(int x, int y)
+            throws MapControlException{
+        Map map = Hogwarts.getCurrentGame().getMap();
+        int newRow = x-1;
+        int newColumn = y-1;
+        
+        if (newRow < 0 || newRow >= map.getNoOfRows() ||
+            newColumn <0 || newColumn >= map.getNoOfColumns()) {
+            throw new MapControlException("Can not move character to location"
+                                        + x + ", " + y 
+                                        + "because that location is outside "
+                                        + "the bounds of the map.");
+            
+        }
+        Player player = Hogwarts.getPlayer();
+        player.setRow(x);
+        player.setCol(y);
+        map.getLocations()[x][y].setVisited(true);
+    }
     public static Item[] createItemList() {
         Item[] items = new Item[ItemType.values().length];
         for (int i = 0; i < ItemType.values().length; i++) {
@@ -97,42 +117,59 @@ public class GameControl {
         Hogwarts.getPlayer().setHouse(house);
     }
 
-    public static void saveCharacter(String character){
+    public static void saveCharacter(String character) {
         Hogwarts.getPlayer().setCharacter(character);
     }
+
     public static int randNum() {
         Random rand = new Random();
         randOne = rand.nextInt(30) + 1;
         //randOne = (int)(Math.random()*50 + 1);
         return randOne;
     }
-    static void moveCharactersToStartingLocation(Map map,Player player) {
-        System.out.println("set move characters function called");    }
 
-    public static void saveGame(Game currentGame, String filePath) 
-        throws GameControlException {
     
-    try(FileOutputStream fops = new FileOutputStream(filePath)) {
-        ObjectOutputStream output = new ObjectOutputStream(fops);
-        
-        output.writeObject(currentGame);
-    }
-    catch(Exception e) {
-        throw new GameControlException(e.getMessage());
-    }
-    }
-    public static void getSavedGame(String filePath) 
-                throws GameControlException {
-        Game game =null;
-        try(FileInputStream fips = new FileInputStream(filePath)){
-            ObjectInputStream input = new ObjectInputStream(fips);
-            
-            game = (Game) input.readObject();
+
+    public static void saveGame(Game currentGame, String filePath)
+            throws GameControlException {
+
+        try (FileOutputStream fops = new FileOutputStream(filePath)) {
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+
+            output.writeObject(currentGame);
+        } catch (Exception e) {
+            throw new GameControlException(e.getMessage());
         }
-        catch(Exception e) {
-           throw new GameControlException(e.getMessage()); 
     }
-       Hogwarts.setCurrentGame(game);//load in hogwarts
+
+    public static void getSavedGame(String filePath)
+            throws GameControlException {
+        Game game = null;
+        try (FileInputStream fips = new FileInputStream(filePath)) {
+            ObjectInputStream input = new ObjectInputStream(fips);
+
+            game = (Game) input.readObject();
+        } catch (Exception e) {
+            throw new GameControlException(e.getMessage());
+        }
+        Hogwarts.setCurrentGame(game);//load in hogwarts
     }
-    
+
+    public static void saveCharacterList(Character[] characterList, String filePath)
+            throws GameControlException {
+            //PrintWriter outFile = null;
+        try (PrintWriter outFile = new PrintWriter(filePath)) {
+            
+            outFile.println("\n\n            Character Report          ");
+            outFile.printf("%n%-20s%20s"," Character","Discription");
+            outFile.printf("%n%-20s%20s","----------","-----------");
+            
+            for(Character character : characterList){
+                outFile.printf("%n%-20s%20s", character, character.getDescription());
+            }
+        } catch (Exception e) {
+            throw new GameControlException(e.getMessage());
+        }
+    }
+
 }

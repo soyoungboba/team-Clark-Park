@@ -45,12 +45,12 @@ public class GameMenuView extends View {
                 + "\nVT - View list of tools acquired"
                 + "\nVHL - View House list"
                 + "\nC - Number of coins needed for each task"
+                +"\nCL Veiw Character List"
                 + "\nG - Save game"
                 + "\nH - Help"
                 + "\nE - Save a list of scenes to an external file" 
                 + "\nQ - Main menu"
                 + "\n------------------------------------------");
-       
     game = Hogwarts.getCurrentGame();
     }
 
@@ -77,7 +77,7 @@ public class GameMenuView extends View {
                 this.moveToNewLocation();
                 break;
             case "L": //View current location
-                //this.moveToCurrentLocation(character, coord);
+                //this.moveToCurrentLocation(character, coordinates);
                 break;
             case "VC": // View number of coins collected 
                 this.viewNumOfCoinsCollected();
@@ -90,6 +90,9 @@ public class GameMenuView extends View {
                 break;
             case "C": // Number of coins needed for eash task
                 this.numOfCoinsNeeded();
+                break;
+            case "CL": // veiw characters
+                this.viewCharacters();
                 break;
             case "G": // Save game
                 this.saveGame();
@@ -125,7 +128,12 @@ public class GameMenuView extends View {
             this.console.print(i + 1);
             for (int j = 0; j < 5; j++) {
                 this.console.print("|");
+                if (locations[i][j].isVisited()){
                 this.console.print(" " + locations[i][j].getScene().getMapSymbol()+ " ");
+                }
+                else {
+                    this.console.print(" ?? ");
+                }
             }
             this.console.print("\n");
         }
@@ -146,30 +154,15 @@ public class GameMenuView extends View {
         task3.display();
     }
 
-    private static void moveToCurrentLocation(Character character, Point coordinates) 
-                                            throws MapControlException {
+    private static void moveToCurrentLocation() {
+                                            
+        //get input for coordinates and pass to contol
         
-        Map map = Hogwarts.getCurrentGame().getMap();
-        int newRow = coordinates.x-1;
-        int newColumn = coordinates.y-1;
         
-        if (newRow < 0 || newRow >= map.getNoOfRows() ||
-            newColumn <0 || newColumn >= map.getNoOfColumns()) {
-            throw new MapControlException("Can not move character to location"
-                                        + coordinates.x + ", " + coordinates.y 
-                                        + "because that location is outside "
-                                        + "the bounds of the map.");
-        }
     }
     
     private void moveToNewLocation() {
-        Map map = game.getMap();
-        /*for (int i = 0; i < 5; i++)
-            for (int j = 0; j < 5; j++)
-            {
-            Scene scene = locations[i][j].getScene();
-            System.out.println(scene.getDescription());
-            }*/
+        //get input for coordinates and pass to contol
         
     }
 
@@ -235,6 +228,27 @@ public class GameMenuView extends View {
             this.console.println(house);
         }
 
+    private void viewCharacters() {
+        this.console.println("\n\nEnter the file path for the file where"
+                + "the character list is to be saved");
+        String filePath = this.getInput();
+        
+        Character[] characters =Character.values();
+        try{ //(PrintWriter out = new PrintWriter(Character.values()){
+            
+            this.console.println("\n\n            Character Report          ");
+            this.console.printf("%n%-20s%20s"," Character","Discription");
+            this.console.printf("%n%-20s%20s","----------","-----------");
+            
+            for(Character character : characters){
+                this.console.printf("%n%-20s%20s", character, character.getDescription());
+                
+            }
+            GameControl.saveCharacterList(characters, filePath);
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(),"Error reading Input: " +e.getMessage());
+        }
+    }
     private void exportFile() {
         
         Location[][] locations = game.getMap().getLocations();
@@ -266,5 +280,6 @@ public class GameMenuView extends View {
            System.out.println("I/O Exception: " + ex.getMessage());
         } 
         
+
     }
 }

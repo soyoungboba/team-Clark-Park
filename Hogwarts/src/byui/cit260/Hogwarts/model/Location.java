@@ -98,14 +98,10 @@ public class Location implements Serializable{
         this.amountRemaining = amountRemaining;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 53 * hash + (int) (Double.doubleToLongBits(this.row) ^ (Double.doubleToLongBits(this.row) >>> 32));
-        hash = 53 * hash + (int) (Double.doubleToLongBits(this.column) ^ (Double.doubleToLongBits(this.column) >>> 32));
-        hash = 53 * hash + (this.visited ? 1 : 0);
-        hash = 53 * hash + Float.floatToIntBits(this.amountRemaining);
-        return hash;
+   
+
+    void hasObstacle(boolean b) {
+        System.out.println("obstacle function called");
     }
 
     @Override
@@ -132,15 +128,35 @@ public class Location implements Serializable{
         if (Float.floatToIntBits(this.amountRemaining) != Float.floatToIntBits(other.amountRemaining)) {
             return false;
         }
+        if (this.hasObstacle != other.hasObstacle) {
+            return false;
+        }
+        if (!Objects.equals(this.scene, other.scene)) {
+            return false;
+        }
+        if (!Objects.equals(this.character, other.character)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", amountRemaining=" + amountRemaining + '}';
+        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", amountRemaining=" + amountRemaining + ", scene=" + scene + ", character=" + character + ", hasObstacle=" + hasObstacle + '}';
     }
 
-    void hasObstacle(boolean b) {
-        System.out.println("obstacle function called");
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 89 * hash + (int) (Double.doubleToLongBits(this.row) ^ (Double.doubleToLongBits(this.row) >>> 32));
+        hash = 89 * hash + (int) (Double.doubleToLongBits(this.column) ^ (Double.doubleToLongBits(this.column) >>> 32));
+        hash = 89 * hash + (this.visited ? 1 : 0);
+        hash = 89 * hash + Float.floatToIntBits(this.amountRemaining);
+        hash = 89 * hash + Objects.hashCode(this.scene);
+        hash = 89 * hash + Objects.hashCode(this.character);
+        hash = 89 * hash + (this.hasObstacle ? 1 : 0);
+        return hash;
     }
+    
+    
 }

@@ -29,7 +29,7 @@ public class Hogwarts {
     private static Game currentGame = null;
     private static Player player = null;
     private static House houseName = null;
-
+    
     private static PrintWriter outFile = null;
     private static BufferedReader inFile = null;
 
@@ -107,6 +107,8 @@ public class Hogwarts {
         }
     }
 
+    
+
     public static Player getPlayer() {
         return player;
     }
@@ -114,6 +116,8 @@ public class Hogwarts {
     public static void setPlayer(Player player) {
         Hogwarts.player = player;
     }
+
+    
 
     public static Game getCurrentGame() {
         return currentGame;
