@@ -222,7 +222,7 @@ public class GameMenuView extends View {
         }
 
     private void viewCharacters() {
-        this.console.println("\n\nEnter the file path for the file where"
+        this.console.println("\n\nEnter the file path for the file where "
                 + "the character list is to be saved");
         String filePath = this.getInput();
         
@@ -272,7 +272,5 @@ public class GameMenuView extends View {
         } catch (IOException ex) {
            System.out.println("I/O Exception: " + ex.getMessage());
         } 
-        
-
     }
 }
