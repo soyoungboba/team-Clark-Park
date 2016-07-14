@@ -168,7 +168,6 @@ public class GameMenuView extends View {
     }
 
     private void viewListOfToolsAcquired() {
-        //System.out.println("*** viewNumOftoolsCollected function called ***");
        StringBuilder line;
 
         
@@ -195,8 +194,6 @@ public class GameMenuView extends View {
             this.console.println(line.toString());
         }
 
-        //display
-        
     }
 
     private void numOfCoinsNeeded() {
