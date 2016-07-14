@@ -61,11 +61,11 @@ public class Map implements Serializable{
     
     Location location2 = new Location();
     location.hasObstacle(true);
-    locations[intArray[2]][intArray[3]] = location;
+    locations[intArray[2]][intArray[3]] = location2;
     
     Location location3 = new Location();
     location.hasObstacle(true);
-    locations[intArray[4]][intArray[5]] = location;
+    locations[intArray[4]][intArray[5]] = location3;
     }
 
     

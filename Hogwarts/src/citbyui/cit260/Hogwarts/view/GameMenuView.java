@@ -99,8 +99,8 @@ public class GameMenuView extends View {
             case "E":
                 this.exportFile();
             case "Q": // Go back to main menu
-                this.MainMenuView();
-                break;
+                return true;
+                
             default:
                 ErrorView.display(this.getClass().getName(), "Invalid selection. Try again.");
                 break;
@@ -132,6 +132,7 @@ public class GameMenuView extends View {
             }
             this.console.print("\n");
         }
+        
     }
 
     private void firstTask() {
