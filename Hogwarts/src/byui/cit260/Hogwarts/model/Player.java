@@ -18,6 +18,7 @@ public class Player implements Serializable{
     private String house;
     private String character;
     private int row;
+    private int col;
 
     public int getRow() {
         return row;
@@ -34,7 +35,7 @@ public class Player implements Serializable{
     public void setCol(int col) {
         this.col = col;
     }
-    private int col;
+    
     @Override
     public int hashCode() {
         int hash = 7;

@@ -49,8 +49,7 @@ public class HouseMenuView extends View {
                 this.ravenclaw();
                 break;
             case "Q": // Main menu
-                this.Exit();
-                break;
+                return true;
             
                 
             default:

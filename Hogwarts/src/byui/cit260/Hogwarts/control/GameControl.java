@@ -77,10 +77,11 @@ public class GameControl {
             
         }
         Player player = Hogwarts.getPlayer();
-        player.setRow(x);
-        player.setCol(y);
-        map.getLocations()[x][y].setVisited(true);
+        player.setRow(newRow);
+        player.setCol(newColumn);
+        map.getLocations()[newRow][newColumn].setVisited(true);
     }
+    
     public static Item[] createItemList() {
         Item[] items = new Item[ItemType.values().length];
         for (int i = 0; i < ItemType.values().length; i++) {

@@ -46,8 +46,7 @@ public boolean doAction(String value) {
                 this.startNewGame();
                 break;
             case "Q": // quit
-                this.Exit();
-                break;
+                return true;
             default:
                 ErrorView.display(this.getClass().getName(), "Invalid selection. Try again.");
                 break;
