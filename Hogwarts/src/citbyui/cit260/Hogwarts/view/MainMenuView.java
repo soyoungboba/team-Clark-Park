@@ -46,8 +46,8 @@ public class MainMenuView extends View {
                 this.GetHelpHowToPlayTheGame();
                 break;
             case "E": // exit game
-                this.Exit();
-                break;
+                return true;
+                //break;
             default:
                 ErrorView.display(this.getClass().getName(), "Invalid selection. Try again.");
                 break;
@@ -112,35 +112,5 @@ public class MainMenuView extends View {
 
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
-    }
-    //I'm working on it. 7/11/2016
-    private void Exit() {
-       
-        this.console.println("\n\nDo you want to save game?");
-        
-        /*this.console.println("\n\nEnter the file path for file where the game "
-                + "is to be saved.");
-        String filePath = this.getInput();
-        
-        /*value = value.toUpperCase();
-        
-        switch (value) {
-            case "Q": // house name griffindor
-                this.Exit();
-                break; 
-        }
-        
-         if (value== "Yes") {
-            String filePath = this.getInput();
-        } else {
-            this.console.println("Try again!");
-        } 
-        } catch (NumberFormatException nf) {
-        ErrorView.display(this.getClass().getName(), nf.getMessage()
-                        + "You must enter a valid number."
-                        + " Try again or enter Q to exit.");
-        }
-        return false; 
-        */
     }
 }

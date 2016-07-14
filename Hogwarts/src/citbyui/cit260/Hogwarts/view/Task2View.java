@@ -8,6 +8,8 @@ package citbyui.cit260.Hogwarts.view;
 import java.util.Random;
 import byui.cit260.Hogwarts.control.GameControl;
 import byui.cit260.Hogwarts.control.TaskControl;
+import byui.cit260.Hogwarts.model.Game;
+import hogwarts.Hogwarts;
 
 
 /**
@@ -20,6 +22,7 @@ public class Task2View extends View {
     private double randTwo;
     private double randThree;
     private double answer;
+    private Game game;
     
     public Task2View() {
         super("\nPlease Enter Your Answer:");
@@ -32,6 +35,7 @@ public class Task2View extends View {
                           +"\n that has a width of " + randOne + ", height"
                           +"\n of " + randTwo + ", and length of " + randThree + "."
                           +"\n-------------------------------------");
+         game = Hogwarts.getCurrentGame();
     }
 
     @Override
@@ -55,6 +59,9 @@ public class Task2View extends View {
             
         if (input== answer) {
             this.console.println("Correct!");
+            game.getPlayer().setCoin(10.0);
+            this.console.println("You have collected 10 coins.");
+            return true;
         } else {
             this.console.println("Try again!");
         } 

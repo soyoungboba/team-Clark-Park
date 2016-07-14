@@ -45,8 +45,7 @@ public class GameMenuView extends View {
                 + "\nVT - View list of tools acquired"
                 + "\nVHL - View House list"
                 + "\nC - Number of coins needed for each task"
-                + "\nCL Veiw Character List"
-                + "\nG - Save game"
+                + "\nCL - Veiw Character List"
                 + "\nH - Help"
                 + "\nE - Save a list of scenes to an external file"
                 + "\nQ - Main menu"
@@ -93,9 +92,6 @@ public class GameMenuView extends View {
                 break;
             case "CL": // veiw characters
                 this.viewCharacters();
-                break;
-            case "G": // Save game
-                this.saveGame();
                 break;
             case "H": // Help
                 this.HelpMenuView();
@@ -176,6 +172,11 @@ public class GameMenuView extends View {
 
     private void viewNumOfCoinsCollected() {
 
+
+
+        double numOfCoins = game.getPlayer().getCoin();
+        this.console.println(numOfCoins);
+
     }
 
     private void viewListOfToolsAcquired() {
@@ -209,10 +210,6 @@ public class GameMenuView extends View {
 
     private void numOfCoinsNeeded() {
         this.console.println("*** numOfCoinsNeeded function called ***");
-    }
-
-    private void saveGame() {
-        this.console.println("*** saveGame function called ***");
     }
 
     private void HelpMenuView() {

@@ -95,7 +95,7 @@ public class Player implements Serializable{
     }
 
     public void setCoin(Double coin) {
-        this.coin = coin;
+        this.coin += coin;
     }
 
     public Player() { 
