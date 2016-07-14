@@ -125,10 +125,10 @@ public class Map implements Serializable{
     }
 
     public int getNoOfRows() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (int) noOfRows;
     }
 
     public int getNoOfColumns() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       return (int) noOfColumns; 
     }
 }

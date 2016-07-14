@@ -30,9 +30,9 @@ import java.util.Scanner;
 public class GameMenuView extends View {
 
     private Game game;
-    
+
     public GameMenuView() {
-       super("\n"
+        super("\n"
                 + "\n------------------------------------------"
                 + "\n|               Game Menu                |"
                 + "\nV - View map"
@@ -45,19 +45,19 @@ public class GameMenuView extends View {
                 + "\nVT - View list of tools acquired"
                 + "\nVHL - View House list"
                 + "\nC - Number of coins needed for each task"
-                +"\nCL Veiw Character List"
+                + "\nCL Veiw Character List"
                 + "\nG - Save game"
                 + "\nH - Help"
-                + "\nE - Save a list of scenes to an external file" 
+                + "\nE - Save a list of scenes to an external file"
                 + "\nQ - Main menu"
                 + "\n------------------------------------------");
-    game = Hogwarts.getCurrentGame();
+        game = Hogwarts.getCurrentGame();
     }
 
     public boolean doAction(String value) {
-        
+
         value = value.toUpperCase(); // convert choice to upper case
-        
+
         Character character = Character.Cedric;
         Point coord = character.getCoordinates();
         switch (value) {
@@ -113,12 +113,12 @@ public class GameMenuView extends View {
     }
 
     private void viewMap() {
-        
+
         Map map = Hogwarts.getCurrentGame().getMap();
         Location[][] locations = map.getLocations();
         this.console.println("            MAP");
         this.console.print("   ");
-        
+
         for (int i = 0; i < 5; i++) {
             this.console.print(i + 1 + "    ");
         }
@@ -128,17 +128,16 @@ public class GameMenuView extends View {
             this.console.print(i + 1);
             for (int j = 0; j < 5; j++) {
                 this.console.print("|");
-                if (locations[i][j].isVisited()){
-                this.console.print(" " + locations[i][j].getScene().getMapSymbol()+ " ");
-                }
-                else {
+                if (locations[i][j].isVisited()) {
+                    this.console.print(" " + locations[i][j].getScene().getMapSymbol() + " ");
+                } else {
                     this.console.print(" ?? ");
                 }
             }
             this.console.print("\n");
         }
     }
-    
+
     private void firstTask() {
         Task1View task1 = new Task1View();
         task1.display();
@@ -155,26 +154,34 @@ public class GameMenuView extends View {
     }
 
     private static void moveToCurrentLocation() {
-                                            
-        //get input for coordinates and pass to contol
-        
-        
+
+        //not needed use MovetoNewlocation
     }
-    
+
     private void moveToNewLocation() {
         //get input for coordinates and pass to contol
-        
+        try {
+            this.console.println("Please enter the Row where you would like to go");
+            String row = this.getInput();
+            int x = Integer.parseInt(row);
+            this.console.println("Please enter the column where you would like to go");
+            String col = this.getInput();
+            int y = Integer.parseInt(col);
+            GameControl.moveToLocation(x, y);
+        }
+        catch (MapControlException me){
+            ErrorView.display(this.getClass().getName(), "Error reading Input: " + me.getMessage());
+        }
     }
 
     private void viewNumOfCoinsCollected() {
-        
+
     }
 
     private void viewListOfToolsAcquired() {
         //System.out.println("*** viewNumOftoolsCollected function called ***");
-       StringBuilder line;
+        StringBuilder line;
 
-        
         //Item[] items = game.getItem();
         Item[] items = GameControl.createItemList();
         //items[2].setHasItem(true);
@@ -183,12 +190,11 @@ public class GameMenuView extends View {
         line.insert(0, "Description");
         line.insert(30, "In Stock");
         this.console.println(line.toString());
-        
 
         //for each inventory item
         for (Item item : items) {
             String has = "no";
-            if (item.isHasItem()){
+            if (item.isHasItem()) {
                 has = "yes";
             }
             int ordinalValue = item.getOrdinalValue();
@@ -199,7 +205,6 @@ public class GameMenuView extends View {
         }
 
         //display
-        
     }
 
     private void numOfCoinsNeeded() {
@@ -224,62 +229,61 @@ public class GameMenuView extends View {
         House[] houses = House.values();
         this.console.println("\n         List of Houses");
         //for (int i =0; i < houses.length; i++){
-        for ( House house:houses )
+        for (House house : houses) {
             this.console.println(house);
         }
+    }
 
     private void viewCharacters() {
         this.console.println("\n\nEnter the file path for the file where"
                 + "the character list is to be saved");
         String filePath = this.getInput();
-        
-        Character[] characters =Character.values();
-        try{ //(PrintWriter out = new PrintWriter(Character.values()){
-            
+
+        Character[] characters = Character.values();
+        try { //(PrintWriter out = new PrintWriter(Character.values()){
+
             this.console.println("\n\n            Character Report          ");
-            this.console.printf("%n%-20s%20s"," Character","Discription");
-            this.console.printf("%n%-20s%20s","----------","-----------");
-            
-            for(Character character : characters){
+            this.console.printf("%n%-20s%20s", " Character", "Discription");
+            this.console.printf("%n%-20s%20s", "----------", "-----------");
+
+            for (Character character : characters) {
                 this.console.printf("%n%-20s%20s", character, character.getDescription());
-                
+
             }
             GameControl.saveCharacterList(characters, filePath);
         } catch (Exception e) {
-            ErrorView.display(this.getClass().getName(),"Error reading Input: " +e.getMessage());
+            ErrorView.display(this.getClass().getName(), "Error reading Input: " + e.getMessage());
         }
     }
+
     private void exportFile() {
-        
+
         Location[][] locations = game.getMap().getLocations();
-        
+
         // get size info of the map
         double numCol = game.getMap().getColumnCount();
         double numRow = game.getMap().getRowCount();
-        
+
         Scene[] scenes = new Scene[25];
-        
+
         int count = 0;
 
-        
         String fileLoc = "Scene_List.txt";
         try (PrintWriter out = new PrintWriter(fileLoc)) {
             out.println("\n\n           List of Scenes          ");
             out.printf("%n%-26s%8s", "Name", "Location");
             out.printf("%n%-26s%8s", "----", "--------");
-            
-            
+
             for (int i = 0; i < numCol; i++) {
                 for (int j = 0; j < numRow; j++) {
-                   Scene scene = locations[i][j].getScene();
-                   out.printf("%n%-30s%2d%2d", scene.getDescription(), j, i);
-               }
+                    Scene scene = locations[i][j].getScene();
+                    out.printf("%n%-30s%2d%2d", scene.getDescription(), j, i);
+                }
             }
-         
+
         } catch (IOException ex) {
-           System.out.println("I/O Exception: " + ex.getMessage());
-        } 
-        
+            System.out.println("I/O Exception: " + ex.getMessage());
+        }
 
     }
 }

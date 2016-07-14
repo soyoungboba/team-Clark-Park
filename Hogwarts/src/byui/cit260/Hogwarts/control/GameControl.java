@@ -81,6 +81,7 @@ public class GameControl {
         player.setCol(y);
         map.getLocations()[x][y].setVisited(true);
     }
+    
     public static Item[] createItemList() {
         Item[] items = new Item[ItemType.values().length];
         for (int i = 0; i < ItemType.values().length; i++) {
