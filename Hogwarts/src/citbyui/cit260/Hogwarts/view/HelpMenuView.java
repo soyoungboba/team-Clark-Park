@@ -20,7 +20,6 @@ public class HelpMenuView extends View {
              + "\n-------------------------------------"
              + "\n|           Getting Help            |"
              + "\nW - What is the goal of the game?"
-             + "\nH - How to move"
              + "\nG - Game Menu"
              + "\nM - Main Menu"
              + "\nQ - Quit"
@@ -35,9 +34,6 @@ public boolean doAction(String value) {
         switch (value) {
             case "W": // What is the goal of the game?
                 this.goalOfTheGame();
-                break;
-            case "H": // How to move
-                this.howToMove();
                 break;
             case "G": // game menu
                 this.startGameMenu();
@@ -68,9 +64,6 @@ public boolean doAction(String value) {
        );
     }
     
-    private void howToMove() {
-        this.console.println("*** howToMove function called ***");
-    }
     // game menu view? //
     private void startGameMenu() {
       GameMenuView gameMenuView = new GameMenuView();
@@ -83,9 +76,5 @@ public boolean doAction(String value) {
                 
         // Display the main menu view
         mainMenuView.display(); 
-    }
-
-    private void Exit() {
-        this.console.println("*** Exit function called ***");
     }
 }
