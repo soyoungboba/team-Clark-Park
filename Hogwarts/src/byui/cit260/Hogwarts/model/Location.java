@@ -101,7 +101,7 @@ public class Location implements Serializable{
    
 
     void hasObstacle(boolean b) {
-        System.out.println("obstacle function called");
+        //System.out.println("obstacle function called");
     }
 
     @Override

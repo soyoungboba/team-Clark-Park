@@ -7,6 +7,7 @@ package citbyui.cit260.Hogwarts.view;
 
 import byui.cit260.Hogwarts.control.GameControl; //needed?//
 import byui.cit260.Hogwarts.control.InventoryControl;
+import byui.cit260.Hogwarts.control.MapControl;
 import byui.cit260.Hogwarts.model.Character;
 import byui.cit260.Hogwarts.model.Game;
 import byui.cit260.Hogwarts.model.House;
