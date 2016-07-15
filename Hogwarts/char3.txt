@@ -1,0 +1,13 @@
+
+
+            Character Report          
+
+ Character                   Discription
+----------                   -----------
+Harry               He's the bravest witch.
+Hermione            She is one of the brightest witches.
+Ron                 He's very loyal and a brilliant player of wizarding chess.
+Cedric              He is honest and hardworking.
+Cho                 She is an excellent Quidditch player.
+Luna                Even though she is seen as an odd and weird person, she is quite clever.
+Draco               He comes from an ancient, wealthy wizarding family.
