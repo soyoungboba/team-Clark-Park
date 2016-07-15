@@ -46,25 +46,26 @@ public class Map implements Serializable{
     
     for (int row = 0; row < noOfRows; row++) {
         for(int column = 0; column < noOfColumns; column++) {
+            
             Location location = new Location();
             location.setColumn(column);
             location.setRow(row);
             location.setVisited(false);
             location.setObstacle(true);
             locations[row][column] = location;
-            }
         }
+    }
     
     Location location = new Location();
-    location.hasObstacle(true);
+    location.hasObstacle(false);
     locations[intArray[0]][intArray[1]] = location;
     
     Location location2 = new Location();
-    location.hasObstacle(true);
+    location.hasObstacle(false);
     locations[intArray[2]][intArray[3]] = location2;
     
     Location location3 = new Location();
-    location.hasObstacle(true);
+    location.hasObstacle(false);
     locations[intArray[4]][intArray[5]] = location3;
     }
 

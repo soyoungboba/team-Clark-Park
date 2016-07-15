@@ -83,4 +83,12 @@ public class TaskControl {
 		
 	return area;	
     }	
+         
+  // trivial math question 
+        public int calcTwoNumbers(int number1, int number2)
+            throws NumberFormatException{
+            
+            return (number1 + number2);
+  
+        }
 }

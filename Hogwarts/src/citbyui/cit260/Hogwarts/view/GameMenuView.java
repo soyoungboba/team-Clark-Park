@@ -6,6 +6,7 @@
 package citbyui.cit260.Hogwarts.view;
 
 import byui.cit260.Hogwarts.control.GameControl; //needed?//
+import byui.cit260.Hogwarts.control.InventoryControl;
 import byui.cit260.Hogwarts.model.Character;
 import byui.cit260.Hogwarts.model.Game;
 import byui.cit260.Hogwarts.model.House;
@@ -18,7 +19,6 @@ import byui.cit260.Hogwarts.model.Scene;
 import citbyui.cit260.Hogwarts.exceptions.MapControlException;
 import hogwarts.Hogwarts;
 import java.awt.Point;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
@@ -76,7 +76,7 @@ public class GameMenuView extends View {
                 this.moveToNewLocation();
                 break;
             case "L": //View current location
-                //this.moveToCurrentLocation(character, coordinates);
+                this.viewCurrentLocation();
                 break;
             case "VC": // View number of coins collected 
                 this.viewNumOfCoinsCollected();
@@ -97,10 +97,11 @@ public class GameMenuView extends View {
                 this.HelpMenuView();
                 break;
             case "E":
-                this.exportFile();
+                String filepath = this.prompt();
+                this.exportFile(filepath);
             case "Q": // Go back to main menu
                 return true;
-                
+
             default:
                 ErrorView.display(this.getClass().getName(), "Invalid selection. Try again.");
                 break;
@@ -132,7 +133,7 @@ public class GameMenuView extends View {
             }
             this.console.print("\n");
         }
-        
+
     }
 
     private void firstTask() {
@@ -148,6 +149,13 @@ public class GameMenuView extends View {
     private void thirdTask() {
         Task3View task3 = new Task3View();
         task3.display();
+        
+
+    }
+    
+    private void trivialTask() {
+        TrivialTaskView trivialTask = new TrivialTaskView();
+        trivialTask.display();
     }
 
     private static void moveToCurrentLocation() {
@@ -157,27 +165,43 @@ public class GameMenuView extends View {
 
     private void moveToNewLocation() {
         //get input for coordinates and pass to contol
+        
+        
         try {
-            this.console.println("Please enter the Row where you would like to go");
+            this.console.println("Please enter the row where you would like to go: ");
+            
             String row = this.getInput();
             int x = Integer.parseInt(row);
-            this.console.println("Please enter the column where you would like to go");
+            
+            this.console.println("Please enter the column where you would like to go: ");
+           
             String col = this.getInput();
             int y = Integer.parseInt(col);
+           
             GameControl.moveToLocation(x, y);
-        }
-        catch (MapControlException me){
+            
+            Map map = game.getMap();
+            Location[][] locations = map.getLocations();
+
+            // if the location has an obstacle, put a math question
+            if (locations[y - 1][x - 1].hasObstacle()) {  
+                trivialTask();
+            } else {
+                this.console.println("No obstacles found. You have collected 10 coins!");
+                InventoryControl ic = new InventoryControl();
+                ic.addCoinsToPlayer(10);
+            }
+        
+        } catch (MapControlException me) {
             ErrorView.display(this.getClass().getName(), "Error reading Input: " + me.getMessage());
         }
+        
+
     }
 
     private void viewNumOfCoinsCollected() {
-
-
-
         double numOfCoins = game.getPlayer().getCoin();
-        this.console.println(numOfCoins);
-
+        this.console.println("\nYou currently have " + numOfCoins + " coins.\n");
     }
 
     private void viewListOfToolsAcquired() {
@@ -209,6 +233,18 @@ public class GameMenuView extends View {
         //display
     }
 
+    private void viewCurrentLocation() {
+        
+        Player player = Hogwarts.getCurrentGame().getPlayer();
+        int y, x;
+        
+        y = player.getCol();
+        x = player.getRow();
+        
+        this.console.println("\nPlayer's Current Location: (" + (x + 1) + ", " + (y + 1) + ")");
+        
+    }
+
     private void numOfCoinsNeeded() {
         this.console.println("*** numOfCoinsNeeded function called ***");
     }
@@ -233,7 +269,7 @@ public class GameMenuView extends View {
     }
 
     private void viewCharacters() {
-        this.console.println("\n\nEnter the file path for the file where "
+        this.console.println("\n\nEnter the file path for the file where"
                 + "the character list is to be saved");
         String filePath = this.getInput();
 
@@ -254,7 +290,15 @@ public class GameMenuView extends View {
         }
     }
 
-    private void exportFile() {
+    String prompt() {
+        Scanner reader = new Scanner(System.in);
+        System.out.println("Please enter a file path where the report is to be printed: ");
+        String filepath = reader.nextLine();
+
+        return filepath;
+    }
+
+    private void exportFile(String filepath) {
 
         Location[][] locations = game.getMap().getLocations();
 
@@ -266,8 +310,7 @@ public class GameMenuView extends View {
 
         int count = 0;
 
-        String fileLoc = "Scene_List.txt";
-        try (PrintWriter out = new PrintWriter(fileLoc)) {
+        try (PrintWriter out = new PrintWriter(filepath)) {
             out.println("\n\n           List of Scenes          ");
             out.printf("%n%-26s%8s", "Name", "Location");
             out.printf("%n%-26s%8s", "----", "--------");
@@ -283,5 +326,6 @@ public class GameMenuView extends View {
             System.out.println("I/O Exception: " + ex.getMessage());
         }
 
+        console.print("\nYour file has been successfully saved!\n");
     }
 }

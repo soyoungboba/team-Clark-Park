@@ -65,18 +65,19 @@ public class GameControl {
     public static void moveToLocation(int x, int y)
             throws MapControlException{
         Map map = Hogwarts.getCurrentGame().getMap();
-        int newRow = x-1;
-        int newColumn = y-1;
+        int newRow = x - 1;
+        int newColumn = y - 1;
         
         if (newRow < 0 || newRow >= map.getNoOfRows() ||
-            newColumn <0 || newColumn >= map.getNoOfColumns()) {
-            throw new MapControlException("Can not move character to location"
+            newColumn < 0 || newColumn >= map.getNoOfColumns()) {
+            throw new MapControlException("Can not move character to location "
                                         + x + ", " + y 
                                         + "because that location is outside "
                                         + "the bounds of the map.");
             
         }
-        Player player = Hogwarts.getPlayer();
+        
+        Player player = Hogwarts.getCurrentGame().getPlayer();
         player.setRow(newRow);
         player.setCol(newColumn);
         map.getLocations()[newRow][newColumn].setVisited(true);

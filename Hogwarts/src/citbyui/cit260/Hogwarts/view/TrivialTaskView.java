@@ -6,39 +6,35 @@
 package citbyui.cit260.Hogwarts.view;
 
 import byui.cit260.Hogwarts.control.GameControl;
+import byui.cit260.Hogwarts.control.InventoryControl;
 import byui.cit260.Hogwarts.control.TaskControl;
 import byui.cit260.Hogwarts.model.Game;
 import hogwarts.Hogwarts;
-import java.util.Random;
 
 /**
  *
- * @author Jebean
+ * @author Bit
  */
-public class Task3View extends View {
+public class TrivialTaskView extends View {
 
-    //Random rand = new Random();
-    private double randOne;
-    private double randTwo;
-    private double randThree;
-    private double answer;
+    private int randOne;
+    private int randTwo;
+    private int answer;
     private Game game;
-
-    public Task3View() {
-        super("\nPlease Enter Your Answer");
+    
+    public TrivialTaskView() {
+        super("\nPlease Enter Your Answer: ");
         randOne = GameControl.randNum();
         randTwo = GameControl.randNum();
-        randThree = GameControl.randNum();
-        this.console.println("\n Your chalange in this task is to "
-                + "\n calculate the area of a trapezoid"
-                + "\n that has a base of " + randOne + " and another base of"
-                + "\n  " + randTwo + "and a height of" + randThree + ".");
+
+        this.console.println("\n What is " + randOne + " + " + randTwo + "? ");
+        
         game = Hogwarts.getCurrentGame();
     }
-
+    
     @Override
     public boolean doAction(String value) {
-
+      
         value = value.toUpperCase();
 
         switch (value) {
@@ -50,16 +46,17 @@ public class Task3View extends View {
         try {
             TaskControl taskControl = new TaskControl();
 
-            answer = taskControl.calcAreaOfTrapezoid(randOne, randTwo, randThree);
+            answer = taskControl.calcTwoNumbers(randOne, randTwo);
             // parse and convert number from text to a double
-            double input = Double.parseDouble(value);
+            double input = Integer.parseInt(value);
             if (input == answer) {
-                this.console.println("That is correct!");
-                game.getPlayer().setCoin(10.0);
-                this.console.println("You have collected 10 coins.");
+                this.console.println("\nThat is correct!\n");
+                InventoryControl ic = new InventoryControl();
+                ic.addCoinsToPlayer(10);
+                this.console.println("You have collected 10 coins.\n");
                 return true;
             } else {
-                this.console.println("try again!");
+                this.console.println("\nTry Again! Enter 'Q' to quit!\n");
             }
         } catch (NumberFormatException nf) {
 
@@ -69,7 +66,7 @@ public class Task3View extends View {
         }
         return false;
     }
-
+    
     private void Exit() {
         GameMenuView gameMenuView = new GameMenuView();
         // Display the main menu view
