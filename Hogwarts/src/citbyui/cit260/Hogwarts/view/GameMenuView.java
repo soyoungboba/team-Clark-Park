@@ -246,7 +246,11 @@ public class GameMenuView extends View {
     }
 
     private void numOfCoinsNeeded() {
-        this.console.println("*** numOfCoinsNeeded function called ***");
+        this.console.println("\n*******************************************"
+                         + "\n* You need 50 coins to enter the Task 1.  *"
+                         + "\n* You need 50 coins to enter the Task 2.  *"
+                         + "\n* You need 60 coins to enter the Task 3.  *"
+                         + "\n*******************************************");
     }
 
     private void HelpMenuView() {
