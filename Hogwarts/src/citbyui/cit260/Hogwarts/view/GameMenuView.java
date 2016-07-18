@@ -7,7 +7,6 @@ package citbyui.cit260.Hogwarts.view;
 
 import byui.cit260.Hogwarts.control.GameControl; //needed?//
 import byui.cit260.Hogwarts.control.InventoryControl;
-import byui.cit260.Hogwarts.control.MapControl;
 import byui.cit260.Hogwarts.model.Character;
 import byui.cit260.Hogwarts.model.Game;
 import byui.cit260.Hogwarts.model.House;
@@ -138,20 +137,36 @@ public class GameMenuView extends View {
     }
 
     private void firstTask() {
-        Task1View task1 = new Task1View();
-        task1.display();
+        double numOfCoins = game.getPlayer().getCoin();
+        if (numOfCoins >= 50) {
+            Task1View task1 = new Task1View();
+            task1.display();
+        }
+        else {
+            this.console.print("You only have " + numOfCoins + " coins. Come back when you have 50 or more coins!\n");
+        }
     }
 
     private void secondTask() {
-        Task2View task2 = new Task2View();
-        task2.display();
+        double numOfCoins = game.getPlayer().getCoin();
+        if (numOfCoins >= 50) {
+            Task2View task2 = new Task2View();
+            task2.display();
+        }
+        else {
+            this.console.print("You only have " + numOfCoins + " coins. Come back when you have 50 or more coins!\n");
+        }
     }
 
     private void thirdTask() {
-        Task3View task3 = new Task3View();
-        task3.display();
+        double numOfCoins = game.getPlayer().getCoin();
         
-
+        if (numOfCoins >= 50) {
+            Task3View task3 = new Task3View();
+            task3.display();
+        } else {
+            this.console.print("You only have " + numOfCoins + " coins. Come back when you have 50 or more coins!\n");
+        }
     }
     
     private void trivialTask() {
@@ -187,6 +202,13 @@ public class GameMenuView extends View {
             // if the location has an obstacle, put a math question
             if (locations[y - 1][x - 1].hasObstacle()) {  
                 trivialTask();
+                
+                if (locations[y - 1][x - 1].hasItem()) {
+                    this.console.println("You have collected a" + locations[y - 1][x - 1].getItem().getName() + "\n");
+                    InventoryControl ic = new InventoryControl();
+                     ic.addItemToPlayer(locations[y - 1][x - 1].getItem());
+                }
+            // item collected!
             } else {
                 this.console.println("No obstacles found. You have collected 10 coins!");
                 InventoryControl ic = new InventoryControl();
@@ -219,6 +241,8 @@ public class GameMenuView extends View {
         this.console.println(line.toString());
 
         //for each inventory item
+        
+        
         for (Item item : items) {
             String has = "no";
             if (item.isHasItem()) {
@@ -247,11 +271,7 @@ public class GameMenuView extends View {
     }
 
     private void numOfCoinsNeeded() {
-        this.console.println("\n*******************************************"
-                         + "\n* You need 50 coins to enter the Task 1.  *"
-                         + "\n* You need 50 coins to enter the Task 2.  *"
-                         + "\n* You need 60 coins to enter the Task 3.  *"
-                         + "\n*******************************************");
+        this.console.println("*** numOfCoinsNeeded function called ***");
     }
 
     private void HelpMenuView() {
@@ -274,7 +294,7 @@ public class GameMenuView extends View {
     }
 
     private void viewCharacters() {
-        this.console.println("\n\nEnter the file path for the file where"
+        this.console.println("\n\nEnter the file path for the file where "
                 + "the character list is to be saved");
         String filePath = this.getInput();
 

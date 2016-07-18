@@ -31,42 +31,68 @@ public class Map implements Serializable{
           return;
       }  
       
-    int[] intArray = new int[6];
-    
-    Random randomGenerator = new Random();
-    
-    for (int idx = 0; idx < 6; idx++) {
-      intArray[idx] = randomGenerator.nextInt(5);
-    }
-      
-    this.noOfRows = noOfRows;
-    this.noOfColumns = noOfColumns;
-      
-    this.locations = new Location[noOfRows][noOfColumns];
-    
-    for (int row = 0; row < noOfRows; row++) {
-        for(int column = 0; column < noOfColumns; column++) {
-            
-            Location location = new Location();
-            location.setColumn(column);
-            location.setRow(row);
-            location.setVisited(false);
-            location.setObstacle(true);
-            locations[row][column] = location;
+        int[] intArray = new int[6];
+
+        Random randomGenerator = new Random();
+
+        for (int idx = 0; idx < 6; idx++) {
+          intArray[idx] = randomGenerator.nextInt(5);
         }
-    }
-    
-    Location location = new Location();
-    location.hasObstacle(false);
-    locations[intArray[0]][intArray[1]] = location;
-    
-    Location location2 = new Location();
-    location.hasObstacle(false);
-    locations[intArray[2]][intArray[3]] = location2;
-    
-    Location location3 = new Location();
-    location.hasObstacle(false);
-    locations[intArray[4]][intArray[5]] = location3;
+
+        this.noOfRows = noOfRows;
+        this.noOfColumns = noOfColumns;
+
+        this.locations = new Location[noOfRows][noOfColumns];
+
+        for (int row = 0; row < noOfRows; row++) {
+            for(int column = 0; column < noOfColumns; column++) {
+
+                Location location = new Location();
+                location.setColumn(column);
+                location.setRow(row);
+                location.setVisited(false);
+                location.setObstacle(true);
+                location.setHasItem(false);
+                locations[row][column] = location;
+            }
+        }
+
+
+        locations[intArray[0]][intArray[1]].hasObstacle(false);
+        locations[intArray[2]][intArray[3]].hasObstacle(false);
+        locations[intArray[4]][intArray[5]].hasObstacle(false);
+
+
+        int[] randumNumbers = new int[8];
+    Random randomGenerator2 = new Random();
+        for (int i = 0; i < 8; i++) {
+          randumNumbers[i] = randomGenerator2.nextInt(3);
+        }
+ 
+        
+        
+        Item[] items = new Item[ItemType.values().length];
+        
+        items[ItemType.Broomstick.ordinal()] = new Item();
+       items[ItemType.Gillyweed.ordinal()] = new Item();
+       items[ItemType.Invisibility_cloak.ordinal()] = new Item();
+       items[ItemType.Wand.ordinal()] = new Item();
+
+        items[ItemType.Broomstick.ordinal()].setName(ItemType.Broomstick.toString());
+       items[ItemType.Gillyweed.ordinal()].setName(ItemType.Gillyweed.toString());
+       items[ItemType.Invisibility_cloak.ordinal()].setName(ItemType.Invisibility_cloak.toString());
+       items[ItemType.Wand.ordinal()].setName(ItemType.Wand.toString());
+
+        locations[randumNumbers[0]][randumNumbers[1]].setItem(items[ItemType.Broomstick.ordinal()]);
+       locations[randumNumbers[2]][randumNumbers[3]].setItem(items[ItemType.Gillyweed.ordinal()]);
+      locations[randumNumbers[4]][randumNumbers[5]].setItem(items[ItemType.Invisibility_cloak.ordinal()]);
+      locations[randumNumbers[6]][randumNumbers[7]].setItem(items[ItemType.Wand.ordinal()]);
+        
+       locations[randumNumbers[0]][randumNumbers[1]].setHasItem(true);
+      locations[randumNumbers[2]][randumNumbers[3]].setHasItem(true);
+      locations[randumNumbers[4]][randumNumbers[5]].setHasItem(true);
+     locations[randumNumbers[6]][randumNumbers[7]].setHasItem(true);
+              
     }
 
     

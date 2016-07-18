@@ -59,7 +59,7 @@ public class Scene implements Serializable{
     }
 
     public void setBlocked(boolean b) {
-        //System.out.println("set blocked function called");   
+        System.out.println("set blocked function called");   
     }
 
     @Override

@@ -5,6 +5,7 @@
  */
 package byui.cit260.Hogwarts.control;
 import byui.cit260.Hogwarts.model.Game;
+import byui.cit260.Hogwarts.model.Item;
 import byui.cit260.Hogwarts.model.Player;
 import hogwarts.Hogwarts;
 /**
@@ -23,6 +24,10 @@ public class InventoryControl {
     
     public void addCoinsToPlayer(double coins) {
         player.setCoin(coins);
+    }
+    
+    public void addItemToPlayer(Item item) {
+        player.setItems(item);
     }
 }
 

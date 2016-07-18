@@ -20,6 +20,8 @@ public class Location implements Serializable{
     private double column;
     private boolean visited;
     private float amountRemaining;
+    private Item item;
+    private boolean hasItem;
     private Scene scene;
     private ArrayList<Character> character;
     private boolean hasObstacle;
@@ -98,10 +100,24 @@ public class Location implements Serializable{
         this.amountRemaining = amountRemaining;
     }
 
-   
+    public Item getItem() {
+        return item;
+    }
+    
+    public void setHasItem(boolean hasItem) {
+        this.hasItem = hasItem;
+    }
+
+    public boolean hasItem() {
+        return this.hasItem;
+    }
+    
+    public void setItem(Item item) {
+        this.item = item;
+    }
 
     void hasObstacle(boolean b) {
-        //System.out.println("obstacle function called");
+        System.out.println("obstacle function called");
     }
 
     @Override

@@ -56,7 +56,7 @@ public class TrivialTaskView extends View {
                 this.console.println("You have collected 10 coins.\n");
                 return true;
             } else {
-                this.console.println("\nTry Again! Or enter 'Q' to quit.\n");
+                this.console.println("\nTry Again! Enter 'Q' to quit!\n");
             }
         } catch (NumberFormatException nf) {
 

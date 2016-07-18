@@ -17,8 +17,33 @@ public class Player implements Serializable{
     private Double coin;
     private String house;
     private String character;
+    private Item [] items;
+    private int numItems;
+    
+    public Item[] getItems() {
+        return items;
+    }
+
+    public void setItems(Item item) {
+        if (numItems < 4) {
+            items[numItems] = item;
+            numItems++;
+        }
+    }
+
+    public int getNumItems() {
+        return numItems;
+    }
+    
+    
     private int row;
     private int col;
+    
+    public Player() {
+        numItems = 0;
+        coin = 0.0;
+        items = new Item[4];
+    }
 
     public int getRow() {
         return row;
@@ -98,10 +123,6 @@ public class Player implements Serializable{
         this.coin += coin;
     }
 
-    public Player() { 
-        coin = 0.0;
-    }
-    
     public String getName() {
         return name;
     }
