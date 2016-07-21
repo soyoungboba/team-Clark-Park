@@ -14,8 +14,8 @@ import java.util.Objects;
  */
 public enum Character implements Serializable{
     
-    Harry("He's the bravest witch."),
-    Hermione("She is one of the brightest witches."),
+    Harry("He's the bravest wizard."),
+    Hermione("She is one of the brightest wizards."),
     Ron("He's very loyal and a brilliant player of wizarding chess."),
     Cedric("He is honest and hardworking."),
     Cho("She is an excellent Quidditch player."),
